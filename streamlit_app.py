@@ -207,11 +207,11 @@ def display_leaderboard(filtered_df: pd.DataFrame, df: pd.DataFrame, selected_ev
 
     def get_delta_color(pct):
         if pct >= 75:
-            return "normal"
+            return "off"
         elif pct >= 50:
             return "off"
         else:
-            return "inverse"
+            return "off"
 
     with col1:
         st.metric(
@@ -269,7 +269,7 @@ def display_leaderboard(filtered_df: pd.DataFrame, df: pd.DataFrame, selected_ev
         fig.add_trace(go.Bar(
             x=all_df['performance'],
             y=all_df['time_in_hours'],
-            marker=dict(color='#ff7f0e'),
+            marker=dict(color='tomato'),
             name='',
             customdata=all_df[['Name', 'Time', 'Date', 'PPM','Rank']].values,
             hovertemplate=hover_template
@@ -371,9 +371,7 @@ def display_leaderboard(filtered_df: pd.DataFrame, df: pd.DataFrame, selected_ev
 
     # Additional Analytics Section
     st.subheader("Additional Analytics")
-    col1, _ = st.columns(2)
-    with col1:
-        st.plotly_chart(create_normalized_kde_plot(filtered_df, df), use_container_width=True)
+    st.plotly_chart(create_normalized_kde_plot(filtered_df, df), use_container_width=True)
 
     
 # ---------- Puzzler Profile Display Function ----------
