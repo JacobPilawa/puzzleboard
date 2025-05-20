@@ -424,7 +424,7 @@ if page == "Home":
         "<h1 style='text-align: center;'>🧩 Speed Puzzling Competition Dashboard </h1>",
         unsafe_allow_html=True
     )
-    st.markdown("Explore puzzler and event stats. Data curated by Rob Shields of the [Piece Talks podcast](https://podcasts.apple.com/us/podcast/piece-talks/id1742455250). Access the event leaderboard and puzzler profiles using the sidebar on the left.")    
+    st.markdown("Explore puzzler and event stats. Data curated by [Rob Shields of the Piece Talks podcast](https://podcasts.apple.com/us/podcast/piece-talks/id1742455250). Access the event leaderboard and puzzler profiles using the sidebar on the left. Website and visualizations put together by [Jacob Pilawa](https://jacobpilawa.github.io/).")    
 
     # commenting out some buttons that are behaving poorly and migth be confusing
     # col_leaderboard, col_player= st.columns(2)
