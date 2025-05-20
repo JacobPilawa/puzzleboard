@@ -1,6 +1,6 @@
 datetime
+matplotlib
 plotly
 streamlit
 pandas
 numpy
-re
