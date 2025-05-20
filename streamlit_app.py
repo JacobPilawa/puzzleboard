@@ -484,7 +484,7 @@ if page == "Home":
         st.metric("Total Unique Puzzlers", total_users_str, border=True)
     with col2:
         #st.metric("Total Logs", total_logs_str, delta=delta_logs_str, delta_color="normal", border=True)
-        st.metric("Total Times", total_logs_str, border=True)
+        st.metric("Total Times Logged", total_logs_str, border=True)
     with col3:
         #st.metric("Total Puzzles", total_puzzles_str, delta=delta_puzzles_str, delta_color="normal", border=True)
         st.metric("Total Events", total_puzzles_str, border=True)
@@ -525,8 +525,8 @@ if page == "Home":
         fig3 = px.line(
             cumulative_entries,
             x="Date", y="Cumulative Times Logged",
-            title="Cumulative Number of Puzzle Solves",
-            labels={"Cumulative Times Logged": "Solves"},  # Fixed label key
+            title="Cumulative Number of Times Logged",
+            labels={"Cumulative Times Logged": "Times Logged"},  # Fixed label key
             color_discrete_sequence=["darkred"]  
         )
         fig3.update_traces(line=dict(width=5))
