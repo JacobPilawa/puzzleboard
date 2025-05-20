@@ -4,3 +4,4 @@ plotly
 streamlit
 pandas
 numpy
+scipy
