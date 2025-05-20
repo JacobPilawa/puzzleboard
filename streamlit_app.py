@@ -12,7 +12,12 @@ st.set_page_config(page_title="Speed Puzzling Dashboard", page_icon="🧩", layo
 
 # ---------- Data Loading & Cleaning ----------
 @st.cache_data
-def load_data():
+def scrape_data():
+    '''
+    - this function will scrape the data from rob's spreadsheets
+    - takes ahwile to run (~10s) but not updated enough to do every time
+    - so currently just storing scrapes in ./data/ 
+    '''
     url = 'https://docs.google.com/spreadsheets/d/1aCENVOk-wroyW4-YS4OgtTTqr3rA-T9CZOjCQgALgSE/export?format=xlsx'
     xls = pd.ExcelFile(url)
 
@@ -56,6 +61,13 @@ def load_data():
     combined_df['Pieces'] = pd.to_numeric(combined_df['Pieces'],errors='coerce')
 
     return combined_df
+    
+def load_data():
+    '''
+    read in the data from the pickle file
+    '''
+    data = pd.read_pickle('./data/250519_scape.pkl')
+    return data
 
 df = load_data()
 
@@ -180,6 +192,7 @@ def display_leaderboard(filtered_df: pd.DataFrame, df: pd.DataFrame, selected_ev
     avg_time_percentile = avg_time_per_event.rank(pct=True).loc[selected_event] * 100
 
     col1, col2, col3 = st.columns(3)
+    # css to get rid of the arrows in the metrics
     st.write(
         """
         <style>
@@ -412,6 +425,8 @@ if page == "Home":
         unsafe_allow_html=True
     )
     st.markdown("Explore puzzler and event stats. Data curated by Rob Shields of the [Piece Talks podcast](https://podcasts.apple.com/us/podcast/piece-talks/id1742455250). Access the event leaderboard and puzzler profiles using the sidebar on the left.")    
+
+    # commenting out some buttons that are behaving poorly and migth be confusing
     # col_leaderboard, col_player= st.columns(2)
     #
     # with col_leaderboard:
@@ -437,7 +452,7 @@ if page == "Home":
     total_time_seconds = int(df['time_in_seconds'].sum())
     total_time_str = str(timedelta(seconds=total_time_seconds))
     total_pieces_value = df['Pieces'].sum()
-    total_pieces = "{:,}".format(total_pieces_value)
+    total_pieces = "{:0,}".format(int(total_pieces_value))
 
     total_puzzles_str = f"{total_puzzles:,}"
     total_users_str = f"{total_users:,}"
@@ -465,47 +480,58 @@ if page == "Home":
 
     col1, col2, col3 = st.columns(3)
     with col1:
-        st.metric("Total Users", total_users_str, delta=delta_users_str, delta_color="normal", border=True)
+        #st.metric("Total Users", total_users_str, delta=delta_users_str, delta_color="normal", border=True)
+        st.metric("Total Unique Puzzlers", total_users_str, border=True)
     with col2:
-        st.metric("Total Logs", total_logs_str, delta=delta_logs_str, delta_color="normal", border=True)
+        #st.metric("Total Logs", total_logs_str, delta=delta_logs_str, delta_color="normal", border=True)
+        st.metric("Total Times", total_logs_str, border=True)
     with col3:
-        st.metric("Total Puzzles", total_puzzles_str, delta=delta_puzzles_str, delta_color="normal", border=True)
+        #st.metric("Total Puzzles", total_puzzles_str, delta=delta_puzzles_str, delta_color="normal", border=True)
+        st.metric("Total Events", total_puzzles_str, border=True)
 
     col1, col2 = st.columns(2)
     with col1:
-        st.metric("Total Time Spent Puzzling", total_time_str, delta=delta_time_str, delta_color="normal", border=True)
+        #st.metric("Total Time Spent Puzzling", total_time_str, delta=delta_time_str, delta_color="normal", border=True)
+        st.metric("Total Time Spent Puzzling", total_time_str, border=True)
     with col2:
-        st.metric("Total Pieces", total_pieces, delta=delta_pieces_str, delta_color="normal", border=True)
+        #st.metric("Total Pieces", total_pieces, delta=delta_pieces_str, delta_color="normal", border=True)
+        st.metric("Total Pieces", total_pieces, border=True)
 
     # --- Your 3 plots arranged 1x3 ---
     col1, col2, col3 = st.columns(3)
-
     with col1:
         fig1 = px.line(
             cumulative_names,
             x="Date", y="Cumulative Unique Names",
             title="Cumulative Number of Unique Puzzlers",
-            labels={"Cumulative Unique Names": "Unique Puzzlers"}
+            labels={"Cumulative Unique Names": "Unique Puzzlers"},
+            color_discrete_sequence=["darkred"]  
         )
+        fig1.update_traces(line=dict(width=5))  # Make line thicker
         st.plotly_chart(fig1, use_container_width=True)
-
+    
     with col2:
         fig2 = px.line(
             cumulative_events,
             x="Date", y="Cumulative Events",
             title="Cumulative Number of Events",
-            labels={"Cumulative Events": "Events"}
+            labels={"Cumulative Events": "Events"},
+            color_discrete_sequence=["darkred"] 
         )
+        fig2.update_traces(line=dict(width=5))
         st.plotly_chart(fig2, use_container_width=True)
-
+    
     with col3:
         fig3 = px.line(
             cumulative_entries,
             x="Date", y="Cumulative Times Logged",
             title="Cumulative Number of Puzzle Solves",
-            labels={"Cumulative Solves": "Solves"}
+            labels={"Cumulative Times Logged": "Solves"},  # Fixed label key
+            color_discrete_sequence=["darkred"]  
         )
+        fig3.update_traces(line=dict(width=5))
         st.plotly_chart(fig3, use_container_width=True)
+
         
     # --- Most Entrants ---
     fig4 = px.bar(
@@ -519,7 +545,7 @@ if page == "Home":
             "color": "Events Entered"
         },
         title="Top 50 Puzzlers by Events Entered",
-        color_continuous_scale='Tealgrn'  # or try 'Viridis', 'Blues', etc.
+        color_continuous_scale='Tealgrn' 
     )
     fig4.update_layout(xaxis_tickangle=-75)
     st.plotly_chart(fig4, use_container_width=True)
