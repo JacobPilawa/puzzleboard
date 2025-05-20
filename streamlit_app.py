@@ -42,6 +42,7 @@ def scrape_data():
         except Exception:
             return np.nan
 
+
     combined_df['time_in_seconds'] = combined_df['Time'].apply(time_to_seconds)
 
     def clean_remaining(val):
@@ -66,7 +67,7 @@ def load_data():
     '''
     read in the data from the pickle file
     '''
-    data = pd.read_pickle('./data/250519_scape.pkl')
+    data = pd.read_pickle('./data/250519_scape_with_event_names.pkl')
     return data
 
 df = load_data()
@@ -95,7 +96,7 @@ if 'trigger_jump' not in st.session_state:
 st.sidebar.markdown("### 🔍 Quick Search")
 
 # Event quick jump
-event_names_sidebar = sorted(df['Event'].unique())
+event_names_sidebar = sorted(df['Full_Event'].unique())
 selected_event_sidebar = st.sidebar.selectbox(
     "Jump to Leaderboard",
     [""] + event_names_sidebar,
@@ -140,7 +141,7 @@ def get_cumulative_stats(df):
     cumulative_names.columns = ['Date', 'Cumulative Unique Names']
 
     # Total Events
-    events = df.drop_duplicates(subset='Event', keep='first')
+    events = df.drop_duplicates(subset='Full_Event', keep='first')
     cumulative_events = events.groupby('Date').size().cumsum().reset_index()
     cumulative_events.columns = ['Date', 'Cumulative Events']
 
@@ -182,13 +183,13 @@ def display_leaderboard(filtered_df: pd.DataFrame, df: pd.DataFrame, selected_ev
     avg_time = filtered_df['time_in_seconds'].mean()
 
     # Calculate percentiles relative to full dataset df grouped by event:
-    entrants_per_event = df.groupby('Event')['Name'].nunique()
+    entrants_per_event = df.groupby('Full_Event')['Name'].nunique()
     total_entrants_percentile = entrants_per_event.rank(pct=True).loc[selected_event] * 100
 
     # For fastest time: percentile of fastest_time relative to all times in full df
     fastest_time_percentile = (df['time_in_seconds'] < fastest_time).mean() * 100
 
-    avg_time_per_event = df.groupby('Event')['time_in_seconds'].mean()
+    avg_time_per_event = df.groupby('Full_Event')['time_in_seconds'].mean()
     avg_time_percentile = avg_time_per_event.rank(pct=True).loc[selected_event] * 100
 
     col1, col2, col3 = st.columns(3)
@@ -323,28 +324,28 @@ def display_puzzler_profile(df: pd.DataFrame, selected_puzzler: str):
     col1, col2 = st.columns(2)
 
     with col1:
-        st.markdown(f"**First Event:** {first_event_row['Date'].date()} — {first_event_row['Event']}")
+        st.markdown(f"**First Event:** {first_event_row['Date'].date()} — {first_event_row['Full_Event']}")
         if st.button("Go to First Event Leaderboard", key=f"first_event_{selected_puzzler}"):
             st.session_state['page'] = "Leaderboards"
-            st.session_state['selected_event'] = first_event_row['Event']
+            st.session_state['selected_event'] = first_event_row['Full_Event']
             st.rerun()  # immediately rerun app to update the page variable
 
     with col2:
-        st.markdown(f"**Most Recent Event:** {latest_event_row['Date'].date()} — {latest_event_row['Event']}")
+        st.markdown(f"**Most Recent Event:** {latest_event_row['Date'].date()} — {latest_event_row['Full_Event']}")
         if st.button("Go to Most Recent Event Leaderboard", key=f"latest_event_{selected_puzzler}"):
             st.session_state['page'] = "Leaderboards"
-            st.session_state['selected_event'] = latest_event_row['Event']
+            st.session_state['selected_event'] = latest_event_row['Full_Event']
             st.rerun()  # immediately rerun app to update the page variable
 
     # Calculate metrics for selected puzzler
-    total_events = puzzler_df['Event'].nunique()
+    total_events = puzzler_df['Full_Event'].nunique()
     total_pieces = puzzler_df['Pieces'].sum()
     fastest_time_seconds = puzzler_df['time_in_seconds'].min()
     average_time_seconds = puzzler_df['time_in_seconds'].mean()
 
     # Calculate percentiles for each metric relative to full df grouped by 'Name'
     # 1) Total events percentile
-    events_per_puzzler = df.groupby('Name')['Event'].nunique()
+    events_per_puzzler = df.groupby('Name')['Full_Event'].nunique()
     total_events_percentile = events_per_puzzler.rank(pct=True).loc[selected_puzzler] * 100
 
     # 2) Total pieces percentile
@@ -406,14 +407,14 @@ def display_puzzler_profile(df: pd.DataFrame, selected_puzzler: str):
         )
 
     st.subheader("📄 All Events")
-    display_df = puzzler_df.sort_values('Date')[['Date', 'Event', 'Rank', 'Time', 'PPM', 'Pieces', 'Remaining']].copy()
+    display_df = puzzler_df.sort_values('Date')[['Date', 'Full_Event', 'Rank', 'Time', 'PPM', 'Pieces', 'Remaining']].copy()
     display_df['Date'] = display_df['Date'].dt.date
 
     # Calculate total entrants per event
-    event_totals = df.groupby('Event')['Name'].count()
+    event_totals = df.groupby('Full_Event')['Name'].count()
 
     # Create Rank column as "N/T"
-    display_df['Rank'] = display_df.apply(lambda row: f"{int(row['Rank'])}/{event_totals.get(row['Event'], 0)}", axis=1)
+    display_df['Rank'] = display_df.apply(lambda row: f"{int(row['Rank'])}/{event_totals.get(row['Full_Event'], 0)}", axis=1)
 
     st.dataframe(display_df.reset_index(drop=True), use_container_width=True)
 
@@ -446,7 +447,7 @@ if page == "Home":
     cutoff_date = latest_date - pd.DateOffset(months=1)
     df_prior = df[df['Date'] <= cutoff_date]
 
-    total_puzzles = df['Event'].nunique()
+    total_puzzles = df['Full_Event'].nunique()
     total_users = df['Name'].nunique()
     total_logs = len(df)
     total_time_seconds = int(df['time_in_seconds'].sum())
@@ -458,7 +459,7 @@ if page == "Home":
     total_users_str = f"{total_users:,}"
     total_logs_str = f"{total_logs:,}"
 
-    prior_total_puzzles = df_prior['Event'].nunique()
+    prior_total_puzzles = df_prior['Full_Event'].nunique()
     prior_total_users = df_prior['Name'].nunique()
     prior_total_logs = len(df_prior)
     prior_total_time_seconds = int(df_prior['time_in_seconds'].sum())
@@ -559,7 +560,7 @@ if page == "Leaderboards":
     st.title("🏆 Leaderboards ")
     st.markdown("Welcome to the Leaderboards! Select an event from the dropdown below to view its stats.")
 
-    event_names = sorted(df['Event'].unique())
+    event_names = sorted(df['Full_Event'].unique())
     # Get default event from session state or empty string if none
     default_event = st.session_state.get('selected_event', "")
 
@@ -580,7 +581,7 @@ if page == "Leaderboards":
 
     st.markdown('---')
     if selected_event:
-        event_df = df[df['Event'] == selected_event]
+        event_df = df[df['Full_Event'] == selected_event]
         display_leaderboard(event_df, df, selected_event)
     st.markdown('---')
     st.markdown("Data curated by [Rob Shields of the Piece Talks podcast](https://podcasts.apple.com/us/podcast/piece-talks/id1742455250). Website and visualizations put together by [Jacob Pilawa](https://jacobpilawa.github.io/).")
