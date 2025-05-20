@@ -424,7 +424,7 @@ if page == "Home":
         "<h1 style='text-align: center;'>🧩 Speed Puzzling Competition Dashboard </h1>",
         unsafe_allow_html=True
     )
-    st.markdown("Explore puzzler and event stats. Data curated by [Rob Shields of the Piece Talks podcast](https://podcasts.apple.com/us/podcast/piece-talks/id1742455250). Access the event leaderboard and puzzler profiles using the sidebar on the left. Website and visualizations put together by [Jacob Pilawa](https://jacobpilawa.github.io/).")    
+    st.markdown("Explore puzzler and event stats. Access the event leaderboard and puzzler profiles using the sidebar on the left.")
 
     # commenting out some buttons that are behaving poorly and migth be confusing
     # col_leaderboard, col_player= st.columns(2)
@@ -549,6 +549,9 @@ if page == "Home":
     )
     fig4.update_layout(xaxis_tickangle=-75)
     st.plotly_chart(fig4, use_container_width=True)
+    
+    st.markdown('---')
+    st.markdown("Data curated by [Rob Shields of the Piece Talks podcast](https://podcasts.apple.com/us/podcast/piece-talks/id1742455250). Website and visualizations put together by [Jacob Pilawa](https://jacobpilawa.github.io/).")
 
         
 # ---------- Leaderboards Page ----------
@@ -579,6 +582,9 @@ if page == "Leaderboards":
     if selected_event:
         event_df = df[df['Event'] == selected_event]
         display_leaderboard(event_df, df, selected_event)
+    st.markdown('---')
+    st.markdown("Data curated by [Rob Shields of the Piece Talks podcast](https://podcasts.apple.com/us/podcast/piece-talks/id1742455250). Website and visualizations put together by [Jacob Pilawa](https://jacobpilawa.github.io/).")
+
         
         
 # ---------- Puzzler Profiles Page ----------
@@ -592,3 +598,5 @@ if page == "Puzzler Profiles":
     
     if selected_puzzler:
         display_puzzler_profile(df, selected_puzzler)
+    st.markdown('---')
+    st.markdown("Data curated by [Rob Shields of the Piece Talks podcast](https://podcasts.apple.com/us/podcast/piece-talks/id1742455250). Website and visualizations put together by [Jacob Pilawa](https://jacobpilawa.github.io/).")
