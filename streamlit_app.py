@@ -370,7 +370,7 @@ def display_leaderboard(filtered_df: pd.DataFrame, df: pd.DataFrame, selected_ev
     st.dataframe(display_df, use_container_width=True)
 
     # Additional Analytics Section
-    st.subheader("Additional Analytics")
+    st.subheader("Additional Statistics")
     st.plotly_chart(create_normalized_kde_plot(filtered_df, df), use_container_width=True)
 
     
