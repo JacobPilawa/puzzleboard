@@ -1,3 +1,4 @@
+from helpers import get_ranking_table
 from scipy.stats import gaussian_kde
 import datetime
 import plotly.graph_objects as go
@@ -71,8 +72,15 @@ def load_data():
     data = pd.read_pickle('./data/250519_scape_with_event_names.pkl')
     return data
 
-df = load_data()
+@st.cache_data
+def load_jpar_data():
+    '''
+    read in the JPAR data from the Excel file
+    '''
+    return None
 
+df = load_data()
+jpar_df = load_jpar_data()
 
 # ---------- Sidebar Navigation ----------
 st.sidebar.title("📍Navigation")
@@ -86,6 +94,8 @@ if st.sidebar.button("🏆 Leaderboards "):
     st.session_state['selected_event'] = ""
 if st.sidebar.button("👤 Puzzler Profiles "):
     st.session_state.page = "Puzzler Profiles"
+if st.sidebar.button("📊 JPAR Ratings "):
+    st.session_state.page = "JPAR"
     
 if 'selected_event' not in st.session_state:
     st.session_state['selected_event'] = ""
@@ -475,6 +485,25 @@ def display_puzzler_profile(df: pd.DataFrame, selected_puzzler: str):
             border=True
         )
 
+    # Add JPAR rating if available
+    if selected_puzzler in jpar_df['Name'].values:
+        puzzler_jpar = jpar_df[jpar_df['Name'] == selected_puzzler].iloc[0]
+        jpar_rating = puzzler_jpar['Rating']
+        
+        st.subheader("🏅 JPAR Rating")
+        st.metric(
+            "Current JPAR Rating",
+            f"{jpar_rating:.1f}",
+            delta=f"Based on {puzzler_jpar.get('Events', 'N/A')} events",
+            delta_color="off",
+            border=True
+        )
+        
+        # Add a button to navigate to JPAR page
+        if st.button("View All JPAR Ratings"):
+            st.session_state['page'] = "JPAR"
+            st.rerun()
+
     st.subheader("📄 All Events")
     display_df = puzzler_df.sort_values('Date')[['Date', 'Full_Event', 'Rank', 'Time', 'PPM', 'Pieces', 'Remaining']].copy()
     display_df['Date'] = display_df['Date'].dt.date
@@ -486,6 +515,81 @@ def display_puzzler_profile(df: pd.DataFrame, selected_puzzler: str):
     display_df['Rank'] = display_df.apply(lambda row: f"{int(row['Rank'])}/{event_totals.get(row['Full_Event'], 0)}", axis=1)
 
     st.dataframe(display_df.reset_index(drop=True), use_container_width=True)
+
+# ---------- JPAR Ratings Display Function ----------
+def display_jpar_ratings(styled_table, results):
+    st.title("📊 JPAR Ratings")
+    st.markdown("Welcome to the JPAR (Jigsaw Puzzle Amateur Rating) leaderboard. This page shows the current ratings for puzzlers with 5 or more times logged and considering only events with more than 10 participants. ")
+    st.dataframe(styled_table,use_container_width=True)
+
+    # Generate distribution plot
+    st.subheader("📈 Rating Comparison")
+    st.markdown("""
+    Currently, there are three rankings in the table above, along with an average rank. The first rank is the usual 
+    [Jigsaw Puzzle Association Rating (JPAR)](https://www.usajigsaw.org/jpar), whereas the other two are close analogs 
+    to JPAR. [Z Ranks](https://en.wikipedia.org/wiki/Standard_score) are computed by ranking the "number of standard 
+    deviations above average" a puzzler typically is, and [Percentile Rank](https://en.wikipedia.org/wiki/Percentile) 
+    is computed from averaging the percentiles for each puzzler across their events. As mentioned above, all puzzlers 
+    with fewer than 5 events are dropped from the data. Additionally, I only consider events with >10 entrants. If the 
+    three ranking systems were all perfect, every puzzler would have the exact same rank across all three. However, 
+    each ranking system has various assumptions built in which naturally make them differ. This section visualizes how 
+    close the three ranking systems agree with scatter plots.
+    """)    
+    
+    # ------- Pair plot of the rankings
+    # Drop non-numeric or irrelevant columns
+    df = results.drop(columns=['Name','Eligible Puzzles'])
+
+    # Select columns to include in the pairplot
+    columns = df.columns
+
+    # Filtered DataFrame
+    filtered_df = df[columns]
+
+    # Create the scatter matrix
+    fig = px.scatter_matrix(
+        filtered_df,
+        dimensions=columns,
+        color_discrete_sequence=['black'],  # black dots
+        height=900,
+        width=900
+    )
+    fig.update_traces(diagonal_visible=False,showupperhalf=False)
+
+    # Add 1-to-1 dashed red lines
+    for i, x_col in enumerate(columns):
+        for j, y_col in enumerate(columns):
+            if i < j:
+                x = filtered_df[[x_col, y_col]].dropna()
+                min_val = max(x[x_col].min(), x[y_col].min())
+                max_val = min(x[x_col].max(), x[y_col].max())
+                fig.add_trace(go.Scatter(
+                    x=[min_val, max_val],
+                    y=[min_val, max_val],
+                    mode='lines',
+                    line=dict(dash='dash', color='red', width=2),
+                    showlegend=False,
+                    hoverinfo='skip',
+                    xaxis=f'x{i+1}',
+                    yaxis=f'y{j+1}'
+                ))
+
+    # Update layout: disable diagonal axes, restrict axes to positive values
+    fig.update_traces(marker=dict(size=3))
+    fig.update_layout(
+        dragmode='select',
+        hovermode='closest'
+    )
+
+    # Set axes to start at 0
+    for i, col in enumerate(columns):
+        fig.update_xaxes(range=[0, None], row=i+1, col=1)
+        fig.update_yaxes(range=[0, None], row=1, col=i+1)
+    
+
+    # Show the plot
+    st.plotly_chart(fig, use_container_width=True)
+    
 
 
 # ---------- Home ----------
@@ -668,5 +772,13 @@ if page == "Puzzler Profiles":
     
     if selected_puzzler:
         display_puzzler_profile(df, selected_puzzler)
+    st.markdown('---')
+    st.markdown("Data curated by [Rob Shields of the Piece Talks podcast](https://podcasts.apple.com/us/podcast/piece-talks/id1742455250). Website and visualizations put together by [Jacob Pilawa](https://jacobpilawa.github.io/).")
+    
+
+# ---------- JPAR ----------
+if page == "JPAR":
+    styled_table, results = get_ranking_table(min_puzzles=5, min_event_attempts=10, weighted=False)
+    display_jpar_ratings(styled_table, results)
     st.markdown('---')
     st.markdown("Data curated by [Rob Shields of the Piece Talks podcast](https://podcasts.apple.com/us/podcast/piece-talks/id1742455250). Website and visualizations put together by [Jacob Pilawa](https://jacobpilawa.github.io/).")
