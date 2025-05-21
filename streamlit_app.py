@@ -519,18 +519,21 @@ def display_puzzler_profile(df: pd.DataFrame, selected_puzzler: str):
 # ---------- JPAR Ratings Display Function ----------
 def display_jpar_ratings(styled_table, results):
     st.title("📊 JPAR Ratings")
-    st.markdown("Welcome to the JPAR (Jigsaw Puzzle Amateur Rating) leaderboard. This page shows the current ratings for puzzlers with 5 or more times logged and considering only events with more than 10 participants. ")
+    st.markdown(f"""
+    Welcome to the JPAR (Jigsaw Puzzle Association Rating) leaderboard. This page shows the 
+    current ratings for puzzlers with {styled_table.data['Eligible Puzzles'].min()} or more times within the last year,
+    and considering only events with more than 10 participants.""")
     st.dataframe(styled_table,use_container_width=True)
 
     # Generate distribution plot
     st.subheader("📈 Rating Comparison")
-    st.markdown("""
+    st.markdown(f"""
     Currently, there are three rankings in the table above, along with an average rank. The first rank is the usual 
     [Jigsaw Puzzle Association Rating (JPAR)](https://www.usajigsaw.org/jpar), whereas the other two are close analogs 
     to JPAR. [Z Ranks](https://en.wikipedia.org/wiki/Standard_score) are computed by ranking the "number of standard 
     deviations above average" a puzzler typically is, and [Percentile Rank](https://en.wikipedia.org/wiki/Percentile) 
     is computed from averaging the percentiles for each puzzler across their events. As mentioned above, all puzzlers 
-    with fewer than 5 events are dropped from the data. Additionally, I only consider events with >10 entrants. If the 
+    with fewer than {styled_table.data['Eligible Puzzles'].min()} events are dropped from the data. Additionally, I only consider events with >10 entrants. If the 
     three ranking systems were all perfect, every puzzler would have the exact same rank across all three. However, 
     each ranking system has various assumptions built in which naturally make them differ. This section visualizes how 
     close the three ranking systems agree with scatter plots.
@@ -778,7 +781,9 @@ if page == "Puzzler Profiles":
 
 # ---------- JPAR ----------
 if page == "JPAR":
-    styled_table, results = get_ranking_table(min_puzzles=5, min_event_attempts=10, weighted=False)
+    styled_table, results = get_ranking_table(min_puzzles=9, 
+                                              min_event_attempts=10, 
+                                              weighted=False)
     display_jpar_ratings(styled_table, results)
     st.markdown('---')
     st.markdown("Data curated by [Rob Shields of the Piece Talks podcast](https://podcasts.apple.com/us/podcast/piece-talks/id1742455250). Website and visualizations put together by [Jacob Pilawa](https://jacobpilawa.github.io/).")
