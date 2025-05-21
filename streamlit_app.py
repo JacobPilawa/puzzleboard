@@ -395,6 +395,16 @@ def display_puzzler_profile(df: pd.DataFrame, selected_puzzler: str):
 
     st.markdown('---')
     st.header(f"{selected_puzzler}")
+
+    # Count medals
+    num_gold = (puzzler_df['Rank'] == 1).sum()
+    num_silver = (puzzler_df['Rank'] == 2).sum()
+    num_bronze = (puzzler_df['Rank'] == 3).sum()
+
+    medals_line = "🥇" * num_gold + "🥈" * num_silver + "🥉" * num_bronze
+    if medals_line:
+        st.markdown(medals_line)
+
     st.subheader("📅 Event History")
 
     first_event_row = puzzler_df.loc[puzzler_df['Date'].idxmin()]
