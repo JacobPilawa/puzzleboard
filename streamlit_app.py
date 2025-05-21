@@ -485,25 +485,6 @@ def display_puzzler_profile(df: pd.DataFrame, selected_puzzler: str):
             border=True
         )
 
-    # Add JPAR rating if available
-    if selected_puzzler in jpar_df['Name'].values:
-        puzzler_jpar = jpar_df[jpar_df['Name'] == selected_puzzler].iloc[0]
-        jpar_rating = puzzler_jpar['Rating']
-        
-        st.subheader("🏅 JPAR Rating")
-        st.metric(
-            "Current JPAR Rating",
-            f"{jpar_rating:.1f}",
-            delta=f"Based on {puzzler_jpar.get('Events', 'N/A')} events",
-            delta_color="off",
-            border=True
-        )
-        
-        # Add a button to navigate to JPAR page
-        if st.button("View All JPAR Ratings"):
-            st.session_state['page'] = "JPAR"
-            st.rerun()
-
     st.subheader("📄 All Events")
     display_df = puzzler_df.sort_values('Date')[['Date', 'Full_Event', 'Rank', 'Time', 'PPM', 'Pieces', 'Remaining']].copy()
     display_df['Date'] = display_df['Date'].dt.date
