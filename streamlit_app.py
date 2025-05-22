@@ -566,7 +566,7 @@ def display_puzzler_profile(df: pd.DataFrame, selected_puzzler: str):
             st.rerun()  # immediately rerun app to update the page variable
 
     st.subheader("📄 All Events")
-    display_df = puzzler_df.sort_values('Date')[['Date', 'Full_Event', 'Rank', 'Time', 'PPM', 'Pieces', 'Remaining','JPAR In', 'JPAR Out','12-Month Avg Completion Time']].copy()
+    display_df = puzzler_df.sort_values('Date')[['Date', 'Full_Event', 'Rank', 'Time', 'PPM', 'Pieces', 'Remaining','PTR In', 'PTR Out','12-Month Avg Completion Time']].copy()
     display_df['Date'] = display_df['Date'].dt.date
 
     # Calculate total entrants per event
@@ -583,6 +583,7 @@ def display_puzzler_profile(df: pd.DataFrame, selected_puzzler: str):
 
 # ---------- JPAR Ratings Display Function ----------
 def display_jpar_ratings(styled_table, results):
+    
     st.title("📊 Puzzler Ratings")
     st.markdown(f"""
     This page shows the 

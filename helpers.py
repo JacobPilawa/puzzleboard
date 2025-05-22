@@ -77,14 +77,19 @@ def scrape_data(output_fn):
     
     merged_df = combined_df.merge(df, on =['Full_Event','Name'],how='left')
     
+    # renname
+    merged_df = merged_df.rename({"JPAR In":"PTR In", "JPAR Out":"PTR Out"})
+    
     merged_df.to_pickle(f'./data/{output_fn}.pkl')
     
     
 def load_data():
+    
     '''
     read in the data from the pickle file
     '''
-    data = pd.read_pickle('./data/250221_scrape_with_JPAR_Rating.pkl')
+    data = pd.read_pickle('./data/250221_scrape_with_PT_Rating.pkl')
+    
     return data
 
 @st.cache_data
