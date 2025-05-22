@@ -7,7 +7,7 @@ import streamlit as st
 
 # ---------- Data Loading & Cleaning ----------
 @st.cache_data
-def scrape_data():
+def scrape_data(output_fn):
     '''
     - this function will scrape the data from rob's spreadsheets
     - takes ahwile to run (~10s) but not updated enough to do every time
@@ -15,42 +15,46 @@ def scrape_data():
     '''
     url = 'https://docs.google.com/spreadsheets/d/1aCENVOk-wroyW4-YS4OgtTTqr3rA-T9CZOjCQgALgSE/export?format=xlsx'
     xls = pd.ExcelFile(url)
-
-
+    
+    
     # ---------- get main data -------------
     exclude = {"_Competition Factors", "_JPAR Ratings", "_Latest JPAR Ratings", "_Histograms", "_UTILITY FUNCTIONS"}
     sheets_to_read = [s for s in xls.sheet_names if s not in exclude]
-
+    
     dfs = {
         name: xls.parse(name, dtype={'Time': str})
         for name in sheets_to_read
     }
-
+    
+    for name, df in dfs.items():
+        fullname = df['Event'].iloc[0]
+        df['Full_Event'] = fullname
+        
     for name, df in dfs.items():
         df['Event'] = name
-
+    
     combined_df = pd.concat(dfs.values(), ignore_index=True)
     combined_df = combined_df.drop(columns=['Unnamed: 11', 'Unnamed: 12'], errors='ignore')
-
+    
     def time_to_seconds(time_str):
         try:
             h, m, s = map(int, time_str.split(':'))
             return h * 3600 + m * 60 + s
         except Exception:
             return np.nan
-
-
+    
+    
     combined_df['time_in_seconds'] = combined_df['Time'].apply(time_to_seconds)
-
+    
     def clean_remaining(val):
         if pd.isna(val):
             return 0
         if isinstance(val, str) and re.fullmatch(r"\d{1,2}:\d{2}:\d{2}", val):
             return 0
         return val
-
+    
     combined_df["Remaining"] = combined_df["Remaining"].apply(clean_remaining)
-
+    
     combined_df['time_penalty'] = (((500 - combined_df['Remaining']) / combined_df['time_in_seconds'])**(-1)) * combined_df['Remaining']
     combined_df['corrected_time'] = combined_df['time_penalty'] + combined_df['time_in_seconds']
     
@@ -59,26 +63,28 @@ def scrape_data():
     combined_df['Pieces'] = pd.to_numeric(combined_df['Pieces'],errors='coerce')
     
     # ---------- get _JPAR Rating Data and merge with main data -------------
-
-
+    
+    
     sheets_to_read = ['_JPAR Ratings']
-
+    
     dfs = {
         name: xls.parse(name)
         for name in sheets_to_read
     }
     
     df = pd.concat(dfs.values(), ignore_index=True)
+    df = df.rename(columns={"Event Name": "Full_Event","Player Name":"Name"})
     
+    merged_df = combined_df.merge(df, on =['Full_Event','Name'],how='left')
     
+    merged_df.to_pickle(f'./data/{output_fn}.pkl')
     
-    return combined_df
     
 def load_data():
     '''
     read in the data from the pickle file
     '''
-    data = pd.read_pickle('./test_pickle.pkl')
+    data = pd.read_pickle('./data/250221_scrape_with_JPAR_Rating.pkl')
     return data
 
 @st.cache_data
