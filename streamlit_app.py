@@ -583,12 +583,14 @@ def display_jpar_ratings(styled_table, results):
     st.markdown(f"""
     This page shows the 
     current ratings for puzzlers with {styled_table.data['Eligible Puzzles'].min()} or more times within the last year,
-    and considering only events with more than 10 participants.""")
+    and considering only events with more than 10 participants. Three ranking systems are showng in the table.
+    PT Rank is a ranking system developed by [Rob Shields](https://podcasts.apple.com/us/podcast/piece-talks/id1742455250), 
+    Z Rank is a rank based on the [number of standard deviations above average](https://en.wikipedia.org/wiki/Standard_score) for each competition, and Percentile Rank 
+    is a rank based on average [percentiles](https://en.wikipedia.org/wiki/Percentile) in each competition.""")
     st.dataframe(styled_table,use_container_width=True)
 
     # Generate distribution plot
     st.subheader("📈 Rating Comparison")
-    
     # ------- Pair plot of the rankings
     # Drop non-numeric or irrelevant columns
     df = results.drop(columns=['Name','Eligible Puzzles'])
@@ -827,6 +829,7 @@ if page == "Puzzler Profiles":
     # default_puzzler = st.session_state.get('selected_puzzler', "")
     # selected_puzzler = st.selectbox("Select a puzzler", [""] + puzzler_list, index=(puzzler_list.index(default_puzzler) + 1) if default_puzzler in puzzler_list else 0)
     # st.session_state['selected_puzzler'] = selected_puzzler
+    
     selected_puzzler = st.session_state.get('selected_puzzler',"")
     if not selected_puzzler:
         st.info("Please select a profile using the sidebar.")
