@@ -3,7 +3,93 @@ import matplotlib.pyplot as plt
 import numpy as np
 import re
 import seaborn as sns
+import streamlit as st
 
+# ---------- Data Loading & Cleaning ----------
+@st.cache_data
+def scrape_data():
+    '''
+    - this function will scrape the data from rob's spreadsheets
+    - takes ahwile to run (~10s) but not updated enough to do every time
+    - so currently just storing scrapes in ./data/ 
+    '''
+    url = 'https://docs.google.com/spreadsheets/d/1aCENVOk-wroyW4-YS4OgtTTqr3rA-T9CZOjCQgALgSE/export?format=xlsx'
+    xls = pd.ExcelFile(url)
+
+
+    # ---------- get main data -------------
+    exclude = {"_Competition Factors", "_JPAR Ratings", "_Latest JPAR Ratings", "_Histograms", "_UTILITY FUNCTIONS"}
+    sheets_to_read = [s for s in xls.sheet_names if s not in exclude]
+
+    dfs = {
+        name: xls.parse(name, dtype={'Time': str})
+        for name in sheets_to_read
+    }
+
+    for name, df in dfs.items():
+        df['Event'] = name
+
+    combined_df = pd.concat(dfs.values(), ignore_index=True)
+    combined_df = combined_df.drop(columns=['Unnamed: 11', 'Unnamed: 12'], errors='ignore')
+
+    def time_to_seconds(time_str):
+        try:
+            h, m, s = map(int, time_str.split(':'))
+            return h * 3600 + m * 60 + s
+        except Exception:
+            return np.nan
+
+
+    combined_df['time_in_seconds'] = combined_df['Time'].apply(time_to_seconds)
+
+    def clean_remaining(val):
+        if pd.isna(val):
+            return 0
+        if isinstance(val, str) and re.fullmatch(r"\d{1,2}:\d{2}:\d{2}", val):
+            return 0
+        return val
+
+    combined_df["Remaining"] = combined_df["Remaining"].apply(clean_remaining)
+
+    combined_df['time_penalty'] = (((500 - combined_df['Remaining']) / combined_df['time_in_seconds'])**(-1)) * combined_df['Remaining']
+    combined_df['corrected_time'] = combined_df['time_penalty'] + combined_df['time_in_seconds']
+    
+    ## DATA CLEANING
+    combined_df['Name'] = combined_df['Name'].str.strip()
+    combined_df['Pieces'] = pd.to_numeric(combined_df['Pieces'],errors='coerce')
+    
+    # ---------- get _JPAR Rating Data and merge with main data -------------
+
+
+    sheets_to_read = ['_JPAR Ratings']
+
+    dfs = {
+        name: xls.parse(name)
+        for name in sheets_to_read
+    }
+    
+    df = pd.concat(dfs.values(), ignore_index=True)
+    
+    
+    
+    return combined_df
+    
+def load_data():
+    '''
+    read in the data from the pickle file
+    '''
+    data = pd.read_pickle('./test_pickle.pkl')
+    return data
+
+@st.cache_data
+def load_jpar_data():
+    '''
+    read in the JPAR data from the Excel file
+    '''
+    return None
+
+
+# ---------- Table for Rating Page ----------
 def compute_speed_puzzle_rankings(combined_df, min_puzzles=9, min_event_attempts=1, weighted=True):
     # Copy DataFrame for processing
     df = pd.DataFrame.copy(combined_df)
@@ -109,7 +195,7 @@ def compute_speed_puzzle_rankings(combined_df, min_puzzles=9, min_event_attempts
     results = results.drop(columns=['Total Events'])
     results = results.rename(columns={
         'Total_Puzzles': 'Eligible Puzzles',
-        'rob_rank': 'JPAR Rank',
+        'rob_rank': 'PT Rank',
         'Z_Score_Rank': 'Z Rank',
         'Percentile_Rank': 'Percentile Rank',
         'avg_rank': 'Average Rank'
@@ -123,7 +209,7 @@ def compute_speed_puzzle_rankings(combined_df, min_puzzles=9, min_event_attempts
             .style
             .background_gradient(subset=[ 'Eligible Puzzles'], cmap='Purples')
             .background_gradient(
-                subset=['JPAR Rank', 'Z Rank', 'Weighted_Z_Score_Rank',
+                subset=['PT Rank', 'Z Rank', 'Weighted_Z_Score_Rank',
                         'Percentile Rank', 'Weighted_Percentile_Rank', 'Average Rank'],
                 cmap='RdYlGn'
             )
@@ -136,7 +222,7 @@ def compute_speed_puzzle_rankings(combined_df, min_puzzles=9, min_event_attempts
             .style
             .background_gradient(subset=['Eligible Puzzles'], cmap='Purples')
             .background_gradient(
-                subset=['JPAR Rank', 'Z Rank', 'Percentile Rank', 'Average Rank'],
+                subset=['PT Rank', 'Z Rank', 'Percentile Rank', 'Average Rank'],
                 cmap='RdYlGn'
             )
             .format({'avg_rank': '{:.1f}'})

@@ -1,4 +1,5 @@
-from helpers import get_ranking_table
+import string
+from helpers import get_ranking_table, load_data, load_jpar_data
 from scipy.stats import gaussian_kde
 import datetime
 import plotly.graph_objects as go
@@ -12,72 +13,9 @@ import re
 # ✅ MUST BE FIRST
 st.set_page_config(page_title="Speed Puzzling Dashboard", page_icon="🧩", layout="wide",initial_sidebar_state="expanded")
 
+bottom_string = "Data curated by [Rob Shields of the Piece Talks podcast](https://podcasts.apple.com/us/podcast/piece-talks/id1742455250). Website and visualizations put together by [Jacob Pilawa](https://jacobpilawa.github.io/). Feel free to reach out if you spot any bugs or inconsistencies."
+
 # ---------- Data Loading & Cleaning ----------
-@st.cache_data
-def scrape_data():
-    '''
-    - this function will scrape the data from rob's spreadsheets
-    - takes ahwile to run (~10s) but not updated enough to do every time
-    - so currently just storing scrapes in ./data/ 
-    '''
-    url = 'https://docs.google.com/spreadsheets/d/1aCENVOk-wroyW4-YS4OgtTTqr3rA-T9CZOjCQgALgSE/export?format=xlsx'
-    xls = pd.ExcelFile(url)
-
-    exclude = {"_Competition Factors", "_JPAR Ratings", "_Latest JPAR Ratings", "_Histograms", "_UTILITY FUNCTIONS"}
-    sheets_to_read = [s for s in xls.sheet_names if s not in exclude]
-
-    dfs = {
-        name: xls.parse(name, dtype={'Time': str})
-        for name in sheets_to_read
-    }
-
-    for name, df in dfs.items():
-        df['Event'] = name
-
-    combined_df = pd.concat(dfs.values(), ignore_index=True)
-    combined_df = combined_df.drop(columns=['Unnamed: 11', 'Unnamed: 12'], errors='ignore')
-
-    def time_to_seconds(time_str):
-        try:
-            h, m, s = map(int, time_str.split(':'))
-            return h * 3600 + m * 60 + s
-        except Exception:
-            return np.nan
-
-
-    combined_df['time_in_seconds'] = combined_df['Time'].apply(time_to_seconds)
-
-    def clean_remaining(val):
-        if pd.isna(val):
-            return 0
-        if isinstance(val, str) and re.fullmatch(r"\d{1,2}:\d{2}:\d{2}", val):
-            return 0
-        return val
-
-    combined_df["Remaining"] = combined_df["Remaining"].apply(clean_remaining)
-
-    combined_df['time_penalty'] = (((500 - combined_df['Remaining']) / combined_df['time_in_seconds'])**(-1)) * combined_df['Remaining']
-    combined_df['corrected_time'] = combined_df['time_penalty'] + combined_df['time_in_seconds']
-    
-    ## DATA CLEANING
-    combined_df['Name'] = combined_df['Name'].str.strip()
-    combined_df['Pieces'] = pd.to_numeric(combined_df['Pieces'],errors='coerce')
-
-    return combined_df
-    
-def load_data():
-    '''
-    read in the data from the pickle file
-    '''
-    data = pd.read_pickle('./data/250519_scape_with_event_names.pkl')
-    return data
-
-@st.cache_data
-def load_jpar_data():
-    '''
-    read in the JPAR data from the Excel file
-    '''
-    return None
 
 df = load_data()
 jpar_df = load_jpar_data()
@@ -89,12 +27,14 @@ if 'page' not in st.session_state:
 
 if st.sidebar.button("🧩 Home "):
     st.session_state.page = "Home"
+    st.session_state['selected_event'] = ""
+    st.session_state['selected_puzzler'] = ""
 if st.sidebar.button("🏆 Leaderboards "):
     st.session_state.page = "Leaderboards"
     st.session_state['selected_event'] = ""
 if st.sidebar.button("👤 Puzzler Profiles "):
     st.session_state.page = "Puzzler Profiles"
-if st.sidebar.button("📊 JPAR Ratings "):
+if st.sidebar.button("📊 Puzzler Ratings "):
     st.session_state.page = "JPAR"
     
 if 'selected_event' not in st.session_state:
@@ -185,6 +125,7 @@ def get_delta_color(percentile):
         return "off"   # green
 
 def display_leaderboard(filtered_df: pd.DataFrame, df: pd.DataFrame, selected_event: str):
+    
     st.title(f"Event: {selected_event}")
     filtered_df = filtered_df.copy()
     filtered_df['Date'] = pd.to_datetime(filtered_df['Date']).dt.date
@@ -386,6 +327,7 @@ def display_leaderboard(filtered_df: pd.DataFrame, df: pd.DataFrame, selected_ev
     
 # ---------- Puzzler Profile Display Function ----------
 def display_puzzler_profile(df: pd.DataFrame, selected_puzzler: str):
+    
     if not selected_puzzler:
         return
 
@@ -396,6 +338,8 @@ def display_puzzler_profile(df: pd.DataFrame, selected_puzzler: str):
     st.markdown('---')
     st.header(f"{selected_puzzler}")
 
+    st.subheader("📊 Statistics")
+
     # Count medals
     num_gold = (puzzler_df['Rank'] == 1).sum()
     num_silver = (puzzler_df['Rank'] == 2).sum()
@@ -404,28 +348,6 @@ def display_puzzler_profile(df: pd.DataFrame, selected_puzzler: str):
     medals_line = "🥇" * num_gold + "🥈" * num_silver + "🥉" * num_bronze
     if medals_line:
         st.markdown(medals_line)
-
-    st.subheader("📅 Event History")
-
-    first_event_row = puzzler_df.loc[puzzler_df['Date'].idxmin()]
-    latest_event_row = puzzler_df.loc[puzzler_df['Date'].idxmax()]
-
-    col1, col2 = st.columns(2)
-
-    with col1:
-        st.markdown(f"**First Event:** {first_event_row['Date'].date()} — {first_event_row['Full_Event']}")
-        if st.button("Go to First Event Leaderboard", key=f"first_event_{selected_puzzler}"):
-            st.session_state['page'] = "Leaderboards"
-            st.session_state['selected_event'] = first_event_row['Full_Event']
-            st.rerun()  # immediately rerun app to update the page variable
-
-    with col2:
-        st.markdown(f"**Most Recent Event:** {latest_event_row['Date'].date()} — {latest_event_row['Full_Event']}")
-        if st.button("Go to Most Recent Event Leaderboard", key=f"latest_event_{selected_puzzler}"):
-            st.session_state['page'] = "Leaderboards"
-            st.session_state['selected_event'] = latest_event_row['Full_Event']
-            st.rerun()  # immediately rerun app to update the page variable
-
     # Calculate metrics for selected puzzler
     total_events = puzzler_df['Full_Event'].nunique()
     total_pieces = puzzler_df['Pieces'].sum()
@@ -448,8 +370,6 @@ def display_puzzler_profile(df: pd.DataFrame, selected_puzzler: str):
     # 4) Average time percentile (lower time = better, so rank inverted)
     avg_times_per_puzzler = df.groupby('Name')['time_in_seconds'].mean()
     avg_time_percentile = (avg_times_per_puzzler.rank(pct=True, ascending=True).loc[selected_puzzler]) * 100
-
-    st.subheader("📊 Statistics")
 
     col1, col2, col3, col4 = st.columns(4)
     st.write(
@@ -495,8 +415,158 @@ def display_puzzler_profile(df: pd.DataFrame, selected_puzzler: str):
             border=True
         )
 
+
+    st.subheader("⏱️ Solve Times for Most Recent 1.5 Years")
+        
+    # Prepare plotting data
+    time_plot_df = puzzler_df.dropna(subset=['time_in_seconds', 'Date', 'Full_Event']).copy()
+    time_plot_df = time_plot_df.sort_values('Date').reset_index(drop=True)
+    
+    # Filter to most recent 2 years
+    most_recent_date = time_plot_df['Date'].max()
+    cutoff_date = most_recent_date - timedelta(days=365 * 1.5)
+    time_plot_df = time_plot_df[time_plot_df['Date'] >= cutoff_date].reset_index(drop=True)
+    
+    # Compute hours for y-axis
+    time_plot_df['time_in_hours'] = time_plot_df['time_in_seconds'] / 3600
+    
+    # Compute total entrants per event
+    event_totals = df.groupby('Full_Event')['Name'].count()
+    time_plot_df['Total_Entrants'] = time_plot_df['Full_Event'].map(event_totals)
+    
+    # Label for plotting
+    time_plot_df['EventLabel'] = time_plot_df['Date'].dt.strftime('%b %d, %Y')
+    
+    # ——————— 12-Month Moving Average ———————
+    # 1) set the Date column as a DatetimeIndex
+    ma_df = time_plot_df.set_index('Date').sort_index()
+    
+    # 2) compute a rolling mean over the past 365 days (approx. 12 months)
+    #    min_periods=1 ensures you get a value even if fewer than ~12 months of history exist
+    ma_df['MA_12M'] = ma_df['time_in_hours'].rolling(window='365D', min_periods=1).mean()
+    
+    # 3) bring the MA back into your original DataFrame
+    time_plot_df['MA_12M'] = ma_df['MA_12M'].values
+
+    if not time_plot_df.empty:
+        # Ensure data is sorted by EventLabel (date) so order is preserved
+        time_plot_df = time_plot_df.sort_values(by='Date').reset_index(drop=True)
+    
+        # Example conversion function
+        def hours_to_hhmmss(hours):
+            total_seconds = int(hours * 3600)
+            h = total_seconds // 3600
+            m = (total_seconds % 3600) // 60
+            s = total_seconds % 60
+            return f"{h:02d}:{m:02d}:{s:02d}"
+    
+        time_plot_df['time_hhmmss'] = time_plot_df['time_in_hours'].apply(hours_to_hhmmss)
+    
+        # Add suffixes in order to duplicates within the sorted dataframe
+        def add_suffixes(df):
+            new_labels = []
+            current_label = None
+            count = 0
+            suffixes = list(string.ascii_lowercase)
+            
+            for label in df['EventLabel']:
+                if label != current_label:
+                    current_label = label
+                    count = 0
+                else:
+                    count += 1
+                
+                if count == 0:
+                    # no suffix if first occurrence
+                    new_labels.append(label)
+                else:
+                    new_labels.append(f"{label} ({suffixes[count-1]})")
+            return new_labels
+    
+        time_plot_df['EventLabelUnique'] = add_suffixes(time_plot_df)
+    
+        fig = px.bar(
+            time_plot_df,
+            x='EventLabelUnique',
+            y='time_in_hours',
+            hover_data={
+                'Full_Event': True,
+                'time_hhmmss': True,
+                'Rank': True,
+                'Total_Entrants': True,
+                'Pieces': True,
+                'EventLabel': False,
+                'time_in_hours': False,
+            },
+            labels={'time_in_hours': 'Time (hours)', 'EventLabelUnique': 'Event Date'},
+            title="Solve Times",
+        )
+        fig.update_traces(marker_color='gray')
+    
+        fig.add_trace(go.Scatter(
+            x=time_plot_df['EventLabelUnique'],
+            y=time_plot_df['MA_12M'],
+            mode='lines+markers',
+            name='12-Month Mov. Avg.',
+            line=dict(color='red',width=2, dash='solid'),
+            marker=dict(color='red',size=0)
+        ))
+    
+        # Set x-axis to category and keep order of EventLabelUnique as in the dataframe
+        fig.update_layout(
+            xaxis=dict(
+                type='category',
+                categoryorder='array',
+                categoryarray=time_plot_df['EventLabelUnique'],
+                tickangle=-70,
+                tickmode='array',
+                tickvals=time_plot_df['EventLabelUnique'],
+                ticktext=time_plot_df['EventLabelUnique'],
+            ),
+            bargap=0.05,
+            hoverlabel=dict(bgcolor="white"),
+            legend=dict(
+                x=0.98,
+                y=0.98,
+                xanchor='right',
+                yanchor='top',
+                bgcolor='rgba(255,255,255,0.7)',
+                bordercolor='black',
+                borderwidth=1
+            ),
+            xaxis_title='Event Date',
+            yaxis_title='Time (hours)'
+        )
+
+    
+        st.plotly_chart(fig, use_container_width=True)
+    
+    else:
+        st.info("No solve time data available to plot.")
+
+    st.subheader("📅 Event History")
+
+    first_event_row = puzzler_df.loc[puzzler_df['Date'].idxmin()]
+    latest_event_row = puzzler_df.loc[puzzler_df['Date'].idxmax()]
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.markdown(f"**First Event:** {first_event_row['Date'].date()} — {first_event_row['Full_Event']}")
+        if st.button("Go to First Event Leaderboard", key=f"first_event_{selected_puzzler}"):
+            st.session_state['page'] = "Leaderboards"
+            st.session_state['selected_event'] = first_event_row['Full_Event']
+            st.rerun()  # immediately rerun app to update the page variable
+
+    with col2:
+        st.markdown(f"**Most Recent Event:** {latest_event_row['Date'].date()} — {latest_event_row['Full_Event']}")
+        if st.button("Go to Most Recent Event Leaderboard", key=f"latest_event_{selected_puzzler}"):
+            st.session_state['page'] = "Leaderboards"
+            st.session_state['selected_event'] = latest_event_row['Full_Event']
+            st.rerun()  # immediately rerun app to update the page variable
+
     st.subheader("📄 All Events")
-    display_df = puzzler_df.sort_values('Date')[['Date', 'Full_Event', 'Rank', 'Time', 'PPM', 'Pieces', 'Remaining']].copy()
+    display_df = puzzler_df.sort_values('Date')[['Date', 'Full_Event', 'Rank', 'Time', 'PPM', 'Pieces', 'Remaining','JPAR In', 'JPAR Out','12-Month Avg Completion Time']].copy()
     display_df['Date'] = display_df['Date'].dt.date
 
     # Calculate total entrants per event
@@ -509,26 +579,15 @@ def display_puzzler_profile(df: pd.DataFrame, selected_puzzler: str):
 
 # ---------- JPAR Ratings Display Function ----------
 def display_jpar_ratings(styled_table, results):
-    st.title("📊 JPAR Ratings")
+    st.title("📊 Puzzler Ratings")
     st.markdown(f"""
-    Welcome to the JPAR (Jigsaw Puzzle Association Rating) leaderboard. This page shows the 
+    This page shows the 
     current ratings for puzzlers with {styled_table.data['Eligible Puzzles'].min()} or more times within the last year,
     and considering only events with more than 10 participants.""")
     st.dataframe(styled_table,use_container_width=True)
 
     # Generate distribution plot
     st.subheader("📈 Rating Comparison")
-    st.markdown(f"""
-    Currently, there are three rankings in the table above, along with an average rank. The first rank is the usual 
-    [Jigsaw Puzzle Association Rating (JPAR)](https://www.usajigsaw.org/jpar), whereas the other two are close analogs 
-    to JPAR. [Z Ranks](https://en.wikipedia.org/wiki/Standard_score) are computed by ranking the "number of standard 
-    deviations above average" a puzzler typically is, and [Percentile Rank](https://en.wikipedia.org/wiki/Percentile) 
-    is computed from averaging the percentiles for each puzzler across their events. As mentioned above, all puzzlers 
-    with fewer than {styled_table.data['Eligible Puzzles'].min()} events are dropped from the data. Additionally, I only consider events with >10 entrants. If the 
-    three ranking systems were all perfect, every puzzler would have the exact same rank across all three. However, 
-    each ranking system has various assumptions built in which naturally make them differ. This section visualizes how 
-    close the three ranking systems agree with scatter plots.
-    """)    
     
     # ------- Pair plot of the rankings
     # Drop non-numeric or irrelevant columns
@@ -588,6 +647,7 @@ def display_jpar_ratings(styled_table, results):
 
 # ---------- Home ----------
 if page == "Home":
+    
     st.markdown(
         "<h1 style='text-align: center;'>🧩 Speed Puzzling Competition Dashboard </h1>",
         unsafe_allow_html=True
@@ -719,13 +779,12 @@ if page == "Home":
     st.plotly_chart(fig4, use_container_width=True)
     
     st.markdown('---')
-    st.markdown("Data curated by [Rob Shields of the Piece Talks podcast](https://podcasts.apple.com/us/podcast/piece-talks/id1742455250). Website and visualizations put together by [Jacob Pilawa](https://jacobpilawa.github.io/).")
+    st.markdown(bottom_string)
 
         
 # ---------- Leaderboards Page ----------
 if page == "Leaderboards":
     st.title("🏆 Leaderboards ")
-    st.markdown("Welcome to the Leaderboards! Select an event from the dropdown below to view its stats.")
 
     event_names = sorted(df['Full_Event'].unique())
     # Get default event from session state or empty string if none
@@ -737,21 +796,26 @@ if page == "Leaderboards":
     else:
         default_index = 0
 
-    selected_event = st.selectbox(
-        "Choose an event to view its leaderboard:",
-        [""] + event_names,
-        index=default_index,
-    )
+    # selected_event = st.selectbox(
+#         "Choose an event to view its leaderboard:",
+#         [""] + event_names,
+#         index=default_index,
+#     )
+
+    selected_event = st.session_state.get('selected_event', "")
+    
+    if not selected_event:
+        st.info("Please select an event using the sidebar.")
+    else:
+        event_df = df[df['Full_Event'] == selected_event]
+        display_leaderboard(event_df, df, selected_event)
 
     # Update session_state with user's manual change to the dropdown (optional)
     st.session_state['selected_event'] = selected_event
 
     st.markdown('---')
-    if selected_event:
-        event_df = df[df['Full_Event'] == selected_event]
-        display_leaderboard(event_df, df, selected_event)
-    st.markdown('---')
-    st.markdown("Data curated by [Rob Shields of the Piece Talks podcast](https://podcasts.apple.com/us/podcast/piece-talks/id1742455250). Website and visualizations put together by [Jacob Pilawa](https://jacobpilawa.github.io/).")
+        
+    st.markdown(bottom_string)
 
         
         
@@ -759,15 +823,18 @@ if page == "Leaderboards":
 if page == "Puzzler Profiles":
     st.title("👤 Puzzler Profiles ")
 
-    puzzler_list = sorted(df['Name'].dropna().unique())
-    default_puzzler = st.session_state.get('selected_puzzler', "")
-    selected_puzzler = st.selectbox("Select a puzzler", [""] + puzzler_list, index=(puzzler_list.index(default_puzzler) + 1) if default_puzzler in puzzler_list else 0)
-    st.session_state['selected_puzzler'] = selected_puzzler
-    
-    if selected_puzzler:
+    # puzzler_list = sorted(df['Name'].dropna().unique())
+    # default_puzzler = st.session_state.get('selected_puzzler', "")
+    # selected_puzzler = st.selectbox("Select a puzzler", [""] + puzzler_list, index=(puzzler_list.index(default_puzzler) + 1) if default_puzzler in puzzler_list else 0)
+    # st.session_state['selected_puzzler'] = selected_puzzler
+    selected_puzzler = st.session_state.get('selected_puzzler',"")
+    if not selected_puzzler:
+        st.info("Please select a profile using the sidebar.")
+    else:
         display_puzzler_profile(df, selected_puzzler)
+        
     st.markdown('---')
-    st.markdown("Data curated by [Rob Shields of the Piece Talks podcast](https://podcasts.apple.com/us/podcast/piece-talks/id1742455250). Website and visualizations put together by [Jacob Pilawa](https://jacobpilawa.github.io/).")
+    st.markdown(bottom_string)
     
 
 # ---------- JPAR ----------
@@ -777,4 +844,4 @@ if page == "JPAR":
                                               weighted=False)
     display_jpar_ratings(styled_table, results)
     st.markdown('---')
-    st.markdown("Data curated by [Rob Shields of the Piece Talks podcast](https://podcasts.apple.com/us/podcast/piece-talks/id1742455250). Website and visualizations put together by [Jacob Pilawa](https://jacobpilawa.github.io/).")
+    st.markdown(bottom_string)

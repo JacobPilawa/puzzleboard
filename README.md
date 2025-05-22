@@ -6,3 +6,4 @@ This repository contains the code (and some of the data) for [puzzleboard](https
 
 ### Ideas
 - add highest medal counts to leaderboard landing page/puzzler profile page instead of the search bars
+- NN to take in images from ipdb and classify into box image/poster/normal image etc
