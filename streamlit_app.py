@@ -29,8 +29,8 @@ if st.sidebar.button("🧩 Home "):
     st.session_state.page = "Home"
     st.session_state['selected_event'] = ""
     st.session_state['selected_puzzler'] = ""
-if st.sidebar.button("🏆 Leaderboards "):
-    st.session_state.page = "Leaderboards"
+if st.sidebar.button("🏆 Competitions "):
+    st.session_state.page = "Competitions"
     st.session_state['selected_event'] = ""
 if st.sidebar.button("👤 Puzzler Profiles "):
     st.session_state.page = "Puzzler Profiles"
@@ -49,14 +49,14 @@ st.sidebar.markdown("### 🔍 Quick Search")
 # Event quick jump
 event_names_sidebar = sorted(df['Full_Event'].unique())
 selected_event_sidebar = st.sidebar.selectbox(
-    "Jump to Leaderboard",
+    "Jump to Competition",
     [""] + event_names_sidebar,
     index=(event_names_sidebar.index(st.session_state['selected_event']) + 1) if st.session_state['selected_event'] in event_names_sidebar else 0,
     key="sidebar_event"
 )
 if selected_event_sidebar and selected_event_sidebar != st.session_state['selected_event']:
     st.session_state['selected_event'] = selected_event_sidebar
-    st.session_state['page'] = "Leaderboards"
+    st.session_state['page'] = "Competitions"
     st.session_state['trigger_jump'] = True
 
 # Puzzler quick jump
@@ -126,7 +126,7 @@ def get_delta_color(percentile):
 
 def display_leaderboard(filtered_df: pd.DataFrame, df: pd.DataFrame, selected_event: str):
     
-    st.title(f"Event: {selected_event}")
+    st.title(f"Competition: {selected_event}")
     filtered_df = filtered_df.copy()
     filtered_df['Date'] = pd.to_datetime(filtered_df['Date']).dt.date
 
@@ -554,14 +554,14 @@ def display_puzzler_profile(df: pd.DataFrame, selected_puzzler: str):
     with col1:
         st.markdown(f"**First Event:** {first_event_row['Date'].date()} — {first_event_row['Full_Event']}")
         if st.button("Go to First Event Leaderboard", key=f"first_event_{selected_puzzler}"):
-            st.session_state['page'] = "Leaderboards"
+            st.session_state['page'] = "Competitions"
             st.session_state['selected_event'] = first_event_row['Full_Event']
             st.rerun()  # immediately rerun app to update the page variable
 
     with col2:
         st.markdown(f"**Most Recent Event:** {latest_event_row['Date'].date()} — {latest_event_row['Full_Event']}")
         if st.button("Go to Most Recent Event Leaderboard", key=f"latest_event_{selected_puzzler}"):
-            st.session_state['page'] = "Leaderboards"
+            st.session_state['page'] = "Competitions"
             st.session_state['selected_event'] = latest_event_row['Full_Event']
             st.rerun()  # immediately rerun app to update the page variable
 
@@ -658,14 +658,14 @@ if page == "Home":
         "<h1 style='text-align: center;'>🧩 Speed Puzzling Competition Dashboard </h1>",
         unsafe_allow_html=True
     )
-    st.markdown("Explore puzzler and event stats. Access the event leaderboard and puzzler profiles using the sidebar on the left.")
+    st.markdown("Explore competition results by event or by puzzler. Access competition results and puzzler profiles using the sidebar on the left.")
 
     # commenting out some buttons that are behaving poorly and migth be confusing
     # col_leaderboard, col_player= st.columns(2)
     #
     # with col_leaderboard:
-    #     if st.button("🏆 Leaderboards 🏆"):
-    #         st.session_state.page = "Leaderboards"
+    #     if st.button("🏆 Competitions 🏆"):
+    #         st.session_state.page = "Competitions"
     #         st.rerun()
     #
     # with col_player:
@@ -788,9 +788,9 @@ if page == "Home":
     st.markdown(bottom_string)
 
         
-# ---------- Leaderboards Page ----------
-if page == "Leaderboards":
-    st.title("🏆 Leaderboards ")
+# ---------- Competitions Page ----------
+if page == "Competitions":
+    st.title("🏆 Competitions ")
 
     event_names = sorted(df['Full_Event'].unique())
     # Get default event from session state or empty string if none
@@ -811,7 +811,7 @@ if page == "Leaderboards":
     selected_event = st.session_state.get('selected_event', "")
     
     if not selected_event:
-        st.info("Please select an event using the sidebar.")
+        st.info("Please select a competition using the sidebar.")
     else:
         event_df = df[df['Full_Event'] == selected_event]
         display_leaderboard(event_df, df, selected_event)
