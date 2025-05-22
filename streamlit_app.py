@@ -574,7 +574,11 @@ def display_puzzler_profile(df: pd.DataFrame, selected_puzzler: str):
 
     # Create Rank column as "N/T"
     display_df['Rank'] = display_df.apply(lambda row: f"{int(row['Rank'])}/{event_totals.get(row['Full_Event'], 0)}", axis=1)
+    
+    # Sort by most recent
+    display_df = display_df.sort_values(by='Date',ascending=False)
 
+    # Display dataframe
     st.dataframe(display_df.reset_index(drop=True), use_container_width=True)
 
 # ---------- JPAR Ratings Display Function ----------
