@@ -13,7 +13,7 @@ import re
 # ✅ MUST BE FIRST
 st.set_page_config(page_title="Speed Puzzling Dashboard", page_icon="🧩", layout="wide",initial_sidebar_state="expanded")
 
-bottom_string = "Data curated by [Rob Shields of the Piece Talks podcast](https://podcasts.apple.com/us/podcast/piece-talks/id1742455250). Website and visualizations put together by [Jacob Pilawa](https://jacobpilawa.github.io/). Feel free to reach out if you spot any bugs or inconsistencies."
+bottom_string = "Data curated by [Rob Shields of the Piece Talks podcast](https://podcasts.apple.com/us/podcast/piece-talks/id1742455250). Website and visualizations put together by [Jacob Pilawa](https://jacobpilawa.github.io/). Feel free to reach out if you spot any bugs or inconsistencies. For logging your own times, check out [myspeedpuzzling](https://myspeedpuzzling.com/en/home)!"
 
 # ---------- Data Loading & Cleaning ----------
 
@@ -656,10 +656,10 @@ def display_jpar_ratings(styled_table, results):
 if page == "Home":
     
     st.markdown(
-        "<h1 style='text-align: center;'>🧩 Speed Puzzling Competition Dashboard </h1>",
+        "<h1 style='text-align: center;'>🧩 Speed Puzzling Competitions Dashboard </h1>",
         unsafe_allow_html=True
     )
-    st.markdown("Explore competition results by event or by puzzler. Access competition results and puzzler profiles using the sidebar on the left.")
+    st.markdown("This dashboard contains only the **official results** from a number of speed puzzling competitions (speedpuzzling.com, EJJ, various local and national events, and more). Access competition results, puzzler profiles, and rankings using the sidebar on the left.")
 
     # commenting out some buttons that are behaving poorly and migth be confusing
     # col_leaderboard, col_player= st.columns(2)
