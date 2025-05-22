@@ -2,7 +2,9 @@
 This repository contains the code (and some of the data) for [puzzleboard](https://puzzleboard.streamlit.app/). Data curated by Rob Shields of the Piece Talks podcast.
 
 #### Known Bugs
-- weird dropdown behavior when something is already selected. for example, selecting an event page, and then trying to select a second event page does nothing. you need to do it an extra time. i suspect i need to add an st.re_run() or page state change somewhere, but it'll be fine for now.
+- inconsistencies in some calculations between tables and charts due to where the data is coming from. for example rob's calculation of the 12 month moving average is for PT rank qualified puzzles only, whereas mine uses the full dataset from all the sheets. not a "bug" but needs to be better documented.
+- need better descriptions of everything throughout. very barebones currently
+
 
 ### Ideas
 - add highest medal counts to leaderboard landing page/puzzler profile page instead of the search bars
