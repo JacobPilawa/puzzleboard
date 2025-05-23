@@ -19,6 +19,7 @@ bottom_string = "Data curated by [Rob Shields of the Piece Talks podcast](https:
 
 df = load_data()
 jpar_df = load_jpar_data()
+styled_table, results = get_ranking_table(min_puzzles=9, min_event_attempts=10, weighted=False)
 
 # ---------- Sidebar Navigation ----------
 st.sidebar.title("📍Navigation")
@@ -338,6 +339,7 @@ def display_puzzler_profile(df: pd.DataFrame, selected_puzzler: str):
     st.markdown('---')
     st.header(f"{selected_puzzler}")
 
+    # --------- Statistics -----------
     st.subheader("📊 Statistics")
 
     # Count medals
@@ -348,6 +350,54 @@ def display_puzzler_profile(df: pd.DataFrame, selected_puzzler: str):
     medals_line = "🥇" * num_gold + "🥈" * num_silver + "🥉" * num_bronze
     if medals_line:
         st.markdown(medals_line)
+        
+    # --------- RANKINGS -----------
+    if results['Name'].str.contains(selected_puzzler, case=False).any():
+        selected_ranking = results[results['Name'] == selected_puzzler]
+        col1, col2, col3, col4, col5 = st.columns(5)
+        st.write(
+            """
+            <style>
+            [data-testid="stMetricDelta"] svg {
+                display: none;
+            }
+            </style>
+            """,
+            unsafe_allow_html=True,
+        )
+        
+        with col1:
+            st.metric(
+                "Overall Ranking",
+                selected_ranking.index+1,
+                border=True
+            )
+        with col2:
+            st.metric(
+                "PT Rank",
+                selected_ranking['PT Rank'],
+                border=True
+            )
+        with col3:
+            st.metric(
+                "Z Rank",
+                selected_ranking['Z Rank'],
+                border=True
+            )
+        with col4:
+            st.metric(
+                "Percentile Rank",
+                selected_ranking['Percentile Rank'],
+                border=True
+            )
+        with col5:
+            st.metric(
+                "Average Rank Score",
+                np.round(selected_ranking['Average Rank'],2),
+                border=True
+            )
+
+        
     # Calculate metrics for selected puzzler
     total_events = puzzler_df['Full_Event'].nunique()
     total_pieces = puzzler_df['Pieces'].sum()
@@ -402,7 +452,7 @@ def display_puzzler_profile(df: pd.DataFrame, selected_puzzler: str):
         st.metric(
             "Fastest Time",
             str(timedelta(seconds=int(fastest_time_seconds))),
-            delta=f"{fastest_time_percentile:.1f}%ile",
+            delta=f"{100-fastest_time_percentile:.1f}%ile",
             delta_color=get_delta_color(fastest_time_percentile),
             border=True
         )
@@ -410,81 +460,81 @@ def display_puzzler_profile(df: pd.DataFrame, selected_puzzler: str):
         st.metric(
             "Average Time",
             str(timedelta(seconds=int(average_time_seconds))),
-            delta=f"{avg_time_percentile:.1f}%ile",
+            delta=f"{100-avg_time_percentile:.1f}%ile",
             delta_color=get_delta_color(avg_time_percentile),
             border=True
         )
 
 
     st.subheader("⏱️ Solve Times for Most Recent 1.5 Years")
-        
+
+    # Radio toggle to select puzzle size filter
+    puzzle_filter = st.radio(
+        "Puzzle Size Filter",
+        ["All Puzzles", "500 Piece Only"],
+        horizontal=True
+    )
+
     # Prepare plotting data
     time_plot_df = puzzler_df.dropna(subset=['time_in_seconds', 'Date', 'Full_Event']).copy()
     time_plot_df = time_plot_df.sort_values('Date').reset_index(drop=True)
-    
-    # Filter to most recent 2 years
+
+    # Filter to most recent 1.5 years
     most_recent_date = time_plot_df['Date'].max()
     cutoff_date = most_recent_date - timedelta(days=365 * 1.5)
     time_plot_df = time_plot_df[time_plot_df['Date'] >= cutoff_date].reset_index(drop=True)
-    
+
+    # Apply puzzle size filter
+    if puzzle_filter == "500 Piece Only":
+        time_plot_df = time_plot_df[time_plot_df['Pieces'] == 500].reset_index(drop=True)
+
     # Compute hours for y-axis
     time_plot_df['time_in_hours'] = time_plot_df['time_in_seconds'] / 3600
-    
+
     # Compute total entrants per event
     event_totals = df.groupby('Full_Event')['Name'].count()
     time_plot_df['Total_Entrants'] = time_plot_df['Full_Event'].map(event_totals)
-    
+
     # Label for plotting
     time_plot_df['EventLabel'] = time_plot_df['Date'].dt.strftime('%b %d, %Y')
-    
+
     # ——————— 12-Month Moving Average ———————
-    # 1) set the Date column as a DatetimeIndex
     ma_df = time_plot_df.set_index('Date').sort_index()
-    
-    # 2) compute a rolling mean over the past 365 days (approx. 12 months)
-    #    min_periods=1 ensures you get a value even if fewer than ~12 months of history exist
     ma_df['MA_12M'] = ma_df['time_in_hours'].rolling(window='365D', min_periods=1).mean()
-    
-    # 3) bring the MA back into your original DataFrame
     time_plot_df['MA_12M'] = ma_df['MA_12M'].values
 
     if not time_plot_df.empty:
-        # Ensure data is sorted by EventLabel (date) so order is preserved
-        time_plot_df = time_plot_df.sort_values(by='Date').reset_index(drop=True)
-    
-        # Example conversion function
         def hours_to_hhmmss(hours):
             total_seconds = int(hours * 3600)
             h = total_seconds // 3600
             m = (total_seconds % 3600) // 60
             s = total_seconds % 60
             return f"{h:02d}:{m:02d}:{s:02d}"
-    
+
         time_plot_df['time_hhmmss'] = time_plot_df['time_in_hours'].apply(hours_to_hhmmss)
-    
-        # Add suffixes in order to duplicates within the sorted dataframe
+        time_plot_df['MA_12M_hhmmss'] = time_plot_df['MA_12M'].apply(hours_to_hhmmss)
+
         def add_suffixes(df):
             new_labels = []
             current_label = None
             count = 0
             suffixes = list(string.ascii_lowercase)
-            
+
             for label in df['EventLabel']:
                 if label != current_label:
                     current_label = label
                     count = 0
                 else:
                     count += 1
-                
+
                 if count == 0:
-                    # no suffix if first occurrence
                     new_labels.append(label)
                 else:
                     new_labels.append(f"{label} ({suffixes[count-1]})")
             return new_labels
-    
+
         time_plot_df['EventLabelUnique'] = add_suffixes(time_plot_df)
-    
+
         fig = px.bar(
             time_plot_df,
             x='EventLabelUnique',
@@ -502,17 +552,18 @@ def display_puzzler_profile(df: pd.DataFrame, selected_puzzler: str):
             title="Solve Times",
         )
         fig.update_traces(marker_color='gray')
-    
+
         fig.add_trace(go.Scatter(
             x=time_plot_df['EventLabelUnique'],
             y=time_plot_df['MA_12M'],
             mode='lines+markers',
             name='12-Month Mov. Avg.',
-            line=dict(color='red',width=2, dash='solid'),
-            marker=dict(color='red',size=0)
+            line=dict(color='red', width=2, dash='solid'),
+            marker=dict(color='red', size=0),
+            customdata=time_plot_df['MA_12M_hhmmss'],
+            hovertemplate='12-Month Avg: %{customdata}<extra></extra>',
         ))
-    
-        # Set x-axis to category and keep order of EventLabelUnique as in the dataframe
+
         fig.update_layout(
             xaxis=dict(
                 type='category',
@@ -538,11 +589,10 @@ def display_puzzler_profile(df: pd.DataFrame, selected_puzzler: str):
             yaxis_title='Time (hours)'
         )
 
-    
         st.plotly_chart(fig, use_container_width=True)
-    
+
     else:
-        st.info("No solve time data available to plot.")
+        st.info("No solve time data available to plot for the selected filter.")
 
     st.subheader("📅 Event History")
 
@@ -566,7 +616,7 @@ def display_puzzler_profile(df: pd.DataFrame, selected_puzzler: str):
             st.rerun()  # immediately rerun app to update the page variable
 
     st.subheader("📄 All Events")
-    display_df = puzzler_df.sort_values('Date')[['Date', 'Full_Event', 'Rank', 'Time', 'PPM', 'Pieces', 'Remaining','PTR In', 'PTR Out','12-Month Avg Completion Time']].copy()
+    display_df = puzzler_df.sort_values('Date')[['Date', 'Full_Event', 'Rank', 'Time', 'PPM', 'Pieces', 'Remaining','Avg PTR In (Event)', 'PTR Out','12-Month Avg Completion Time']].copy()
     display_df['Date'] = display_df['Date'].dt.date
 
     # Calculate total entrants per event
@@ -847,9 +897,6 @@ if page == "Puzzler Profiles":
 
 # ---------- JPAR ----------
 if page == "JPAR":
-    styled_table, results = get_ranking_table(min_puzzles=9, 
-                                              min_event_attempts=10, 
-                                              weighted=False)
     display_jpar_ratings(styled_table, results)
     st.markdown('---')
     st.markdown(bottom_string)

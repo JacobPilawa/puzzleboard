@@ -78,7 +78,7 @@ def scrape_data(output_fn):
     merged_df = combined_df.merge(df, on =['Full_Event','Name'],how='left')
     
     # renname
-    merged_df = merged_df.rename({"JPAR In":"PTR In", "JPAR Out":"PTR Out"})
+    merged_df = merged_df.rename({"JPAR In":"PTR In", "JPAR Out":"PTR Out", "Avg JPAR In (Event)":"Avg PTR In (Event)"})
     
     merged_df.to_pickle(f'./data/{output_fn}.pkl')
     
@@ -244,7 +244,8 @@ def compute_speed_puzzle_rankings(combined_df, min_puzzles=9, min_event_attempts
 
 
 def get_ranking_table(min_puzzles=10, min_event_attempts=1, weighted=False):
-    data = pd.read_pickle('./data/250519_scape_with_event_names.pkl')
+    
+    data = load_data()
 
     styled_df, results = compute_speed_puzzle_rankings(data, min_puzzles, min_event_attempts, weighted)
     
