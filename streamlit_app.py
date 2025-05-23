@@ -352,7 +352,7 @@ def display_puzzler_profile(df: pd.DataFrame, selected_puzzler: str):
         st.markdown(medals_line)
         
     # --------- RANKINGS -----------
-    if results['Name'].str.contains(selected_puzzler, case=False).any():
+    if results['Name'].eq(selected_puzzler).any():
         selected_ranking = results[results['Name'] == selected_puzzler]
         col1, col2, col3, col4, col5 = st.columns(5)
         st.write(
