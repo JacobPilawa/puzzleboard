@@ -19,7 +19,7 @@ bottom_string = "Data curated by [Rob Shields of the Piece Talks podcast](https:
 
 df = load_data()
 jpar_df = load_jpar_data()
-styled_table, results = get_ranking_table(min_puzzles=9, min_event_attempts=10, weighted=False)
+styled_table, results = get_ranking_table(min_puzzles=3, min_event_attempts=10, weighted=False)
 
 # ---------- Sidebar Navigation ----------
 st.sidebar.title("📍Navigation")
@@ -118,8 +118,8 @@ frequent_puzzlers = get_most_frequent_puzzlers(df)
 
 # ---------- Leaderboard Display Function ----------
 def get_delta_color(percentile):
-    if 40 <= percentile <= 60:
-        return "off"      # gray
+    if 80 <= percentile:
+        return "normal"      # gray
     elif percentile < 40:
         return "off"  # red
     else:
@@ -370,30 +370,83 @@ def display_puzzler_profile(df: pd.DataFrame, selected_puzzler: str):
             st.metric(
                 "Overall Ranking",
                 selected_ranking.index+1,
+                delta=f'/{len(results)} eligible',
+                delta_color='off',
                 border=True
             )
         with col2:
             st.metric(
                 "PT Rank",
                 selected_ranking['PT Rank'],
+                delta=' ',
+                delta_color='off',
                 border=True
             )
         with col3:
             st.metric(
                 "Z Rank",
                 selected_ranking['Z Rank'],
+                delta=' ',
+                delta_color='off',
                 border=True
             )
         with col4:
             st.metric(
                 "Percentile Rank",
                 selected_ranking['Percentile Rank'],
+                delta=' ',
+                delta_color='off',
                 border=True
             )
         with col5:
             st.metric(
                 "Average Rank Score",
                 np.round(selected_ranking['Average Rank'],2),
+                delta=' ',
+                delta_color='off',
+                border=True
+            )
+    else:
+        col1, col2, col3, col4, col5 = st.columns(5)
+        st.write(
+            """
+            <style>
+            [data-testid="stMetricDelta"] svg {
+                display: none;
+            }
+            </style>
+            """,
+            unsafe_allow_html=True,
+        )
+        
+        with col1:
+            st.metric(
+                "Overall Ranking",
+                'N/A',
+                border=True
+            )
+        with col2:
+            st.metric(
+                "PT Rank",
+                'N/A',
+                border=True
+            )
+        with col3:
+            st.metric(
+                "Z Rank",
+                'N/A',
+                border=True
+            )
+        with col4:
+            st.metric(
+                "Percentile Rank",
+                'N/A',
+                border=True
+            )
+        with col5:
+            st.metric(
+                "Average Rank Score",
+                'N/A',
                 border=True
             )
 
@@ -453,7 +506,7 @@ def display_puzzler_profile(df: pd.DataFrame, selected_puzzler: str):
             "Fastest Time",
             str(timedelta(seconds=int(fastest_time_seconds))),
             delta=f"{100-fastest_time_percentile:.1f}%ile",
-            delta_color=get_delta_color(fastest_time_percentile),
+            delta_color=get_delta_color(100-fastest_time_percentile),
             border=True
         )
     with col4:
@@ -461,20 +514,13 @@ def display_puzzler_profile(df: pd.DataFrame, selected_puzzler: str):
             "Average Time",
             str(timedelta(seconds=int(average_time_seconds))),
             delta=f"{100-avg_time_percentile:.1f}%ile",
-            delta_color=get_delta_color(avg_time_percentile),
+            delta_color=get_delta_color(100-avg_time_percentile),
             border=True
         )
 
 
     st.subheader("⏱️ Solve Times for Most Recent 1.5 Years")
-
-    # Radio toggle to select puzzle size filter
-    puzzle_filter = st.radio(
-        "Puzzle Size Filter",
-        ["All Puzzles", "500 Piece Only"],
-        horizontal=True
-    )
-
+    
     # Prepare plotting data
     time_plot_df = puzzler_df.dropna(subset=['time_in_seconds', 'Date', 'Full_Event']).copy()
     time_plot_df = time_plot_df.sort_values('Date').reset_index(drop=True)
@@ -483,10 +529,6 @@ def display_puzzler_profile(df: pd.DataFrame, selected_puzzler: str):
     most_recent_date = time_plot_df['Date'].max()
     cutoff_date = most_recent_date - timedelta(days=365 * 1.5)
     time_plot_df = time_plot_df[time_plot_df['Date'] >= cutoff_date].reset_index(drop=True)
-
-    # Apply puzzle size filter
-    if puzzle_filter == "500 Piece Only":
-        time_plot_df = time_plot_df[time_plot_df['Pieces'] == 500].reset_index(drop=True)
 
     # Compute hours for y-axis
     time_plot_df['time_in_hours'] = time_plot_df['time_in_seconds'] / 3600
@@ -642,13 +684,35 @@ def display_jpar_ratings(styled_table, results):
     PT Rank is a ranking system developed by [Rob Shields](https://podcasts.apple.com/us/podcast/piece-talks/id1742455250), 
     Z Rank is a rank based on the [number of standard deviations above average](https://en.wikipedia.org/wiki/Standard_score) for each competition, and Percentile Rank 
     is a rank based on average [percentiles](https://en.wikipedia.org/wiki/Percentile) in each competition.""")
-    st.dataframe(styled_table,use_container_width=True)
+    
+    
+    # Example number input
+    # Create 3 columns, only use the first for input (approx 1/3 width)
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        number = st.number_input("""Minimum number of eligible puzzles""", value=3, step=1, format="%d")
+        
+    # Check if number is entered
+    if number is not None:
+        # Do something if a number is entered
+        filitered_styled_table, filtered_results = get_ranking_table(min_puzzles=number, min_event_attempts=10, weighted=False)
+        st.dataframe(filitered_styled_table, use_container_width=True)
+        # Add your conditional logic here
+    else:
+        # Default behavior
+        st.dataframe(styled_table, use_container_width=True)
 
     # Generate distribution plot
     st.subheader("📈 Rating Comparison")
     # ------- Pair plot of the rankings
     # Drop non-numeric or irrelevant columns
-    df = results.drop(columns=['Name','Eligible Puzzles'])
+    if number is not None:
+        a = pd.DataFrame.copy(filtered_results)
+    else:
+        a = pd.DataFrame.copy(results)
+        
+    df = a.drop(columns=['Name','Eligible Puzzles'])
 
     # Select columns to include in the pairplot
     columns = df.columns

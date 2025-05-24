@@ -90,6 +90,9 @@ def load_data():
     '''
     data = pd.read_pickle('./data/250221_scrape_with_PT_Rating.pkl')
     
+    # get only the 500 pieces and those with data entry error
+    data = data[(data['Pieces'] == 500) | (data['Pieces'].isna())]
+    
     return data
 
 @st.cache_data
@@ -200,7 +203,7 @@ def compute_speed_puzzle_rankings(combined_df, min_puzzles=9, min_event_attempts
     results[int_columns] = results[int_columns].astype(int)
 
     # Display index from 1 to 100
-    display_index = pd.Index(np.arange(1, 101))
+    display_index = pd.Index(np.arange(1, len(results)+1))
 
     # drop events temporarily, need to FIX THIS
     results = results.drop(columns=['Total Events'])
@@ -215,7 +218,7 @@ def compute_speed_puzzle_rankings(combined_df, min_puzzles=9, min_event_attempts
     # Styled DataFrame
     if weighted:
         styled_df = (
-            results.head(100)
+            results
             .set_index(display_index)
             .style
             .background_gradient(subset=[ 'Eligible Puzzles'], cmap='Purples')
@@ -228,7 +231,7 @@ def compute_speed_puzzle_rankings(combined_df, min_puzzles=9, min_event_attempts
         )
     else:
         styled_df = (
-            results.head(100)
+            results
             .set_index(display_index)
             .style
             .background_gradient(subset=['Eligible Puzzles'], cmap='Purples')
