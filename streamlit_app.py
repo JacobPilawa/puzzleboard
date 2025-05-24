@@ -773,7 +773,7 @@ if page == "Home":
         "<h1 style='text-align: center;'>🧩 Speed Puzzling Competitions Dashboard </h1>",
         unsafe_allow_html=True
     )
-    st.markdown("This dashboard contains only the **official results** from a number of speed puzzling competitions (speedpuzzling.com, EJJ, various local and national events, and more). Access competition results, puzzler profiles, and rankings using the sidebar on the left.")
+    st.markdown("This dashboard contains only the **official results** from a number of **500 piece** speed puzzling competitions (speedpuzzling.com, EJJ, various local and national events, and more). Access competition results, puzzler profiles, and rankings using the sidebar on the left.")
 
     # commenting out some buttons that are behaving poorly and migth be confusing
     # col_leaderboard, col_player= st.columns(2)
