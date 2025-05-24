@@ -1,0 +1,4090 @@
+==== EXACT MATCHES (score = 100) ====
+
+============================================================
+Name: Africa Manuel Marchante
+  Events:
+    - ae215
+    - ae252
+
+Original Name: Africa Manuel Marchante
+Possible Dupe: África Manuel Marchante (score: 100.0)
+  Events:
+    - W22IndB
+    - W24 Ind E
+
+============================================================
+Name: Agnes Graulle
+  Events:
+    - EJJ2
+
+Original Name: Agnes Graulle
+Possible Dupe: Agnès Graulle (score: 100.0)
+  Events:
+    - EJJ1
+    - EJJ7
+    - EJJ8
+    - EJJ9
+    - W24 Ind E
+    - W24 Ind Finals
+    - W24 Ind Semi B
+
+============================================================
+Name: Agnès AUNE
+  Events:
+    - EJJ 34
+    - EJJ 48
+
+Original Name: Agnès AUNE
+Possible Dupe: Agnès Aune (score: 100.0)
+  Events:
+    - EJJ 20
+    - EJJ 24
+    - EJJ 37
+
+============================================================
+Name: Ana C. Siverio Pares
+  Events:
+    - ae220
+    - sp2024Ind
+
+Original Name: Ana C. Siverio Pares
+Possible Dupe: Ana C. Siverio Parés (score: 100.0)
+  Events:
+    - W22IndB
+    - W22IndFinal
+    - W23IndB
+    - W23IndS1
+    - W24 Ind E
+
+============================================================
+Name: Anna Rodriguez
+  Events:
+    - EJJ 27
+    - EJJ 48
+    - Germany 2024 Ind
+
+Original Name: Anna Rodriguez
+Possible Dupe: Anna Rodríguez (score: 100.0)
+  Events:
+    - Ger2025 Ind A
+
+============================================================
+Name: Arkadiusz Wozniak
+  Events:
+    - EJJ17
+
+Original Name: Arkadiusz Wozniak
+Possible Dupe: Arkadiusz Woźniak (score: 100.0)
+  Events:
+    - EJJ 19
+    - EJJ 21
+    - EJJ 24
+    - EJJ 25
+    - EJJ 26
+    - EJJ 27
+    - EJJ 29
+    - EJJ 30
+    - EJJ 35
+    - EJJ 37
+    - EJJ 39
+    - EJJ 40
+    - EJJ 42
+    - EJJ31
+    - EJJ33
+
+============================================================
+Name: Ayelen Galarza Rial
+  Events:
+    - EJJ 19
+    - EJJ 20
+    - EJJ 21
+    - EJJ 25
+    - EJJ 26
+    - EJJ 27
+    - EJJ 29
+    - EJJ 34
+    - EJJ 48
+    - EJJ10
+    - EJJ11
+    - EJJ12
+    - EJJ15
+    - EJJ16
+    - EJJ17
+    - EJJ31
+    - EJJ33
+    - EJJ7
+
+Original Name: Ayelen Galarza Rial
+Possible Dupe: Ayelén Galarza Rial (score: 100.0)
+  Events:
+    - W23IndB
+    - W23IndFinal
+    - W23IndS1
+    - W24 Ind D
+    - W24 Ind Finals
+    - W24 Ind Semi B
+
+============================================================
+Name: Barbara Di Angelo
+  Events:
+    - W24 Ind C
+    - W24 Ind Semi A
+
+Original Name: Barbara Di Angelo
+Possible Dupe: Barbara di Angelo (score: 100.0)
+  Events:
+    - EJJ 19
+    - EJJ 21
+    - EJJ 24
+    - EJJ 25
+    - EJJ 26
+    - EJJ 43
+    - EJJ 46
+    - EJJ 49
+
+============================================================
+Name: Belen Montero Mayorga
+  Events:
+    - W22IndA
+    - W22IndFinal
+
+Original Name: Belen Montero Mayorga
+Possible Dupe: Belén Montero Mayorga (score: 100.0)
+  Events:
+    - sp2024Ind
+
+============================================================
+Name: Benoit
+  Events:
+    - EJJ 48
+
+Original Name: Benoit
+Possible Dupe: Benoît (score: 100.0)
+  Events:
+    - EJJ31
+
+============================================================
+Name: Bibi Crowe
+  Events:
+    - EJJ 24
+    - EJJ 25
+    - EJJ 27
+    - EJJ 29
+    - EJJ 30
+    - EJJ 35
+    - EJJ 37
+    - EJJ 39
+    - EJJ 48
+
+Original Name: Bibi Crowe
+Possible Dupe: Bibi crowe (score: 100.0)
+  Events:
+    - EJJ 34
+
+============================================================
+Name: Carmen Duenas
+  Events:
+    - sp167b
+
+Original Name: Carmen Duenas
+Possible Dupe: Carmen Dueñas (score: 100.0)
+  Events:
+    - NER2024Solo
+    - ma2024Ind
+    - sp175
+    - sp183g
+    - sp184
+    - sp188
+    - sp199
+    - sp204
+    - sp213c
+    - sp227
+    - sp255
+    - sp263c
+    - sp271
+    - sp271c
+
+============================================================
+Name: Carrie LeBlanc
+  Events:
+    - CAN2023 Prelims
+
+Original Name: Carrie LeBlanc
+Possible Dupe: Carrie Leblanc (score: 100.0)
+  Events:
+    - CAN2024 Ind B
+
+============================================================
+Name: Catherine Beck
+  Events:
+    - EJJ 21
+    - EJJ 24
+    - EJJ 35
+    - EJJ 39
+    - EJJ 42
+    - EJJ1
+    - EJJ15
+    - EJJ16
+    - EJJ7
+
+Original Name: Catherine Beck
+Possible Dupe: Cathérine Beck (score: 100.0)
+  Events:
+    - W23IndA
+    - W23IndS1
+    - W24 Ind A
+    - W24 Ind Semi A
+
+============================================================
+Name: Clementine Hauret
+  Events:
+    - Canada E Regionals 2024
+    - sp204
+
+Original Name: Clementine Hauret
+Possible Dupe: Clémentine Hauret (score: 100.0)
+  Events:
+    - sp227
+    - sp238
+    - sp255
+    - sp263
+    - sp271
+
+Original Name: Clementine Hauret
+Possible Dupe: Hauret Clémentine (score: 100.0)
+  Events:
+    - can20241026
+
+============================================================
+Name: Cleo Van der Veen
+  Events:
+    - US22Ind
+    - US24IndB
+    - sp101
+    - sp104
+    - sp112
+    - sp113s
+    - sp120w
+    - sp123
+    - sp127s
+    - sp130
+    - sp131
+    - sp135s
+    - sp139 Mystery 2
+    - sp146
+    - sp151s
+    - sp157
+    - sp93
+    - sp97
+    - sp98
+
+Original Name: Cleo Van der Veen
+Possible Dupe: Cleo van der Veen (score: 100.0)
+  Events:
+    - SP185s
+    - az2024
+    - sp162
+    - sp167a
+    - sp169s
+    - sp175
+    - sp177s
+    - sp183g
+    - sp188
+    - sp199
+    - sp201s
+    - sp204
+    - sp206s
+    - sp214s
+    - sp227
+    - sp229
+    - sp263
+    - sp268
+    - sp282
+    - sp291
+
+============================================================
+Name: Dan Martin
+  Events:
+    - W24 Ind A
+    - W24 Ind Finals
+    - W24 Ind Semi A
+
+Original Name: Dan Martin
+Possible Dupe: Dan Martín (score: 100.0)
+  Events:
+    - W22IndC
+    - W22IndFinal
+
+============================================================
+Name: Eliska Hrbkova
+  Events:
+    - EJJ 40
+
+Original Name: Eliska Hrbkova
+Possible Dupe: Eliška Hrbková (score: 100.0)
+  Events:
+    - EJJ 30
+    - EJJ 34
+    - EJJ 49
+    - W24 Ind F
+
+============================================================
+Name: Elodie Serrano
+  Events:
+    - EJJ 20
+    - EJJ 40
+    - EJJ 42
+    - EJJ 49
+    - EJJ1
+    - EJJ10
+    - EJJ11
+    - EJJ12
+    - EJJ14
+    - EJJ16
+    - EJJ7
+    - EJJ8
+    - EJJ9
+    - W24 Ind D
+    - W24 Ind Finals
+    - W24 Ind Semi B
+
+Original Name: Elodie Serrano
+Possible Dupe: Élodie Serrano (score: 100.0)
+  Events:
+    - EJJ15
+
+============================================================
+Name: Eléonore Calvez
+  Events:
+    - EJJ 44
+
+Original Name: Eléonore Calvez
+Possible Dupe: Éléonore Calvez (score: 100.0)
+  Events:
+    - EJJ 48
+
+============================================================
+Name: Emilie Therrien
+  Events:
+    - Canada E Regionals 2024
+
+Original Name: Emilie Therrien
+Possible Dupe: Émilie Therrien (score: 100.0)
+  Events:
+    - can20230610
+    - can20231111
+    - can20231203
+    - can20240217
+    - can20240928
+    - can20241207
+    - can20250222
+
+============================================================
+Name: Geanina Vladila
+  Events:
+    - W22IndC
+    - W22IndFinal
+
+Original Name: Geanina Vladila
+Possible Dupe: Geanina Vlădilă (score: 100.0)
+  Events:
+    - W23IndB
+    - W23IndS1
+
+============================================================
+Name: Gemma Sánchez De Miguel
+  Events:
+    - ae220
+    - sp2024Ind
+
+Original Name: Gemma Sánchez De Miguel
+Possible Dupe: Gemma Sánchez de Miguel (score: 100.0)
+  Events:
+    - W22IndA
+
+============================================================
+Name: Helene Mallette
+  Events:
+    - Canada E Regionals 2024
+
+Original Name: Helene Mallette
+Possible Dupe: Hélène Mallette (score: 100.0)
+  Events:
+    - CAN2024 Ind B
+
+============================================================
+Name: Janine Luthi
+  Events:
+    - W24 Ind D
+
+Original Name: Janine Luthi
+Possible Dupe: Janine Lüthi (score: 100.0)
+  Events:
+    - EJJ 30
+    - EJJ 34
+    - EJJ 42
+    - EJJ 43
+    - EJJ 44
+    - EJJ 46
+    - EJJ 48
+    - EJJ 49
+    - EJJ 50
+    - Ger2025 Ind A
+    - Germany 2024 Ind
+
+============================================================
+Name: Jessa Douglas
+  Events:
+    - Holiday Puzzle Derby 2024
+    - PJMIndFinal
+    - US24IndB
+    - US24IndFinal
+    - nwr2024s
+    - sp200
+    - sp239
+
+Original Name: Jessa Douglas
+Possible Dupe: jessa douglas (score: 100.0)
+  Events:
+    - sp176
+    - sp184
+
+============================================================
+Name: Jose Lucas Pérez Mompó
+  Events:
+    - sp2024Ind
+
+Original Name: Jose Lucas Pérez Mompó
+Possible Dupe: José Lucas Pérez Mompó (score: 100.0)
+  Events:
+    - W24 Ind E
+
+============================================================
+Name: Jose Luis Velasco Álvarez
+  Events:
+    - W19Ind
+    - W22IndC
+
+Original Name: Jose Luis Velasco Álvarez
+Possible Dupe: José Luis Velasco Álvarez (score: 100.0)
+  Events:
+    - ae220
+    - sp2024Ind
+
+============================================================
+Name: Judit Hesse
+  Events:
+    - Ger2025 Ind C
+
+Original Name: Judit Hesse
+Possible Dupe: judit hesse (score: 100.0)
+  Events:
+    - EJJ 43
+
+============================================================
+Name: Jörn De Haan
+  Events:
+    - Ger2025 Ind A
+
+Original Name: Jörn De Haan
+Possible Dupe: Jörn de Haan (score: 100.0)
+  Events:
+    - Germany 2024 Ind
+
+============================================================
+Name: Katrin Stahli
+  Events:
+    - EJJ17
+
+Original Name: Katrin Stahli
+Possible Dupe: Katrin Stähli (score: 100.0)
+  Events:
+    - EJJ 21
+    - EJJ 35
+    - EJJ 37
+    - EJJ 39
+    - EJJ 40
+    - EJJ 50
+    - EJJ11
+    - EJJ12
+    - EJJ14
+    - EJJ16
+    - EJJ2
+    - EJJ4
+    - EJJ7
+    - EJJ8
+
+============================================================
+Name: Laura Aizpurua De Arteche
+  Events:
+    - ae320
+
+Original Name: Laura Aizpurua De Arteche
+Possible Dupe: Laura Aizpurua de Arteche (score: 100.0)
+  Events:
+    - W22IndA
+    - W22IndFinal
+    - W23IndE
+    - W23IndFinal
+    - W23IndS2
+    - W24 Ind E
+    - W24 Ind Finals
+    - W24 Ind Semi B
+    - ae214
+    - ae220
+    - ae222
+    - sp2024Ind
+
+============================================================
+Name: Laura Biro
+  Events:
+    - EJJ31
+
+Original Name: Laura Biro
+Possible Dupe: Laura Bíró (score: 100.0)
+  Events:
+    - EJJ 39
+    - EJJ 43
+
+============================================================
+Name: Lisa DePass
+  Events:
+    - CAN2023 Prelims
+    - can20230610
+    - can20240120
+    - can20241005
+
+Original Name: Lisa DePass
+Possible Dupe: Lisa Depass (score: 100.0)
+  Events:
+    - W23IndB
+    - W23IndS1
+
+============================================================
+Name: Lisbeth Hernandez
+  Events:
+    - EJJ11
+    - EJJ5
+    - EJJ7
+    - EJJ8
+    - EJJ9
+
+Original Name: Lisbeth Hernandez
+Possible Dupe: Lisbeth Hernández (score: 100.0)
+  Events:
+    - EJJ1
+    - EJJ10
+    - EJJ2
+
+============================================================
+Name: Liva Rudzite-Micule
+  Events:
+    - EJJ4
+
+Original Name: Liva Rudzite-Micule
+Possible Dupe: Līva Rudzīte-Mičule (score: 100.0)
+  Events:
+    - W24 Ind C
+
+============================================================
+Name: Madara Be Puzzling
+  Events:
+    - EJJ10
+    - EJJ5
+
+Original Name: Madara Be Puzzling
+Possible Dupe: Madara be puzzling (score: 100.0)
+  Events:
+    - EJJ 21
+
+============================================================
+Name: MadaraBePuzzling
+  Events:
+    - EJJ 27
+    - EJJ 29
+    - EJJ 30
+    - EJJ 35
+    - EJJ 40
+    - EJJ 44
+    - EJJ 48
+    - EJJ11
+    - EJJ12
+    - EJJ15
+    - EJJ4
+
+Original Name: MadaraBePuzzling
+Possible Dupe: Madarabepuzzling (score: 100.0)
+  Events:
+    - EJJ 19
+    - EJJ 34
+    - EJJ 37
+    - EJJ 39
+    - EJJ14
+    - EJJ33
+
+============================================================
+Name: Magda Mazur-Pason
+  Events:
+    - EJJ17
+
+Original Name: Magda Mazur-Pason
+Possible Dupe: Magda Mazur-Pasoń (score: 100.0)
+  Events:
+    - EJJ 19
+    - EJJ 34
+    - EJJ 35
+    - EJJ14
+    - EJJ15
+    - EJJ16
+
+============================================================
+Name: Maja Von Borstel
+  Events:
+    - Ger2025 Ind A
+    - Germany 2025 Ind Finals
+    - W24 Ind E
+    - W24 Ind Finals
+    - W24 Ind Semi B
+
+Original Name: Maja Von Borstel
+Possible Dupe: Maja von Borstel (score: 100.0)
+  Events:
+    - EJJ 46
+
+============================================================
+Name: Maria Begoña Herrero Pereda
+  Events:
+    - ae220
+    - ae320
+
+Original Name: Maria Begoña Herrero Pereda
+Possible Dupe: María Begoña Herrero Pereda (score: 100.0)
+  Events:
+    - W23IndC
+
+============================================================
+Name: Maria Jesús Penya López
+  Events:
+    - W24 Ind B
+
+Original Name: Maria Jesús Penya López
+Possible Dupe: María Jesús Penya López (score: 100.0)
+  Events:
+    - ae254
+    - ae277
+    - ae290
+
+============================================================
+Name: Maria Orenes Barcelo
+  Events:
+    - W19Ind
+
+Original Name: Maria Orenes Barcelo
+Possible Dupe: María Orenes Barceló (score: 100.0)
+  Events:
+    - ae252
+    - ae258
+
+============================================================
+Name: Maria Rusnakova
+  Events:
+    - EJJ 19
+    - EJJ 21
+    - EJJ 24
+    - EJJ 25
+    - EJJ 29
+    - EJJ 35
+    - EJJ 37
+    - EJJ 39
+    - EJJ 43
+    - EJJ 49
+    - EJJ10
+    - EJJ14
+    - EJJ16
+    - EJJ17
+    - EJJ31
+    - EJJ9
+
+Original Name: Maria Rusnakova
+Possible Dupe: Mária Rusnakova (score: 100.0)
+  Events:
+    - EJJ 46
+
+Original Name: Maria Rusnakova
+Possible Dupe: Mária Rusňáková (score: 100.0)
+  Events:
+    - EJJ 27
+    - EJJ1
+    - EJJ12
+    - EJJ2
+    - EJJ4
+    - W24 Ind B
+    - W24 Ind Semi A
+
+============================================================
+Name: Mariana Mendes
+  Events:
+    - EJJ12
+    - EJJ14
+    - EJJ15
+    - EJJ16
+    - EJJ2
+    - EJJ4
+    - EJJ5
+    - W22IndA
+    - W22IndFinal
+    - W23IndC
+    - W23IndFinal
+    - W23IndS1
+    - W24 Ind C
+    - W24 Ind Finals
+    - W24 Ind Semi A
+    - po2024Ind
+
+Original Name: Mariana Mendes
+Possible Dupe: Maríana Mendes (score: 100.0)
+  Events:
+    - sp2024Ind
+
+============================================================
+Name: Marie Laurence Sauve
+  Events:
+    - can20241005
+    - can20241026
+    - can20250208
+
+Original Name: Marie Laurence Sauve
+Possible Dupe: Marie Laurence Sauvé (score: 100.0)
+  Events:
+    - Canada E Regionals 2024
+    - can20240914
+
+============================================================
+Name: Marie-Eve Leger
+  Events:
+    - can20241207
+
+Original Name: Marie-Eve Leger
+Possible Dupe: Marie-Eve léger (score: 100.0)
+  Events:
+    - can20250208
+    - can20250222
+
+============================================================
+Name: Martina Adam
+  Events:
+    - Germany 2024 Ind
+
+Original Name: Martina Adam
+Possible Dupe: Martína Adam (score: 100.0)
+  Events:
+    - Ger2025 Ind C
+
+============================================================
+Name: MaryAnne Iding
+  Events:
+    - CAN2023 Finals
+    - CAN20230129
+    - can20231202
+    - can20240323
+
+Original Name: MaryAnne Iding
+Possible Dupe: Maryanne Iding (score: 100.0)
+  Events:
+    - CAN2024 Ind B
+
+============================================================
+Name: Merilin Jegers
+  Events:
+    - EJJ 20
+    - EJJ 40
+    - EJJ16
+    - EJJ33
+    - EJJ9
+    - W24 Ind D
+    - W24 Ind Semi B
+
+Original Name: Merilin Jegers
+Possible Dupe: Merilin jegers (score: 100.0)
+  Events:
+    - EJJ 42
+
+============================================================
+Name: Miguel Moratiel De la Varga
+  Events:
+    - ae254
+    - ae277
+    - ae290
+    - ae308
+    - ae318
+    - sp2024Ind
+
+Original Name: Miguel Moratiel De la Varga
+Possible Dupe: Miguel Moratiel de la Varga (score: 100.0)
+  Events:
+    - W24 Ind E
+    - W24 Ind Semi B
+
+============================================================
+Name: Miriam Carro Hernando
+  Events:
+    - W23IndB
+    - W23IndS1
+    - W24 Ind C
+
+Original Name: Miriam Carro Hernando
+Possible Dupe: Miriam Carro Hernándo (score: 100.0)
+  Events:
+    - ae220
+    - ae259
+    - ae306
+    - ae320
+
+============================================================
+Name: Monika Snajdarkova
+  Events:
+    - CAN2024 Ind B
+    - CAN2024 Ind Final
+
+Original Name: Monika Snajdarkova
+Possible Dupe: Monika Šnajdárková (score: 100.0)
+  Events:
+    - can20231203
+    - can20240727
+
+============================================================
+Name: Mª Angeles Pérez Ramírez
+  Events:
+    - W19Ind
+
+Original Name: Mª Angeles Pérez Ramírez
+Possible Dupe: Mª Ángeles Pérez Ramírez (score: 100.0)
+  Events:
+    - ae220
+
+============================================================
+Name: Paula Morales Barron
+  Events:
+    - W22IndB
+    - W22IndFinal
+
+Original Name: Paula Morales Barron
+Possible Dupe: Paula Morales Barrón (score: 100.0)
+  Events:
+    - W23IndF
+    - W23IndFinal
+    - W23IndS2
+    - ae220
+    - ae235
+    - ae282
+    - ae304
+    - sp2024Ind
+
+============================================================
+Name: Ramón Turpin Sevilla
+  Events:
+    - W22IndB
+    - W23IndF
+    - W24 Ind A
+
+Original Name: Ramón Turpin Sevilla
+Possible Dupe: Ramón Turpín Sevilla (score: 100.0)
+  Events:
+    - ae254
+    - ae264
+    - ae308
+    - sp2024Ind
+
+============================================================
+Name: Raquel Plensa Puigbò
+  Events:
+    - W23IndE
+    - W23IndS2
+
+Original Name: Raquel Plensa Puigbò
+Possible Dupe: Raquel Plensa Puigbó (score: 100.0)
+  Events:
+    - ae218
+    - sp2024Ind
+
+============================================================
+Name: Rosa Ana Segui Ortín
+  Events:
+    - ae215
+    - ae218
+    - ae252
+    - ae254
+    - ae258
+    - ae277
+    - ae290
+    - ae308
+    - sp2024Ind
+
+Original Name: Rosa Ana Segui Ortín
+Possible Dupe: Rosa Ana Seguí Ortín (score: 100.0)
+  Events:
+    - W22IndA
+
+============================================================
+Name: Rushing III Smith
+  Events:
+    - sp214s
+    - sp256
+    - sp263
+    - sp264
+
+Original Name: Rushing III Smith
+Possible Dupe: Rushing Smith III (score: 100.0)
+  Events:
+    - sp239
+
+============================================================
+Name: Ruud De Bruijn
+  Events:
+    - W24 Ind F
+
+Original Name: Ruud De Bruijn
+Possible Dupe: Ruud de Bruijn (score: 100.0)
+  Events:
+    - EJJ 21
+
+============================================================
+Name: Sarah Feeney-Martin
+  Events:
+    - CAN2023 Prelims
+
+Original Name: Sarah Feeney-Martin
+Possible Dupe: Sarah Feeney-Martín (score: 100.0)
+  Events:
+    - CAN2024 Ind A
+
+============================================================
+Name: Silvia Oliveira
+  Events:
+    - po2024Ind
+
+Original Name: Silvia Oliveira
+Possible Dupe: Sílvia Oliveira (score: 100.0)
+  Events:
+    - ae326
+
+============================================================
+Name: Siobhan Quinn
+  Events:
+    - EJJ 26
+    - EJJ17
+
+Original Name: Siobhan Quinn
+Possible Dupe: Siobhán Quinn (score: 100.0)
+  Events:
+    - EJJ 19
+    - EJJ 21
+    - EJJ 25
+    - EJJ 37
+    - EJJ 40
+    - EJJ 42
+    - EJJ10
+    - EJJ11
+    - EJJ12
+    - EJJ14
+    - EJJ15
+    - EJJ16
+    - EJJ33
+    - EJJ7
+    - EJJ8
+    - W23IndC
+    - W23IndFinal
+    - W23IndS1
+    - W24 Ind B
+
+============================================================
+Name: Sonia Sanz De Fuentes
+  Events:
+    - ae214
+    - ae220
+    - ae254
+    - ae256
+    - ae264
+    - ae320
+    - sp2024Ind
+
+Original Name: Sonia Sanz De Fuentes
+Possible Dupe: Sonia Sanz de Fuentes (score: 100.0)
+  Events:
+    - W22IndA
+    - W23IndD
+    - W24 Ind B
+    - po2024Ind
+
+============================================================
+Name: Sophie12
+  Events:
+    - EJJ 21
+
+Original Name: Sophie12
+Possible Dupe: sophie12 (score: 100.0)
+  Events:
+    - EJJ7
+
+============================================================
+Name: Tania Lendinez De la Llave
+  Events:
+    - ae220
+    - ae259
+    - sp2024Ind
+
+Original Name: Tania Lendinez De la Llave
+Possible Dupe: Tania Lendinez de la Llave (score: 100.0)
+  Events:
+    - W19Ind
+
+============================================================
+Name: Ted DesMaisons
+  Events:
+    - CA2023 Solo
+    - ca2024
+
+Original Name: Ted DesMaisons
+Possible Dupe: Ted Desmaisons (score: 100.0)
+  Events:
+    - US24IndA
+
+============================================================
+Name: Tormod KÅrstad
+  Events:
+    - W19Ind
+    - W22IndA
+    - W22IndFinal
+
+Original Name: Tormod KÅrstad
+Possible Dupe: Tormod Kårstad (score: 100.0)
+  Events:
+    - no2024Ind
+
+============================================================
+Name: Virginia Hernando Pascual
+  Events:
+    - W23IndA
+    - W23IndS1
+    - W24 Ind A
+
+Original Name: Virginia Hernando Pascual
+Possible Dupe: Virginia Hernándo Pascual (score: 100.0)
+  Events:
+    - ae214
+    - ae220
+    - ae259
+    - ae306
+    - ae320
+
+============================================================
+Name: Zonia Emilce Escobar Rios
+  Events:
+    - ae220
+    - ae256
+    - ae290
+    - sp2024Ind
+
+Original Name: Zonia Emilce Escobar Rios
+Possible Dupe: Zonia Emilce Escobar Ríos (score: 100.0)
+  Events:
+    - W19Ind
+    - W23IndD
+    - W23IndS2
+
+============================================================
+Name: Žanna Brokane
+  Events:
+    - W23IndA
+    - W23IndS1
+    - W24 Ind A
+
+Original Name: Žanna Brokane
+Possible Dupe: Žanna Brokāne (score: 100.0)
+  Events:
+    - EJJ 19
+    - EJJ 20
+    - EJJ 24
+    - EJJ 26
+    - EJJ12
+    - EJJ14
+    - EJJ15
+
+
+==== OTHER POTENTIAL DUPLICATES ====
+============================================================
+============================================================
+============================================================
+============================================================
+============================================================
+============================================================
+============================================================
+============================================================
+============================================================
+============================================================
+============================================================
+============================================================
+============================================================
+============================================================
+============================================================
+============================================================
+============================================================
+============================================================
+============================================================
+============================================================
+============================================================
+============================================================
+============================================================
+============================================================
+============================================================
+============================================================
+============================================================
+============================================================
+============================================================
+============================================================
+============================================================
+============================================================
+
+
+============================================================
+Name: Ana C. Siverio Pares
+  Events:
+    - ae220
+    - sp2024Ind
+
+Original Name: Ana C. Siverio Pares
+Possible Dupe: Ana L. Siverio Pares (score: 95.0)
+  Events:
+    - ae220
+    - sp2024Ind
+
+Original Name: Ana C. Siverio Pares
+Possible Dupe: Ana L. Siverio Parés (score: 95.0)
+  Events:
+    - W22IndC
+    - W22IndFinal
+    - W23IndC
+    - W23IndS1
+    - W24 Ind D
+
+============================================================
+Name: Magda Mazur-Pason
+  Events:
+    - EJJ17
+
+Original Name: Magda Mazur-Pason
+Possible Dupe: Magdalena Mazur-Pasoń (score: 89.47368421052632)
+  Events:
+    - W24 Ind D
+    - W24 Ind Semi B
+    - den2024IndB
+    - den2024IndFinal
+
+============================================================
+Name: Rushing III Smith
+  Events:
+    - sp214s
+    - sp256
+    - sp263
+    - sp264
+
+Original Name: Rushing III Smith
+Possible Dupe: Rushing Smith (score: 86.66666666666667)
+  Events:
+    - sp277
+    - sp278
+    - sp291
+    - sp292
+    - tx2025
+
+============================================================
+Name: Daniela De Oliveira Dinato
+  Events:
+    - Brazil 2024 Ind
+    - Colombia 2025 Ind
+    - W23IndD
+    - W23IndFinal
+    - W23IndS2
+
+Original Name: Daniela De Oliveira Dinato
+Possible Dupe: Daniela De Olivera Dinato (score: 98.0392156862745)
+  Events:
+    - W19Ind
+    - W22IndA
+    - W22IndFinal
+
+============================================================
+Name: Federico Carcelén Mañas
+  Events:
+    - ae220
+    - ae252
+    - ae258
+    - ae277
+    - ae297
+    - ae308
+    - ae318
+    - sp2024Ind
+
+Original Name: Federico Carcelén Mañas
+Possible Dupe: Federico Carecelén Mañas (score: 97.87234042553192)
+  Events:
+    - W19Ind
+
+============================================================
+Name: Judit Moreno Vallès
+  Events:
+    - W24 Ind E
+    - W24 Ind Semi B
+
+Original Name: Judit Moreno Vallès
+Possible Dupe: Judith Moreno Vallès (score: 97.43589743589743)
+  Events:
+    - sp2024Ind
+
+============================================================
+Name: Gema Conesa García
+  Events:
+    - ae254
+    - ae277
+    - ae290
+    - ae308
+    - ae318
+    - sp2024Ind
+
+Original Name: Gema Conesa García
+Possible Dupe: Gemma Conesa García (score: 97.2972972972973)
+  Events:
+    - W24 Ind C
+
+============================================================
+Name: Rachael Schachtler
+  Events:
+    - ca2024
+    - tx2024Ind
+
+Original Name: Rachael Schachtler
+Possible Dupe: Rachel Schachtler (score: 97.14285714285714)
+  Events:
+    - US24IndC
+
+============================================================
+Name: Sabrina Hutchinson
+  Events:
+    - CAN2024 Ind B
+    - CAN2024 Ind Final
+
+Original Name: Sabrina Hutchinson
+Possible Dupe: Sabrina Hutchison (score: 97.14285714285714)
+  Events:
+    - CAN2023 Prelims
+
+============================================================
+Name: Christina Battick
+  Events:
+    - CAN2024 Ind B
+
+Original Name: Christina Battick
+Possible Dupe: Cristina Battick (score: 96.96969696969697)
+  Events:
+    - can20231203
+
+============================================================
+Name: Stephanie Vargas
+  Events:
+    - US24IndC
+    - USJPA PC Jan 2025
+    - nwr2024s
+    - sp131
+    - sp158
+    - sp167b
+    - sp176
+    - sp184
+    - sp205s
+    - sp239
+    - sp264
+    - sp278
+
+Original Name: Stephanie Vargas
+Possible Dupe: Stephanie Vargas, (score: 96.96969696969697)
+  Events:
+    - sp256
+
+============================================================
+Name: Teija Taavettila
+  Events:
+    - EJJ 26
+    - EJJ 34
+    - EJJ 40
+    - EJJ 42
+    - EJJ 43
+    - EJJ 48
+    - EJJ 50
+    - EJJ1
+    - EJJ10
+    - EJJ11
+    - EJJ12
+    - EJJ15
+    - EJJ16
+    - EJJ2
+    - EJJ31
+    - EJJ4
+    - EJJ5
+    - W23IndE
+    - W23IndS2
+    - W24 Ind C
+    - W24 Ind Semi A
+    - fin2024Ind
+
+Original Name: Teija Taavettila
+Possible Dupe: Teija Taavettilla (score: 96.96969696969697)
+  Events:
+    - EJJ17
+
+============================================================
+Name: Lindsay Zetzche
+  Events:
+    - mn2024
+
+Original Name: Lindsay Zetzche
+Possible Dupe: Lindsay Zetzsche (score: 96.7741935483871)
+  Events:
+    - Carnival 2025
+    - sp162
+    - sp175
+    - sp183r
+    - sp188
+    - sp199
+    - sp204
+    - sp227
+    - sp238
+    - sp271
+
+============================================================
+Name: Melisa McCarthy
+  Events:
+    - Australia 2024 Ind
+
+Original Name: Melisa McCarthy
+Possible Dupe: Melissa McCarthy (score: 96.7741935483871)
+  Events:
+    - CAN2023 Finals
+    - CAN20230415
+    - can20231203
+    - can20240120
+    - ma2024Ind
+    - sp255
+    - sp256
+    - sp263
+    - sp264
+    - sp271
+    - sp277
+    - sp278
+    - sp291
+    - sp292
+
+============================================================
+Name: William Mauricio García Barrena
+  Events:
+    - col2024ind
+
+Original Name: William Mauricio García Barrena
+Possible Dupe: William Mauricio García Barrera (score: 96.7741935483871)
+  Events:
+    - Colombia 2025 Ind
+
+============================================================
+Name: Hana Rokůsková
+  Events:
+    - EJJ 20
+    - EJJ 27
+
+Original Name: Hana Rokůsková
+Possible Dupe: Hanka Rokůsková (score: 96.55172413793103)
+  Events:
+    - EJJ 34
+
+============================================================
+Name: Horst Rudisile
+  Events:
+    - Germany 2024 Ind
+
+Original Name: Horst Rudisile
+Possible Dupe: Horst Rundisile (score: 96.55172413793103)
+  Events:
+    - Ger2025 Ind B
+
+============================================================
+Name: Jessica Walters
+  Events:
+    - sp158
+    - sp184
+    - sp97
+
+Original Name: Jessica Walters
+Possible Dupe: Jessica Waters (score: 96.55172413793103)
+  Events:
+    - tx2024Ind
+
+============================================================
+Name: Jona Schuerings
+  Events:
+    - W24 Ind B
+
+Original Name: Jona Schuerings
+Possible Dupe: Jona Schürings (score: 96.55172413793103)
+  Events:
+    - Ger2025 Ind C
+
+============================================================
+Name: Kim Hirschfield
+  Events:
+    - sp167a
+    - sp175
+    - sp183g
+    - sp188
+
+Original Name: Kim Hirschfield
+Possible Dupe: Kim Hirshfield (score: 96.55172413793103)
+  Events:
+    - nj2024
+    - nj2025
+    - sp199
+    - sp218s
+    - sp243s
+    - sp255
+    - sp263
+    - sp268
+    - sp277
+    - sp282
+
+============================================================
+Name: Anna Karlsson
+  Events:
+    - sw2024IndB
+
+Original Name: Anna Karlsson
+Possible Dupe: Hanna Karlsson (score: 96.2962962962963)
+  Events:
+    - W24 Ind C
+    - W24 Ind Semi A
+    - sp93
+    - sw2024IndB
+    - sw2024IndFinal
+
+============================================================
+Name: Maryann Pecar
+  Events:
+    - can20250208
+
+Original Name: Maryann Pecar
+Possible Dupe: Maryanne Pecar (score: 96.2962962962963)
+  Events:
+    - CAN2024 Ind A
+
+============================================================
+Name: Owen Wartella
+  Events:
+    - US24IndA
+    - W23IndF
+    - W23IndS2
+    - ma2024Ind
+    - sp158
+    - sp205s
+    - sp214s
+    - sp264
+
+Original Name: Owen Wartella
+Possible Dupe: Owen Wartella, (score: 96.2962962962963)
+  Events:
+    - sp256
+
+============================================================
+Name: Alisa Mueller
+  Events:
+    - W24 Ind F
+    - W24 Ind Semi B
+
+Original Name: Alisa Mueller
+Possible Dupe: Alisa Müller (score: 96.0)
+  Events:
+    - Ger2025 Ind B
+
+============================================================
+Name: Angela Hall
+  Events:
+    - il2024
+
+Original Name: Angela Hall
+Possible Dupe: Angella Hall (score: 95.65217391304348)
+  Events:
+    - sp167a
+    - sp175
+    - sp188
+
+============================================================
+Name: Jessica Chau
+  Events:
+    - PJMIndFinal
+    - nwr2024s
+
+Original Name: Jessica Chau
+Possible Dupe: Jessica Chu (score: 95.65217391304348)
+  Events:
+    - CAN2023 Prelims
+
+============================================================
+Name: Pete Thomas
+  Events:
+    - sp175
+
+Original Name: Pete Thomas
+Possible Dupe: Peter Thomas (score: 95.65217391304348)
+  Events:
+    - W23IndF
+    - W24 Ind E
+
+============================================================
+Name: Ann-Louise Esbjörnsson
+  Events:
+    - EJJ 49
+    - sw2024IndA
+
+Original Name: Ann-Louise Esbjörnsson
+Possible Dupe: Ann-Lovise Esbjörnsson (score: 95.45454545454545)
+  Events:
+    - Sweden Backayrd
+
+============================================================
+Name: Heather Haynes-O'Brien
+  Events:
+    - CA2023 Solo
+    - az2024
+    - nwr2024s
+
+Original Name: Heather Haynes-O'Brien
+Possible Dupe: Heather Haynes-O’Brien (score: 95.45454545454545)
+  Events:
+    - US22Ind
+    - US24IndC
+
+============================================================
+Name: Johanna Mª Van Deenen
+  Events:
+    - ae252
+
+Original Name: Johanna Mª Van Deenen
+Possible Dupe: Johanna Mª Van Deenen . (score: 95.45454545454545)
+  Events:
+    - ae254
+
+============================================================
+Name: Beth Luebb
+  Events:
+    - USAJPA PC Jan 2024
+
+Original Name: Beth Luebb
+Possible Dupe: Beth Luebbe (score: 95.23809523809523)
+  Events:
+    - oh2024Ind
+    - sp176
+
+============================================================
+Name: Jane Drury
+  Events:
+    - EJJ 42
+    - EJJ12
+    - W24 Ind F
+    - W24 Ind Semi B
+
+Original Name: Jane Drury
+Possible Dupe: Janey Drury (score: 95.23809523809523)
+  Events:
+    - EJJ 27
+    - EJJ 29
+    - EJJ 34
+    - EJJ 35
+    - EJJ 39
+    - EJJ15
+    - EJJ16
+    - EJJ31
+
+============================================================
+Name: Tami O'Hara
+  Events:
+    - co2024s
+
+Original Name: Tami O'Hara
+Possible Dupe: Tami OHara (score: 95.23809523809523)
+  Events:
+    - Carnival 2025
+
+============================================================
+Name: Iiris Holm
+  Events:
+    - W24 Ind D
+    - W24 Ind Semi B
+    - fin2024Ind
+
+Original Name: Iiris Holm
+Possible Dupe: Iris Holm (score: 94.73684210526316)
+  Events:
+    - EJJ 34
+
+============================================================
+Name: Jessica J
+  Events:
+    - EJJ33
+
+Original Name: Jessica J
+Possible Dupe: Jessica J. (score: 94.73684210526316)
+  Events:
+    - EJJ 30
+    - EJJ 37
+
+============================================================
+Name: Annika Gustafsson
+  Events:
+    - sw2024IndA
+
+Original Name: Annika Gustafsson
+Possible Dupe: Annika Gustavsson (score: 94.11764705882352)
+  Events:
+    - Sweden Backayrd
+
+============================================================
+Name: Erik (the not so speedy)
+  Events:
+    - EJJ 37
+
+Original Name: Erik (the not so speedy)
+Possible Dupe: Erik (the not so speedy...) (score: 94.11764705882352)
+  Events:
+    - EJJ 19
+    - EJJ 25
+    - EJJ 26
+    - EJJ 30
+    - EJJ12
+
+============================================================
+Name: Oliwia P
+  Events:
+    - EJJ 20
+    - EJJ11
+    - EJJ14
+    - EJJ15
+
+Original Name: Oliwia P
+Possible Dupe: Oliwia P. (score: 94.11764705882352)
+  Events:
+    - EJJ 19
+    - EJJ 21
+    - EJJ 37
+
+============================================================
+Name: Roxanne O'Doherty
+  Events:
+    - EJJ 29
+    - EJJ 30
+
+Original Name: Roxanne O'Doherty
+Possible Dupe: Roxanne O’Doherty (score: 94.11764705882352)
+  Events:
+    - W23IndD
+
+============================================================
+Name: Victoria Johansson
+  Events:
+    - sw2024IndA
+    - sw2024IndFinal
+
+Original Name: Victoria Johansson
+Possible Dupe: Victoria Johnson (score: 94.11764705882352)
+  Events:
+    - CAN2023 Prelims
+    - CAN2024 Ind A
+    - can20240323
+    - can20240413
+    - can20240601
+    - can20241005
+    - can20241026
+    - can20241123
+
+============================================================
+Name: Frida Johansson
+  Events:
+    - sw2024IndB
+
+Original Name: Frida Johansson
+Possible Dupe: Frida L Johansson (score: 93.75)
+  Events:
+    - sw2024IndB
+
+============================================================
+Name: Stephanie O'Dell
+  Events:
+    - CAN2023 Prelims
+    - CAN20230415
+    - Canada E Regionals 2024
+    - can20230610
+    - can20231001
+    - can20240120
+    - can20240413
+    - can20241207
+
+Original Name: Stephanie O'Dell
+Possible Dupe: Stephanie O’Dell (score: 93.75)
+  Events:
+    - CAN2024 Ind A
+    - CAN2024 Ind Final
+
+============================================================
+Name: Fruzsi Wilheim
+  Events:
+    - EJJ 26
+    - EJJ 35
+    - EJJ 39
+    - EJJ 42
+    - EJJ 44
+    - EJJ 46
+    - EJJ 50
+    - EJJ7
+    - EJJ8
+
+Original Name: Fruzsi Wilheim
+Possible Dupe: Fruzsina Wilheim (score: 93.33333333333333)
+  Events:
+    - EJJ 43
+    - Ger2025 Ind B
+    - Germany 2024 Ind
+    - Germany 2025 Ind Finals
+    - W24 Ind B
+    - W24 Ind Finals
+    - W24 Ind Semi A
+
+============================================================
+Name: Jimena Gordillo Uribe
+  Events:
+    - W19Ind
+    - W22IndC
+    - W22IndFinal
+    - W23IndC
+    - W23IndS1
+    - W24 Ind B
+    - W24 Ind Finals
+    - W24 Ind Semi A
+
+Original Name: Jimena Gordillo Uribe
+Possible Dupe: Mª Jimena Gordillo Uribe (score: 93.33333333333333)
+  Events:
+    - ae220
+    - ae277
+    - sp2024Ind
+
+============================================================
+Name: Karine Thalamy
+  Events:
+    - W23IndD
+    - W23IndS2
+    - W24 Ind F
+
+Original Name: Karine Thalamy
+Possible Dupe: Karine Thalamy . (score: 93.33333333333333)
+  Events:
+    - ae306
+    - ae320
+
+============================================================
+Name: Margaret O'Dell
+  Events:
+    - CAN2023 Prelims
+    - Canada E Regionals 2024
+    - can20230610
+    - can20240120
+    - can20240217
+    - can20240413
+    - can20240727
+    - can20241207
+
+Original Name: Margaret O'Dell
+Possible Dupe: Margaret O’Dell (score: 93.33333333333333)
+  Events:
+    - CAN2024 Ind B
+
+============================================================
+Name: Erik (not so speedy)
+  Events:
+    - EJJ5
+
+Original Name: Erik (not so speedy)
+Possible Dupe: Erik (not so speedy...) (score: 93.02325581395348)
+  Events:
+    - EJJ 34
+    - EJJ16
+
+============================================================
+Name: Jörn Schreiber
+  Events:
+    - Germany 2024 Ind
+
+Original Name: Jörn Schreiber
+Possible Dupe: Jörn Schrieber (score: 92.85714285714286)
+  Events:
+    - EJJ 40
+    - EJJ 46
+    - EJJ16
+    - Ger2025 Ind A
+    - Germany 2025 Ind Finals
+    - W23IndE
+    - W23IndFinal
+    - W23IndS2
+    - W24 Ind D
+    - W24 Ind Semi B
+
+============================================================
+Name: Karolina Bjers
+  Events:
+    - sw2024IndB
+
+Original Name: Karolina Bjers
+Possible Dupe: Karolina Byers (score: 92.85714285714286)
+  Events:
+    - Sweden Backayrd
+
+============================================================
+Name: Nirmita Shukla
+  Events:
+    - tx2025
+
+Original Name: Nirmita Shukla
+Possible Dupe: Nirmita Shulka (score: 92.85714285714286)
+  Events:
+    - tx2024Ind
+
+============================================================
+Name: Pasqual Hansen
+  Events:
+    - US22Ind
+    - US24IndC
+
+Original Name: Pasqual Hansen
+Possible Dupe: Pasquel Hansen (score: 92.85714285714286)
+  Events:
+    - UT2023 Solo
+    - sp131
+    - ut2024
+
+============================================================
+Name: Rebbeca Morley
+  Events:
+    - W19Ind
+
+Original Name: Rebbeca Morley
+Possible Dupe: Rebecca Morley (score: 92.85714285714286)
+  Events:
+    - CAN20230415
+
+============================================================
+Name: Amanda Widner
+  Events:
+    - ut2024
+
+Original Name: Amanda Widner
+Possible Dupe: Amanda Winter (score: 92.3076923076923)
+  Events:
+    - Australia 2024 Ind
+
+============================================================
+Name: Anna McDonald
+  Events:
+    - sp188
+
+Original Name: Anna McDonald
+Possible Dupe: Anne McDonald (score: 92.3076923076923)
+  Events:
+    - co2023solo
+    - co2024s
+
+============================================================
+Name: Aya El
+  Events:
+    - eg2024Ind
+
+Original Name: Aya El
+Possible Dupe: Ayat El (score: 92.3076923076923)
+  Events:
+    - eg2024Ind
+
+============================================================
+Name: Claire Thomas
+  Events:
+    - US24IndC
+    - US24IndFinal
+    - W24 Ind F
+    - co2023solo
+    - co2024s
+    - sp102s
+    - sp104
+    - sp112
+    - sp119
+    - sp120w
+    - sp271c
+    - sp93
+    - sp97
+
+Original Name: Claire Thomas
+Possible Dupe: Thomas Clarke (score: 92.3076923076923)
+  Events:
+    - il2024
+
+============================================================
+Name: Kath H
+  Events:
+    - EJJ 20
+    - EJJ 25
+    - EJJ 34
+    - EJJ31
+
+Original Name: Kath H
+Possible Dupe: Kath H. (score: 92.3076923076923)
+  Events:
+    - EJJ 48
+    - EJJ 50
+    - EJJ33
+
+============================================================
+Name: Sophia Figura
+  Events:
+    - mn2023 solo
+
+Original Name: Sophia Figura
+Possible Dupe: Sophie Figura (score: 92.3076923076923)
+  Events:
+    - sp123
+    - sp158
+
+============================================================
+Name: Tina Jansson
+  Events:
+    - sw2024IndB
+
+Original Name: Tina Jansson
+Possible Dupe: Tindra Jansson (score: 92.3076923076923)
+  Events:
+    - sw2024IndB
+
+============================================================
+Name: Kristin Rut Kristjansdottir
+  Events:
+    - Sweden Backayrd
+
+Original Name: Kristin Rut Kristjansdottir
+Possible Dupe: Kristín Kristjánsdóttir (score: 92.0)
+  Events:
+    - sw2024IndB
+
+============================================================
+Name: Astrid Abildgaard
+  Events:
+    - EJJ 20
+    - EJJ 21
+    - EJJ 25
+    - EJJ 35
+    - EJJ 37
+    - EJJ 42
+    - EJJ 43
+    - EJJ 49
+    - EJJ 50
+    - EJJ12
+    - EJJ14
+    - EJJ7
+
+Original Name: Astrid Abildgaard
+Possible Dupe: Astrid R. Abildgaard (score: 91.89189189189189)
+  Events:
+    - EJJ 19
+
+============================================================
+Name: Christine R. Thomsen
+  Events:
+    - EJJ 21
+    - EJJ 24
+    - EJJ4
+
+Original Name: Christine R. Thomsen
+Possible Dupe: Christine Thomsen (score: 91.89189189189189)
+  Events:
+    - EJJ 29
+    - EJJ 34
+    - EJJ 37
+    - EJJ17
+    - EJJ31
+
+Original Name: Christine R. Thomsen
+Possible Dupe: Christine Riber Thomsen (score: 88.37209302325581)
+  Events:
+    - den2024IndB
+
+============================================================
+Name: Luisa De Jesus Areia
+  Events:
+    - W24 Ind E
+
+Original Name: Luisa De Jesus Areia
+Possible Dupe: Luisa Jesus Areia (score: 91.89189189189189)
+  Events:
+    - W23IndE
+    - W23IndS2
+
+============================================================
+Name: Josh Nelson
+  Events:
+    - Carnival 2025
+    - mn2023 solo
+    - mn2024
+    - sp184
+    - sp205s
+
+Original Name: Josh Nelson
+Possible Dupe: Joshua Nelson (score: 91.66666666666666)
+  Events:
+    - US24IndC
+    - US24IndFinal
+    - W24 Ind D
+
+============================================================
+Name: Melissa Wen
+  Events:
+    - ny2024
+
+Original Name: Melissa Wen
+Possible Dupe: Melissa Wendt (score: 91.66666666666666)
+  Events:
+    - sp183r
+
+============================================================
+Name: Maria Dolors Torra Torreguitart
+  Events:
+    - W19Ind
+    - W24 Ind F
+    - W24 Ind Semi B
+
+Original Name: Maria Dolors Torra Torreguitart
+Possible Dupe: Mª Dolors Torra Torreguitart (score: 91.52542372881356)
+  Events:
+    - ae220
+    - sp2024Ind
+
+============================================================
+Name: María Carmen Perosanz Gutiérrez
+  Events:
+    - W19Ind
+    - W22IndC
+    - W22IndFinal
+    - W23IndF
+    - W23IndS2
+
+Original Name: María Carmen Perosanz Gutiérrez
+Possible Dupe: Mª Carmen Perosanz Gutiérrez (score: 91.52542372881356)
+  Events:
+    - ae220
+    - ae257
+    - ae259
+    - ae282
+    - ae302
+    - ae320
+    - sp2024Ind
+
+============================================================
+Name: Anastasia Alekseeva
+  Events:
+    - UT2023 Solo
+    - sp157
+
+Original Name: Anastasia Alekseeva
+Possible Dupe: Nastia Alekseeva (score: 91.42857142857143)
+  Events:
+    - sp159s
+    - sp167a
+    - sp175
+    - sp183r
+    - sp188
+    - sp199
+    - sp200
+    - sp204
+    - sp205s
+    - sp214s
+    - sp218s
+    - sp227
+    - sp229
+    - sp238
+    - sp255
+    - sp256
+    - sp257
+    - sp263
+    - sp263c
+    - sp264
+    - sp268
+    - sp271
+    - sp271c
+    - sp275
+    - sp277
+    - sp282
+    - sp289
+    - sp291
+    - sp292
+    - ut2024
+
+============================================================
+Name: Dani Delaurentis
+  Events:
+    - sp255
+    - sp263
+    - sp271
+
+Original Name: Dani Delaurentis
+Possible Dupe: Daniela Delaurentis (score: 91.42857142857143)
+  Events:
+    - sp278
+    - sp292
+
+============================================================
+Name: Andrea Nixon
+  Events:
+    - sp238
+
+Original Name: Andrea Nixon
+Possible Dupe: Drea Nixon (score: 90.9090909090909)
+  Events:
+    - sp131
+    - sp138
+    - sp146
+
+============================================================
+Name: Ellie Richardson
+  Events:
+    - W23IndC
+    - W23IndS1
+    - W24 Ind A
+
+Original Name: Ellie Richardson
+Possible Dupe: Leslie Richardson (score: 90.9090909090909)
+  Events:
+    - Carnival 2025
+    - W24 Ind B
+    - nwr2024s
+    - sp227
+    - sp255
+    - sp257
+    - sp264
+    - sp271
+    - sp277
+    - sp291
+    - sp292
+
+============================================================
+Name: Erin Slaten
+  Events:
+    - Duluth 2024
+
+Original Name: Erin Slaten
+Possible Dupe: Erin Slaton (score: 90.9090909090909)
+  Events:
+    - Carnival 2025
+
+============================================================
+Name: Rebecca Lai
+  Events:
+    - EJJ 29
+    - W24 Ind B
+
+Original Name: Rebecca Lai
+Possible Dupe: Rebecca Lam (score: 90.9090909090909)
+  Events:
+    - can20240601
+
+============================================================
+Name: Sarka Dafihelkova
+  Events:
+    - EJJ17
+
+Original Name: Sarka Dafihelkova
+Possible Dupe: Šárka Daňhelková (score: 90.9090909090909)
+  Events:
+    - EJJ 20
+    - EJJ 25
+    - EJJ 27
+    - EJJ 39
+    - EJJ 43
+    - EJJ 46
+    - EJJ 48
+    - EJJ 49
+    - EJJ 50
+    - EJJ12
+    - EJJ15
+    - EJJ31
+
+============================================================
+Name: Fernando Gómez Martín
+  Events:
+    - ae318
+
+Original Name: Fernando Gómez Martín
+Possible Dupe: Fernando Martín López (score: 90.47619047619048)
+  Events:
+    - ae220
+    - ae258
+    - ae264
+    - sp2024Ind
+
+============================================================
+Name: Laura Fernández Pérez
+  Events:
+    - sp2024Ind
+
+Original Name: Laura Fernández Pérez
+Possible Dupe: María Pérez Fernández (score: 90.47619047619048)
+  Events:
+    - W19Ind
+    - ae220
+    - ae320
+
+============================================================
+Name: Helle Kartveit
+  Events:
+    - W23IndB
+    - W23IndS1
+    - W24 Ind B
+    - no2024Ind
+
+Original Name: Helle Kartveit
+Possible Dupe: Helle L. Kartveit (score: 90.32258064516128)
+  Events:
+    - EJJ 48
+
+============================================================
+Name: Lisa Henderson
+  Events:
+    - tx2025
+
+Original Name: Lisa Henderson
+Possible Dupe: Melissa Henderson (score: 90.32258064516128)
+  Events:
+    - sp199
+
+============================================================
+Name: Phil Ehresmann
+  Events:
+    - mn2023 solo
+    - mn2024
+
+Original Name: Phil Ehresmann
+Possible Dupe: Phillip Ehresmann (score: 90.32258064516128)
+  Events:
+    - Carnival 2025
+    - sp176
+
+============================================================
+Name: Chris Boissonnault
+  Events:
+    - sp101
+    - sp104
+    - sp112
+    - sp119
+    - sp123
+    - sp130
+    - sp138
+    - sp146
+    - sp151s
+    - sp157
+    - sp159s
+    - sp162
+    - sp282
+    - sp93
+    - sp97
+
+Original Name: Chris Boissonnault
+Possible Dupe: Christina Boissonnault (score: 90.0)
+  Events:
+    - sp167a
+    - sp175
+    - sp183g
+    - sp199
+    - sp204
+    - sp255
+    - sp271
+
+============================================================
+Name: Mariam Adel
+  Events:
+    - EJJ 27
+    - EJJ 34
+    - EJJ 48
+    - EJJ11
+    - EJJ15
+    - EJJ17
+    - W24 Ind E
+    - W24 Ind Semi B
+    - sp204
+
+Original Name: Mariam Adel
+Possible Dupe: Mariam El (score: 90.0)
+  Events:
+    - eg2024Ind
+
+============================================================
+Name: Luis Eizaguirre Fernández-Palacios
+  Events:
+    - ae220
+    - ae320
+
+Original Name: Luis Eizaguirre Fernández-Palacios
+Possible Dupe: Rocío Eizaguirre Fernández-Palacios (score: 89.85507246376811)
+  Events:
+    - ae220
+    - ae320
+
+Original Name: Luis Eizaguirre Fernández-Palacios
+Possible Dupe: Teresa Eizaguirre Fernández-Palacios (score: 88.57142857142857)
+  Events:
+    - ae220
+
+============================================================
+Name: Elizabeth May
+  Events:
+    - US24IndC
+    - ca2024
+    - sp132
+
+Original Name: Elizabeth May
+Possible Dupe: Elizabeth Murray (score: 89.65517241379311)
+  Events:
+    - NER2024Solo
+
+============================================================
+Name: Heather Miller
+  Events:
+    - Carnival 2025
+
+Original Name: Heather Miller
+Possible Dupe: Heather Mueller (score: 89.65517241379311)
+  Events:
+    - Carnival 2025
+    - Duluth 2024
+    - Holiday Puzzle Derby 2024
+    - US24IndC
+    - US24IndFinal
+    - USAJPA PC Jan 2024
+    - W24 Ind F
+    - W24 Ind Semi B
+    - mn2023 solo
+    - mn2024
+    - sp101
+    - sp104
+    - sp112
+    - sp119
+    - sp123
+    - sp130
+    - sp138
+    - sp146
+    - sp157
+    - sp158
+    - sp162
+    - sp167a
+    - sp175
+    - sp176
+    - sp183g
+    - sp188
+    - sp199
+    - sp200
+    - sp204
+    - sp205s
+    - sp227
+    - sp238
+    - sp255
+    - sp263
+    - sp263c
+    - sp264
+    - sp271
+    - sp275
+    - sp278
+    - sp282
+    - sp289
+    - sp292
+    - sp93
+    - sp97
+
+============================================================
+Name: Jennifer Assmus
+  Events:
+    - W24 Ind A
+
+Original Name: Jennifer Assmus
+Possible Dupe: Jennifer Aßmus (score: 89.65517241379311)
+  Events:
+    - Ger2025 Ind B
+    - Germany 2025 Ind Finals
+
+============================================================
+Name: Nicole Kunkler
+  Events:
+    - US24IndB
+    - W24 Ind F
+
+Original Name: Nicole Kunkler
+Possible Dupe: Nicole Kunleler (score: 89.65517241379311)
+  Events:
+    - Carnival 2025
+
+============================================================
+Name: Stephanie Ogden
+  Events:
+    - sp268
+
+Original Name: Stephanie Ogden
+Possible Dupe: Stephanie Owen (score: 89.65517241379311)
+  Events:
+    - W22IndC
+    - W22IndFinal
+    - dc2024s
+    - ser2023 solo
+    - va2024
+
+============================================================
+Name: Tess McLachlin
+  Events:
+    - can20231111
+    - can20231202
+    - can20231203
+    - can20240120
+    - can20240323
+    - can20240727
+    - can20240928
+    - sp101
+    - sp102s
+    - sp112
+    - sp113s
+    - sp119
+    - sp120w
+    - sp123
+    - sp127s
+    - sp130
+    - sp135s
+    - sp138
+    - sp146
+    - sp151s
+    - sp157
+    - sp159s
+    - sp162
+    - sp167a
+    - sp175
+    - sp183g
+    - sp188
+    - sp199
+    - sp204
+    - sp238
+    - sp255
+    - sp263
+    - sp271
+
+Original Name: Tess McLachlin
+Possible Dupe: Tess McLaughlin (score: 89.65517241379311)
+  Events:
+    - Australia 2024 Ind
+
+============================================================
+Name: Tiff Williams
+  Events:
+    - az2024
+
+Original Name: Tiff Williams
+Possible Dupe: Tiffany Williams (score: 89.65517241379311)
+  Events:
+    - UT2023 Solo
+    - co2024s
+
+============================================================
+Name: Ana Guillén García
+  Events:
+    - ae326
+
+Original Name: Ana Guillén García
+Possible Dupe: Elena Guillén García (score: 89.47368421052632)
+  Events:
+    - ae326
+
+============================================================
+Name: María Isabel García Macho
+  Events:
+    - W19Ind
+    - W22IndC
+    - W22IndFinal
+    - W23IndE
+    - W23IndS2
+    - W24 Ind B
+
+Original Name: María Isabel García Macho
+Possible Dupe: Mª Isabel García Macho (score: 89.36170212765957)
+  Events:
+    - ae220
+
+============================================================
+Name: Elsa García Sánchez-Fuentes
+  Events:
+    - W19Ind
+    - sp2024Ind
+
+Original Name: Elsa García Sánchez-Fuentes
+Possible Dupe: Gaelle García Sánchez-Fuentes (score: 89.28571428571429)
+  Events:
+    - W19Ind
+    - W22IndB
+    - W22IndFinal
+    - W23IndE
+    - W23IndS2
+    - ae220
+    - sp2024Ind
+
+============================================================
+Name: Alex Hafford
+  Events:
+    - EJJ15
+
+Original Name: Alex Hafford
+Possible Dupe: Dr Alex Hafford (score: 88.88888888888889)
+  Events:
+    - EJJ17
+
+============================================================
+Name: Ashley Hillier
+  Events:
+    - CAN2023 Finals
+    - CAN2023 Prelims
+    - CAN20230415
+    - CAN2024 Ind A
+    - CAN2024 Ind Final
+    - can20231001
+
+Original Name: Ashley Hillier
+Possible Dupe: Ashley Willie (score: 88.88888888888889)
+  Events:
+    - ca2024
+
+============================================================
+Name: Catherine Kieu
+  Events:
+    - US24IndC
+    - nwr2024s
+
+Original Name: Catherine Kieu
+Possible Dupe: Catherine Kim (score: 88.88888888888889)
+  Events:
+    - US24IndC
+
+============================================================
+Name: Elena María Prieto Pérez
+  Events:
+    - ae214
+    - sp2024Ind
+
+Original Name: Elena María Prieto Pérez
+Possible Dupe: Elena Mª Prieto Pérez (score: 88.88888888888889)
+  Events:
+    - W24 Ind A
+
+Original Name: Elena María Prieto Pérez
+Possible Dupe: Elena Prieto Pérez (score: 85.71428571428572)
+  Events:
+    - W23IndA
+    - W23IndS1
+
+============================================================
+Name: Grayson Shannon
+  Events:
+    - NER2024Solo
+    - ma2024Ind
+
+Original Name: Grayson Shannon
+Possible Dupe: Shannon Gray (score: 88.88888888888889)
+  Events:
+    - PJMIndFinal
+
+============================================================
+Name: Jess Axelrad
+  Events:
+    - co2023solo
+
+Original Name: Jess Axelrad
+Possible Dupe: Jessica Axelrad (score: 88.88888888888889)
+  Events:
+    - co2024s
+
+============================================================
+Name: Julia Li
+  Events:
+    - sw2024IndB
+
+Original Name: Julia Li
+Possible Dupe: Julia Ling (score: 88.88888888888889)
+  Events:
+    - sw2024IndB
+
+============================================================
+Name: Katharine Greenfield
+  Events:
+    - Carnival 2025
+    - W24 Ind E
+
+Original Name: Katharine Greenfield
+Possible Dupe: Katie Greenfield (score: 88.88888888888889)
+  Events:
+    - US24IndC
+    - USJPA PC Jan 2025
+    - sp200
+    - sp205s
+    - sp214s
+    - sp229
+    - sp257
+    - sp278
+    - sp292
+    - wi2025
+
+============================================================
+Name: MyPuzzleRoom (Ieva)
+  Events:
+    - EJJ4
+
+Original Name: MyPuzzleRoom (Ieva)
+Possible Dupe: ieva/MyPuzzleRoom (score: 88.88888888888889)
+  Events:
+    - EJJ12
+
+============================================================
+Name: Nick McKinley
+  Events:
+    - oh2024Ind
+
+Original Name: Nick McKinley
+Possible Dupe: Vicky McKinley (score: 88.88888888888889)
+  Events:
+    - oh2024Ind
+
+============================================================
+Name: Olivia L.
+  Events:
+    - EJJ1
+
+Original Name: Olivia L.
+Possible Dupe: Olivia Li (score: 88.88888888888889)
+  Events:
+    - Carnival 2025
+
+============================================================
+Name: Sandra Cameron
+  Events:
+    - can20240120
+    - can20240217
+
+Original Name: Sandra Cameron
+Possible Dupe: Sarah Cameron (score: 88.88888888888889)
+  Events:
+    - Australia 2024 Ind
+
+============================================================
+Name: Steffi B.
+  Events:
+    - EJJ 19
+    - EJJ 25
+    - EJJ 42
+    - EJJ15
+    - EJJ16
+    - EJJ17
+
+Original Name: Steffi B.
+Possible Dupe: Steffi H. (score: 88.88888888888889)
+  Events:
+    - EJJ 19
+    - EJJ 20
+    - EJJ 21
+    - EJJ 24
+    - EJJ 30
+    - EJJ 34
+    - EJJ 35
+    - EJJ 39
+    - EJJ 42
+    - EJJ 49
+    - EJJ 50
+    - EJJ15
+    - EJJ17
+
+============================================================
+Name: Ana Isabel Martín Rodríguez
+  Events:
+    - sp2024Ind
+
+Original Name: Ana Isabel Martín Rodríguez
+Possible Dupe: Isabel Martínez Rodríguez (score: 88.46153846153845)
+  Events:
+    - W23IndB
+    - sp2024Ind
+
+============================================================
+Name: Elizabeth Forster
+  Events:
+    - Australia 2024 Ind
+
+Original Name: Elizabeth Forster
+Possible Dupe: Elizabeth Forsyth (score: 88.23529411764706)
+  Events:
+    - CA2023 Solo
+    - US24IndC
+    - ca2024
+    - sp120w
+    - sp131
+    - sp146
+    - sp158
+    - sp162
+    - sp167a
+    - sp175
+    - sp176
+    - sp183g
+    - sp184
+    - sp188
+    - sp199
+    - sp200
+    - sp204
+    - sp205s
+    - sp214s
+    - sp227
+    - sp238
+    - sp239
+    - sp255
+    - sp263
+    - sp263c
+    - sp271
+    - sp271c
+    - sp275
+    - sp277
+    - sp282
+    - sp289
+    - sp291
+
+============================================================
+Name: Jennifer Mediatta
+  Events:
+    - CAN2024 Ind A
+
+Original Name: Jennifer Mediatta
+Possible Dupe: Jennifer Mendieta (score: 88.23529411764706)
+  Events:
+    - sp183r
+    - sp188
+    - sp199
+    - sp204
+    - sp227
+    - sp238
+    - sp255
+    - sp263
+    - sp271
+    - sp275
+    - sp277
+    - sp291
+
+============================================================
+Name: Anna Sanders
+  Events:
+    - tx2024Ind
+
+Original Name: Anna Sanders
+Possible Dupe: Dana Saunders (score: 88.0)
+  Events:
+    - va2024
+
+============================================================
+Name: Ashley Ward
+  Events:
+    - md2025
+    - sp204
+    - sp238
+    - sp255
+    - sp263
+    - sp271
+    - sp277
+    - sp291
+
+Original Name: Ashley Ward
+Possible Dupe: Ashley Willard (score: 88.0)
+  Events:
+    - USAJPA PC Jan 2024
+    - USJPA PC Jan 2025
+    - dc2024s
+    - nc2024
+    - ser2023 solo
+    - ser2024s
+    - sp131
+    - sp138
+    - sp139 Mystery 4
+    - sp158
+    - sp159s
+    - sp176
+    - sp184
+    - sp200
+    - sp239
+    - sp256
+    - sp264
+    - sp277
+    - sp291
+    - sp292
+
+============================================================
+Name: Carol Meyer
+  Events:
+    - tx2024Ind
+    - tx2025
+
+Original Name: Carol Meyer
+Possible Dupe: Caroline Meyer (score: 88.0)
+  Events:
+    - tx2024Ind
+    - tx2025
+
+============================================================
+Name: Lara Johnson
+  Events:
+    - il2024
+
+Original Name: Lara Johnson
+Possible Dupe: Sara Johnsson (score: 88.0)
+  Events:
+    - sw2024IndA
+
+Original Name: Lara Johnson
+Possible Dupe: Laura Johns (score: 86.95652173913044)
+  Events:
+    - W23IndD
+    - W23IndS2
+    - W24 Ind E
+
+============================================================
+Name: Mat Murillo
+  Events:
+    - ser2023 solo
+
+Original Name: Mat Murillo
+Possible Dupe: Mathew Murillo (score: 88.0)
+  Events:
+    - US24IndB
+    - ser2024s
+
+============================================================
+Name: Sandra Foster
+  Events:
+    - CAN2024 Ind A
+    - W24 Ind A
+
+Original Name: Sandra Foster
+Possible Dupe: Sandy Foster (score: 88.0)
+  Events:
+    - CAN2023 Prelims
+    - Carnival 2025
+    - can20231111
+    - can20240120
+    - can20240323
+    - sp227
+
+============================================================
+Name: Victoria Lam
+  Events:
+    - nc2024
+    - sp263
+
+Original Name: Victoria Lam
+Possible Dupe: Victoria Pham (score: 88.0)
+  Events:
+    - US24IndC
+    - ca2024
+    - sp199
+    - sp200
+    - sp204
+    - sp205s
+    - sp206s
+    - sp214s
+    - sp218s
+    - sp227
+    - sp238
+    - sp255
+    - sp263
+    - sp271
+    - sp277
+
+Original Name: Victoria Lam
+Possible Dupe: Victoria Le (score: 86.95652173913044)
+  Events:
+    - sp268
+    - sp278
+    - sp282
+    - sp292
+
+============================================================
+Name: Alejandro Clemente
+  Events:
+    - EJJ 34
+
+Original Name: Alejandro Clemente
+Possible Dupe: Alejandro Clemente Leon (score: 87.8048780487805)
+  Events:
+    - EJJ 27
+
+Original Name: Alejandro Clemente
+Possible Dupe: Alejandro Clemente León (score: 87.8048780487805)
+  Events:
+    - EJJ10
+    - EJJ16
+    - EJJ17
+    - EJJ2
+    - EJJ5
+    - EJJ7
+    - W22IndB
+    - W22IndFinal
+    - W23IndD
+    - W23IndFinal
+    - W23IndS2
+    - W24 Ind F
+    - W24 Ind Finals
+    - W24 Ind Semi B
+    - ae220
+    - ae257
+    - ae258
+    - ae290
+    - sp2024Ind
+
+============================================================
+Name: Ana María Prada Losada
+  Events:
+    - W23IndE
+    - W24 Ind B
+
+Original Name: Ana María Prada Losada
+Possible Dupe: Ana Mª Prada Losada (score: 87.8048780487805)
+  Events:
+    - ae220
+    - ae222
+    - ae252
+    - ae256
+    - ae259
+    - ae264
+    - ae277
+    - ae290
+    - ae306
+    - sp2024Ind
+
+============================================================
+Name: Rosa María Blanco Díaz
+  Events:
+    - W22IndB
+    - W23IndA
+
+Original Name: Rosa María Blanco Díaz
+Possible Dupe: Rosa Mª Blanco Díaz (score: 87.8048780487805)
+  Events:
+    - ae220
+    - ae302
+    - ae320
+
+============================================================
+Name: Alexandra Pereira
+  Events:
+    - can20231111
+    - can20250222
+
+Original Name: Alexandra Pereira
+Possible Dupe: Alexandra Serra (score: 87.5)
+  Events:
+    - W23IndA
+
+Original Name: Alexandra Pereira
+Possible Dupe: Dulce Alexandra Pereira (score: 85.0)
+  Events:
+    - W22IndB
+    - W22IndFinal
+    - W23IndE
+    - W24 Ind D
+
+============================================================
+Name: Amy Chou
+  Events:
+    - nc2024
+
+Original Name: Amy Chou
+Possible Dupe: Amy Chow (score: 87.5)
+  Events:
+    - sp175
+    - sp188
+    - sp201s
+    - sp204
+    - sp227
+    - sp238
+    - sp255
+    - sp263
+    - sp271
+    - sp277
+    - sp282
+
+============================================================
+Name: Amy Zhan
+  Events:
+    - ut2024
+
+Original Name: Amy Zhan
+Possible Dupe: Amy Zhao (score: 87.5)
+  Events:
+    - can20240323
+    - can20240601
+    - can20250222
+
+============================================================
+Name: Anna Art
+  Events:
+    - EJJ 35
+    - EJJ 37
+    - EJJ 42
+    - EJJ 43
+    - EJJ 44
+    - EJJ 46
+    - EJJ 48
+    - EJJ 49
+    - EJJ 50
+
+Original Name: Anna Art
+Possible Dupe: Anna Rot (score: 87.5)
+  Events:
+    - Ger2025 Ind C
+
+============================================================
+Name: Claudia
+  Events:
+    - EJJ 19
+    - EJJ 20
+    - EJJ 24
+    - EJJ 25
+    - EJJ 27
+    - EJJ10
+    - EJJ11
+    - EJJ14
+    - EJJ15
+    - EJJ16
+    - EJJ17
+
+Original Name: Claudia
+Possible Dupe: Claudia W (score: 87.5)
+  Events:
+    - EJJ 26
+    - EJJ 29
+
+============================================================
+Name: Emma Pan
+  Events:
+    - NER2024Solo
+    - US22Ind
+    - US24IndC
+    - US24IndFinal
+    - W24 Ind B
+    - W24 Ind Finals
+    - W24 Ind Semi A
+    - dc2024s
+    - ma2024Ind
+    - sp132
+    - sp139 Mystery 3
+    - sp175
+    - sp176
+    - sp188
+    - sp199
+    - sp204
+    - sp238
+    - sp255
+    - sp263
+    - sp271
+    - sp292
+
+Original Name: Emma Pan
+Possible Dupe: Emma Wan (score: 87.5)
+  Events:
+    - sp271
+    - sp277
+
+============================================================
+Name: Kerstin
+  Events:
+    - EJJ 19
+    - EJJ 26
+
+Original Name: Kerstin
+Possible Dupe: Kerstin K (score: 87.5)
+  Events:
+    - EJJ 24
+    - EJJ 35
+    - EJJ 37
+    - EJJ31
+    - EJJ33
+
+============================================================
+Name: Veronika Lenart
+  Events:
+    - W24 Ind E
+    - W24 Ind Finals
+    - W24 Ind Semi B
+
+Original Name: Veronika Lenart
+Possible Dupe: Veronika Lengauer (score: 87.5)
+  Events:
+    - Ger2025 Ind A
+    - Germany 2024 Ind
+    - Germany 2025 Ind Finals
+    - W24 Ind C
+
+============================================================
+Name: María Francisca Cunha
+  Events:
+    - sp2024Ind
+
+Original Name: María Francisca Cunha
+Possible Dupe: Mª Francisca Cunha (score: 87.17948717948718)
+  Events:
+    - W23IndF
+    - W23IndFinal
+    - W23IndS2
+    - W24 Ind B
+    - po2024Ind
+
+============================================================
+Name: Bethany Chan
+  Events:
+    - Carnival 2025
+    - mn2024
+    - sp227
+    - sp255
+    - sp263
+    - sp271
+    - sp277
+    - sp291
+
+Original Name: Bethany Chan
+Possible Dupe: Bethany Tan (score: 86.95652173913044)
+  Events:
+    - can20230610
+
+============================================================
+Name: Dave Harris
+  Events:
+    - sp278
+    - sp292
+
+Original Name: Dave Harris
+Possible Dupe: David Harris (score: 86.95652173913044)
+  Events:
+    - NER2024Solo
+    - fl2024
+    - sp256
+    - sp264
+
+============================================================
+Name: Kara Taylor
+  Events:
+    - Carnival 2025
+    - Duluth 2024
+    - Holiday Puzzle Derby 2024
+    - SP185s
+    - US24IndB
+    - US24IndFinal
+    - mn2023 solo
+    - mn2024
+    - sp101
+    - sp104
+    - sp112
+    - sp119
+    - sp123
+    - sp127s
+    - sp130
+    - sp131
+    - sp135s
+    - sp138
+    - sp139 Mystery 1
+    - sp146
+    - sp151s
+    - sp157
+    - sp158
+    - sp159s
+    - sp162
+    - sp167a
+    - sp169s
+    - sp175
+    - sp176
+    - sp183g
+    - sp188
+    - sp200
+    - sp201s
+    - sp204
+    - sp206s
+    - sp214s
+    - sp218s
+    - sp227
+    - sp229
+    - sp238
+    - sp243s
+    - sp255
+    - sp275
+    - sp278
+    - sp282
+    - sp289
+    - sp292
+    - sp93
+    - sp97
+
+Original Name: Kara Taylor
+Possible Dupe: Shara Taylor (score: 86.95652173913044)
+  Events:
+    - sp278
+    - sp292
+
+============================================================
+Name: Karen Wells
+  Events:
+    - US24IndA
+    - co2023solo
+    - co2024s
+    - nwr2024s
+    - sp123
+    - sp130
+    - sp167a
+    - sp175
+    - sp183r
+    - sp188
+    - sp199
+    - sp204
+    - sp227
+    - sp238
+    - sp239
+    - sp255
+    - sp256
+    - sp263
+    - sp264
+    - sp271
+    - sp277
+    - sp278
+    - sp291
+    - sp292
+
+Original Name: Karen Wells
+Possible Dupe: Karen Willis (score: 86.95652173913044)
+  Events:
+    - CA2023 Solo
+
+============================================================
+Name: Lara Cooper
+  Events:
+    - tx2025
+
+Original Name: Lara Cooper
+Possible Dupe: Sarah Cooper (score: 86.95652173913044)
+  Events:
+    - ut2024
+
+============================================================
+Name: Lauren Mecca
+  Events:
+    - SP185s
+    - ny2024
+    - sp177s
+    - sp201s
+    - sp205s
+    - sp206s
+    - sp214s
+    - sp218s
+    - sp229
+    - sp239
+    - sp243s
+    - sp256
+    - sp257
+    - sp263
+    - sp264
+    - sp268
+    - sp271
+    - sp277
+    - sp278
+    - sp282
+    - sp291
+    - sp292
+
+Original Name: Lauren Mecca
+Possible Dupe: Lauren Peca (score: 86.95652173913044)
+  Events:
+    - tx2024Ind
+
+============================================================
+Name: Sarah Goodman
+  Events:
+    - MO2024
+    - sp263
+    - sp277
+    - sp282
+    - sp291
+
+Original Name: Sarah Goodman
+Possible Dupe: Sarah Oman (score: 86.95652173913044)
+  Events:
+    - US24IndA
+    - US24IndFinal
+    - sp101
+    - sp104
+    - sp112
+    - sp119
+    - sp138
+    - sp157
+    - sp158
+    - sp162
+    - sp167a
+    - sp175
+    - sp176
+    - sp183g
+    - sp188
+    - sp227
+    - sp238
+    - sp255
+    - sp263
+    - sp271
+    - sp277
+    - sp291
+    - sp93
+    - sp97
+
+============================================================
+Name: Sarah Miller
+  Events:
+    - sp255
+
+Original Name: Sarah Miller
+Possible Dupe: Sarah Mills (score: 86.95652173913044)
+  Events:
+    - W19Ind
+
+============================================================
+Name: Cally Robertson
+  Events:
+    - Australia 2024 Ind
+
+Original Name: Cally Robertson
+Possible Dupe: Polly Robertson (score: 86.66666666666667)
+  Events:
+    - Australia 2024 Ind
+
+============================================================
+Name: Jennifer Lawton
+  Events:
+    - ma2024Ind
+
+Original Name: Jennifer Lawton
+Possible Dupe: Jennifer Newton (score: 86.66666666666667)
+  Events:
+    - NER2024Solo
+
+============================================================
+Name: Luann Thompson
+  Events:
+    - US24IndA
+    - tx2023solo
+    - tx2025
+
+Original Name: Luann Thompson
+Possible Dupe: Susanne Thompson (score: 86.66666666666667)
+  Events:
+    - sp175
+    - sp199
+
+============================================================
+Name: Maria Fernandez
+  Events:
+    - ca2024
+
+Original Name: Maria Fernandez
+Possible Dupe: Marta Fernandes (score: 86.66666666666667)
+  Events:
+    - po2024Ind
+
+============================================================
+Name: Melissa Forsberg
+  Events:
+    - sw2024IndA
+
+Original Name: Melissa Forsberg
+Possible Dupe: Melissa Foster (score: 86.66666666666667)
+  Events:
+    - Australia 2024 Ind
+
+============================================================
+Name: Michael Dörmann
+  Events:
+    - Ger2025 Ind C
+    - Germany 2024 Ind
+
+Original Name: Michael Dörmann
+Possible Dupe: Michele Dorfman (score: 86.66666666666667)
+  Events:
+    - tx2025
+
+============================================================
+Name: Stefanie Dhungel
+  Events:
+    - EJJ14
+
+Original Name: Stefanie Dhungel
+Possible Dupe: Steffi Dhungel (score: 86.66666666666667)
+  Events:
+    - EJJ 20
+    - EJJ 21
+    - EJJ15
+
+============================================================
+Name: Ying-Tsun Amy Lin
+  Events:
+    - sp199
+    - sp204
+
+Original Name: Ying-Tsun Amy Lin
+Possible Dupe: Ying-Tsun Lin (score: 86.66666666666667)
+  Events:
+    - ser2024s
+    - sp227
+    - sp263
+    - sp271
+    - tx2024Ind
+
+============================================================
+Name: Catherine Luniewski
+  Events:
+    - EJJ 27
+    - EJJ 30
+    - EJJ 34
+    - EJJ 35
+    - EJJ 37
+    - EJJ 39
+    - EJJ 40
+    - EJJ 44
+    - EJJ 48
+    - EJJ31
+    - EJJ33
+    - Ger2025 Ind B
+    - W24 Ind C
+
+Original Name: Catherine Luniewski
+Possible Dupe: Catherine Luniewski (Cat) (score: 86.36363636363636)
+  Events:
+    - EJJ 46
+
+============================================================
+Name: Adrian Eliseo Lugo Martinengo
+  Events:
+    - W24 Ind E
+    - po2024Ind
+
+Original Name: Adrian Eliseo Lugo Martinengo
+Possible Dupe: Adrian Lugo Martinengo (score: 86.27450980392157)
+  Events:
+    - ae259
+    - ae264
+    - ae306
+    - ae320
+    - sp2024Ind
+
+============================================================
+Name: Alexandre Durães Mena E Silva
+  Events:
+    - po2024Ind
+
+Original Name: Alexandre Durães Mena E Silva
+Possible Dupe: Alexandre Mena E Silva (score: 86.27450980392157)
+  Events:
+    - W22IndC
+    - W22IndFinal
+    - W23IndE
+    - W24 Ind A
+
+============================================================
+Name: Andrés Rodríguez Martín
+  Events:
+    - ae220
+
+Original Name: Andrés Rodríguez Martín
+Possible Dupe: Omar Andrés Pinzón Rodríguez (score: 86.27450980392157)
+  Events:
+    - Colombia 2025 Ind
+    - col2024ind
+
+============================================================
+Name: Alicia Jover Blanco
+  Events:
+    - ae220
+
+Original Name: Alicia Jover Blanco
+Possible Dupe: Ana Jover Blanco (score: 85.71428571428572)
+  Events:
+    - ae220
+
+============================================================
+Name: Angela Hatt
+  Events:
+    - sp218s
+
+Original Name: Angela Hatt
+Possible Dupe: Angela Ott (score: 85.71428571428572)
+  Events:
+    - sp264
+    - sp278
+    - wi2025
+
+============================================================
+Name: Anna Ivarsson
+  Events:
+    - sw2024IndA
+
+Original Name: Anna Ivarsson
+Possible Dupe: Carina Ivarsson (score: 85.71428571428572)
+  Events:
+    - sw2024IndA
+
+============================================================
+Name: Anne L.
+  Events:
+    - EJJ 35
+    - EJJ 39
+    - EJJ 43
+    - EJJ 49
+
+Original Name: Anne L.
+Possible Dupe: Anne W. (score: 85.71428571428572)
+  Events:
+    - EJJ 37
+
+============================================================
+Name: Bruno Rodríguez Del Pino
+  Events:
+    - sp2024Ind
+
+Original Name: Bruno Rodríguez Del Pino
+Possible Dupe: Carlos Rodríguez Del Pino (score: 85.71428571428572)
+  Events:
+    - sp2024Ind
+
+============================================================
+Name: Chris Hansen
+  Events:
+    - US22Ind
+    - US24IndB
+    - UT2023 Solo
+    - sp131
+    - sp256
+    - ut2024
+
+Original Name: Chris Hansen
+Possible Dupe: Christina Hansen (score: 85.71428571428572)
+  Events:
+    - den2024IndA
+
+============================================================
+Name: Crystal Mele
+  Events:
+    - W24 Ind B
+
+Original Name: Crystal Mele
+Possible Dupe: Michelle Crystal (score: 85.71428571428572)
+  Events:
+    - UT2023 Solo
+
+============================================================
+Name: Dan Caron
+  Events:
+    - sp127s
+    - sp132
+
+Original Name: Dan Caron
+Possible Dupe: Daniel Caron (score: 85.71428571428572)
+  Events:
+    - US22Ind
+
+============================================================
+Name: Elizabeth Huang
+  Events:
+    - US24IndA
+
+Original Name: Elizabeth Huang
+Possible Dupe: Elizabeth Ong (score: 85.71428571428572)
+  Events:
+    - nz2024Ind
+
+============================================================
+Name: Emily Cole
+  Events:
+    - pa2024
+    - pa2025
+
+Original Name: Emily Cole
+Possible Dupe: Emily Crome (score: 85.71428571428572)
+  Events:
+    - W24 Ind A
+
+============================================================
+Name: Franzi H.
+  Events:
+    - EJJ11
+    - EJJ8
+
+Original Name: Franzi H.
+Possible Dupe: Franziska H. (score: 85.71428571428572)
+  Events:
+    - EJJ17
+
+============================================================
+Name: Inga M.
+  Events:
+    - EJJ14
+    - EJJ17
+
+Original Name: Inga M.
+Possible Dupe: Inga S. (score: 85.71428571428572)
+  Events:
+    - EJJ 46
+    - EJJ 48
+    - EJJ 49
+
+============================================================
+Name: Iris K.
+  Events:
+    - EJJ14
+
+Original Name: Iris K.
+Possible Dupe: Iris M. (score: 85.71428571428572)
+  Events:
+    - EJJ 40
+    - EJJ 44
+
+============================================================
+Name: Jessica Cheney
+  Events:
+    - sp176
+
+Original Name: Jessica Cheney
+Possible Dupe: Jessica Hangey (score: 85.71428571428572)
+  Events:
+    - sp162
+    - sp277
+    - sp97
+
+============================================================
+Name: Julia Buermann
+  Events:
+    - Carnival 2025
+
+Original Name: Julia Buermann
+Possible Dupe: Julie Bergmann (score: 85.71428571428572)
+  Events:
+    - den2024IndB
+
+============================================================
+Name: Karen Floyd
+  Events:
+    - USAJPA PC Jan 2024
+    - USJPA PC Jan 2025
+    - co2024s
+    - sp162
+    - sp184
+
+Original Name: Karen Floyd
+Possible Dupe: Karen Ford (score: 85.71428571428572)
+  Events:
+    - co2024s
+
+============================================================
+Name: Katharina Bach
+  Events:
+    - Ger2025 Ind B
+    - Germany 2025 Ind Finals
+    - W24 Ind E
+
+Original Name: Katharina Bach
+Possible Dupe: Katharina Böhm (score: 85.71428571428572)
+  Events:
+    - Ger2025 Ind B
+
+============================================================
+Name: Katharina Reiner
+  Events:
+    - EJJ 20
+    - EJJ 24
+    - EJJ 26
+    - EJJ 29
+    - EJJ31
+    - Ger2025 Ind C
+    - Germany 2024 Ind
+    - Germany 2025 Ind Finals
+    - W23IndD
+    - W23IndFinal
+    - W23IndS2
+    - W24 Ind C
+    - W24 Ind Finals
+    - W24 Ind Semi A
+
+Original Name: Katharina Reiner
+Possible Dupe: Kathi Reiner (score: 85.71428571428572)
+  Events:
+    - EJJ 30
+    - EJJ 35
+    - EJJ 37
+    - EJJ 39
+    - EJJ 40
+    - EJJ 42
+    - EJJ 43
+    - EJJ 44
+    - EJJ 46
+    - EJJ 48
+    - EJJ33
+
+============================================================
+Name: Katherine Miller
+  Events:
+    - ma2024Ind
+
+Original Name: Katherine Miller
+Possible Dupe: Katie Miller (score: 85.71428571428572)
+  Events:
+    - oh2024Ind
+
+============================================================
+Name: Lea
+  Events:
+    - EJJ33
+
+Original Name: Lea
+Possible Dupe: Lena (score: 85.71428571428572)
+  Events:
+    - EJJ14
+    - EJJ7
+
+============================================================
+Name: Lena M.
+  Events:
+    - EJJ15
+
+Original Name: Lena M.
+Possible Dupe: Lena T. (score: 85.71428571428572)
+  Events:
+    - EJJ15
+    - EJJ7
+
+============================================================
+Name: Mandy Sinot
+  Events:
+    - EJJ 29
+    - EJJ 30
+    - EJJ 34
+    - EJJ 35
+    - EJJ 43
+    - EJJ 46
+    - EJJ31
+
+Original Name: Mandy Sinot
+Possible Dupe: Mandy Smit (score: 85.71428571428572)
+  Events:
+    - EJJ 25
+    - EJJ 26
+    - EJJ 40
+    - EJJ 42
+    - EJJ 46
+    - EJJ11
+    - EJJ14
+    - EJJ33
+
+============================================================
+Name: Melinda Whiting
+  Events:
+    - US22Ind
+    - US24IndA
+    - US24IndFinal
+
+Original Name: Melinda Whiting
+Possible Dupe: Mindy Whiting (score: 85.71428571428572)
+  Events:
+    - UT2023 Solo
+    - sp101
+    - sp104
+    - sp112
+    - sp119
+    - sp123
+    - sp130
+    - sp131
+    - sp138
+    - sp146
+    - sp157
+    - sp158
+    - sp159s
+    - sp162
+    - sp176
+    - sp184
+    - sp213c
+    - sp271c
+    - sp93
+    - sp97
+
+============================================================
+Name: Natalia Lozano Rodríguez
+  Events:
+    - Colombia 2025 Ind
+
+Original Name: Natalia Lozano Rodríguez
+Possible Dupe: Natalia Rodríguez Fandiño (score: 85.71428571428572)
+  Events:
+    - col2024ind
+
+============================================================
+Name: Natalie Barbon
+  Events:
+    - CAN2023 Prelims
+    - CAN2024 Ind B
+    - CAN2024 Ind Final
+    - can20250208
+
+Original Name: Natalie Barbon
+Possible Dupe: Nathalie Babin (score: 85.71428571428572)
+  Events:
+    - CAN20230129
+
+============================================================
+Name: Rebecca Stedt
+  Events:
+    - sw2024IndA
+
+Original Name: Rebecca Stedt
+Possible Dupe: Rebecca Streitz (score: 85.71428571428572)
+  Events:
+    - PJMIndFinal
+    - ca2024
+    - sp183g
+    - sp188
+    - sp199
+    - sp204
+    - sp227
+    - sp238
+    - sp239
+    - sp255
+    - sp263
+    - sp263c
+    - sp271
+    - sp271c
+    - sp275
+    - sp277
+    - sp278
+    - sp289
+    - sp291
+    - sp292
+
+============================================================
+Name: Rikke Jen
+  Events:
+    - EJJ 26
+
+Original Name: Rikke Jen
+Possible Dupe: Rikke Jensen (score: 85.71428571428572)
+  Events:
+    - EJJ 24
+    - EJJ 34
+    - den2024IndA
+
+============================================================
+Name: Samar Hamdy
+  Events:
+    - eg2024Ind
+
+Original Name: Samar Hamdy
+Possible Dupe: Sara Hamdy (score: 85.71428571428572)
+  Events:
+    - eg2024Ind
+
+============================================================
+Name: Sandra Wong
+  Events:
+    - Australia 2024 Ind
+
+Original Name: Sandra Wong
+Possible Dupe: Sandy Wong (score: 85.71428571428572)
+  Events:
+    - CAN2024 Ind A
+    - CAN2024 Ind Final
+
+============================================================
+Name: Sarah Bowen
+  Events:
+    - ma2024Ind
+
+Original Name: Sarah Bowen
+Possible Dupe: Sarah Rowe (score: 85.71428571428572)
+  Events:
+    - NER2024Solo
+    - US24IndB
+    - US24IndFinal
+    - W23IndB
+    - W23IndFinal
+    - W23IndS1
+    - W24 Ind C
+    - W24 Ind Finals
+    - W24 Ind Semi A
+    - ma2024Ind
+    - sp158
+    - sp167a
+    - sp175
+    - sp188
+    - sp199
+    - sp200
+    - sp204
+    - sp214s
+    - sp227
+    - sp229
+    - sp238
+    - sp255
+    - sp257
+    - sp263
+    - sp263c
+    - sp271
+    - sp271c
+    - sp282
+    - sp289
+    - sp291
+    - sp292
+
+============================================================
+Name: Sarah Schlosser
+  Events:
+    - sp239
+
+Original Name: Sarah Schlosser
+Possible Dupe: Sarah Schuler (score: 85.71428571428572)
+  Events:
+    - PJMIndFinal
+    - US22Ind
+    - US24IndA
+    - US24IndFinal
+    - W23IndD
+    - W23IndFinal
+    - W23IndS2
+    - W24 Ind B
+    - W24 Ind Finals
+    - W24 Ind Semi A
+    - mn2023 solo
+    - mn2024
+    - sp101
+    - sp104
+    - sp112
+    - sp119
+    - sp123
+    - sp130
+    - sp131
+    - sp138
+    - sp146
+    - sp157
+    - sp158
+    - sp162
+    - sp93
+    - sp97
+
+============================================================
+Name: Silje Andresen
+  Events:
+    - EJJ 24
+    - EJJ 35
+    - EJJ 37
+    - no2024Ind
+
+Original Name: Silje Andresen
+Possible Dupe: Stine Andresen (score: 85.71428571428572)
+  Events:
+    - EJJ 37
+    - no2024Ind
+
+============================================================
+Name: Soha Rabie
+  Events:
+    - eg2024Ind
+
+Original Name: Soha Rabie
+Possible Dupe: Sonia Rabie (score: 85.71428571428572)
+  Events:
+    - eg2024Ind
+
+============================================================
+Name: Steffi
+  Events:
+    - EJJ1
+    - EJJ14
+    - EJJ2
+    - EJJ4
+    - EJJ5
+    - EJJ7
+
+Original Name: Steffi
+Possible Dupe: Steffi B (score: 85.71428571428572)
+  Events:
+    - EJJ 20
+    - EJJ 26
+    - EJJ 40
+
+============================================================
+Name: Tally Klinefelter
+  Events:
+    - Carnival 2025
+    - ser2024s
+    - sp188
+    - sp199
+    - sp204
+    - sp227
+    - sp238
+    - sp255
+    - sp263
+    - sp271
+
+Original Name: Tally Klinefelter
+Possible Dupe: Taylor Klinefelter (score: 85.71428571428572)
+  Events:
+    - USAJPA PC Jan 2024
+    - USJPA PC Jan 2025
+    - ser2023 solo
+
+============================================================
+Name: Veronica Nes
+  Events:
+    - EJJ1
+    - EJJ2
+    - EJJ4
+    - EJJ5
+    - W23IndD
+    - W23IndFinal
+    - W23IndS2
+    - W24 Ind C
+    - W24 Ind Semi A
+    - no2024Ind
+    - sw2024IndB
+    - sw2024IndFinal
+
+Original Name: Veronica Nes
+Possible Dupe: Verónica Antunes (score: 85.71428571428572)
+  Events:
+    - W23IndC
+    - W24 Ind C
+    - po2024Ind
+
+============================================================
+Name: Courtney Pedersen
+  Events:
+    - mn2023 solo
+    - sp162
+
+Original Name: Courtney Pedersen
+Possible Dupe: Courtney Pedersen-Lakin (score: 85.0)
+  Events:
+    - Canada E Regionals 2024
+
