@@ -1,5 +1,5 @@
 import streamlit as st
-from helpers import get_ranking_table
+from utils.helpers import get_ranking_table
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
