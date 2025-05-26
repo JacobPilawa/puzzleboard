@@ -5,6 +5,17 @@ import re
 import seaborn as sns
 import streamlit as st
 
+
+
+# ---------- Delta Color ----------
+def get_delta_color(percentile):
+    if 80 <= percentile:
+        return "normal"      # gray
+    elif percentile < 40:
+        return "off"  # red
+    else:
+        return "off"   # green
+
 # ---------- Data Loading & Cleaning ----------
 @st.cache_data
 def scrape_data(output_fn):
