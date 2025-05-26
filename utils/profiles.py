@@ -314,7 +314,12 @@ def display_puzzler_profile(df: pd.DataFrame, selected_puzzler: str, results):
         if date_spacing:
             fig.update_layout(
                 xaxis_title='Date',
-                xaxis=dict(type='date'),
+                xaxis=dict(
+                    type='date',
+                    tickformat='%b\n%Y',  # Month abbreviation + year
+                    dtick='M1',  # Monthly ticks
+                    tickangle=0,
+                ),
                 showlegend=False,
             )
         else:
@@ -346,6 +351,31 @@ def display_puzzler_profile(df: pd.DataFrame, selected_puzzler: str, results):
             ),
             yaxis_title='Time (hours)'
         )
+        
+        if date_spacing:
+            years = sorted(jittered_df['Date'].dt.year.unique())
+            shapes = []
+            for i, year in enumerate(years):
+                if i % 2 == 1:
+                    # Alternate (every second year): light gray rectangle
+                    start_date = pd.Timestamp(f'{year}-01-01')
+                    end_date = pd.Timestamp(f'{year+1}-01-01')
+                    shapes.append(
+                        dict(
+                            type="rect",
+                            xref="x",
+                            yref="paper",
+                            x0=start_date,
+                            x1=end_date,
+                            y0=0,
+                            y1=1,
+                            fillcolor="LightGray",
+                            opacity=0.3,
+                            layer="below",
+                            line_width=0,
+                        )
+                    )
+            fig.update_layout(shapes=shapes)
     
         st.plotly_chart(fig, use_container_width=True)
     else:
