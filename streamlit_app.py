@@ -539,12 +539,15 @@ def display_puzzler_profile(df: pd.DataFrame, selected_puzzler: str):
 
     # Label for plotting
     time_plot_df['EventLabel'] = time_plot_df['Date'].dt.strftime('%b %d, %Y')
-
+    
     # ——————— 12-Month Moving Average ———————
     ma_df = time_plot_df.set_index('Date').sort_index()
     ma_df['MA_12M'] = ma_df['time_in_hours'].rolling(window='365D', min_periods=1).mean()
     time_plot_df['MA_12M'] = ma_df['MA_12M'].values
-
+    
+    # Toggle for date spacing
+    date_spacing = st.checkbox("Use true date spacing on x-axis", value=False)
+    
     if not time_plot_df.empty:
         def hours_to_hhmmss(hours):
             total_seconds = int(hours * 3600)
@@ -552,35 +555,57 @@ def display_puzzler_profile(df: pd.DataFrame, selected_puzzler: str):
             m = (total_seconds % 3600) // 60
             s = total_seconds % 60
             return f"{h:02d}:{m:02d}:{s:02d}"
-
+    
         time_plot_df['time_hhmmss'] = time_plot_df['time_in_hours'].apply(hours_to_hhmmss)
         time_plot_df['MA_12M_hhmmss'] = time_plot_df['MA_12M'].apply(hours_to_hhmmss)
-
+    
         def add_suffixes(df):
             new_labels = []
             current_label = None
             count = 0
             suffixes = list(string.ascii_lowercase)
-
+    
             for label in df['EventLabel']:
                 if label != current_label:
                     current_label = label
                     count = 0
                 else:
                     count += 1
-
+    
                 if count == 0:
                     new_labels.append(label)
                 else:
                     new_labels.append(f"{label} ({suffixes[count-1]})")
             return new_labels
-
+    
         time_plot_df['EventLabelUnique'] = add_suffixes(time_plot_df)
-
+    
+        jittered_df = time_plot_df.copy()
+    
+        if date_spacing:
+            used_dates = set()
+            new_dates = []
+    
+            for _, row in jittered_df.iterrows():
+                base_date = row['Date']
+                offset = 0
+                new_date = base_date
+                while new_date in used_dates:
+                    offset += 1
+                    new_date = base_date + pd.Timedelta(days=offset)
+                used_dates.add(new_date)
+                new_dates.append(new_date)
+    
+            jittered_df['JitteredDate'] = new_dates
+            x_col = 'JitteredDate'
+        else:
+            x_col = 'EventLabelUnique'
+    
         fig = px.bar(
-            time_plot_df,
-            x='EventLabelUnique',
+            jittered_df,
+            x=x_col,
             y='time_in_hours',
+            color='EventLabelUnique' if date_spacing else None,
             hover_data={
                 'Full_Event': True,
                 'time_hhmmss': True,
@@ -593,29 +618,40 @@ def display_puzzler_profile(df: pd.DataFrame, selected_puzzler: str):
             labels={'time_in_hours': 'Time (hours)', 'EventLabelUnique': 'Event Date'},
             title="Solve Times",
         )
-        fig.update_traces(marker_color='gray')
-
+    
         fig.add_trace(go.Scatter(
-            x=time_plot_df['EventLabelUnique'],
-            y=time_plot_df['MA_12M'],
+            x=jittered_df[x_col],
+            y=jittered_df['MA_12M'],
             mode='lines+markers',
             name='12-Month Mov. Avg.',
             line=dict(color='red', width=2, dash='solid'),
             marker=dict(color='red', size=0),
-            customdata=time_plot_df['MA_12M_hhmmss'],
+            customdata=jittered_df['MA_12M_hhmmss'],
             hovertemplate='12-Month Avg: %{customdata}<extra></extra>',
         ))
-
+    
+        if date_spacing:
+            fig.update_layout(
+                xaxis_title='Date',
+                xaxis=dict(type='date'),
+                showlegend=False,
+            )
+        else:
+            fig.update_layout(
+                showlegend=False,
+                xaxis=dict(
+                    type='category',
+                    categoryorder='array',
+                    categoryarray=time_plot_df['EventLabelUnique'],
+                    tickangle=-70,
+                    tickmode='array',
+                    tickvals=time_plot_df['EventLabelUnique'],
+                    ticktext=time_plot_df['EventLabelUnique'],
+                ),
+                xaxis_title='Event Date',
+            )
+    
         fig.update_layout(
-            xaxis=dict(
-                type='category',
-                categoryorder='array',
-                categoryarray=time_plot_df['EventLabelUnique'],
-                tickangle=-70,
-                tickmode='array',
-                tickvals=time_plot_df['EventLabelUnique'],
-                ticktext=time_plot_df['EventLabelUnique'],
-            ),
             bargap=0.05,
             hoverlabel=dict(bgcolor="white"),
             legend=dict(
@@ -627,14 +663,14 @@ def display_puzzler_profile(df: pd.DataFrame, selected_puzzler: str):
                 bordercolor='black',
                 borderwidth=1
             ),
-            xaxis_title='Event Date',
             yaxis_title='Time (hours)'
         )
-
+    
         st.plotly_chart(fig, use_container_width=True)
-
     else:
         st.info("No solve time data available to plot for the selected filter.")
+
+
 
     st.subheader("📅 Event History")
 
