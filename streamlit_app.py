@@ -133,6 +133,6 @@ if page == "Puzzler Profiles":
 # ---------- JPAR ----------
 if page == "JPAR":
     
-    display_jpar_ratings(styled_table, results)
+    display_jpar_ratings(styled_table, results, df)
     st.markdown('---')
     st.markdown(bottom_string)

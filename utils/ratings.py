@@ -5,8 +5,23 @@ import plotly.express as px
 import plotly.graph_objects as go
 
 
+# ---------- Plotting Utilities ----------
+@st.cache_data
+def get_top_medalists(df, top_n=20):
+    # Count medals
+    medal_counts = df[df['Rank'].isin([1, 2, 3])].copy()
+    medal_counts['Gold'] = (medal_counts['Rank'] == 1).astype(int)
+    medal_counts['Silver'] = (medal_counts['Rank'] == 2).astype(int)
+    medal_counts['Bronze'] = (medal_counts['Rank'] == 3).astype(int)
+
+    grouped = medal_counts.groupby('Name')[['Gold', 'Silver', 'Bronze']].sum()
+    grouped['Total'] = grouped.sum(axis=1)
+    top = grouped.sort_values('Total', ascending=False).head(top_n).drop(columns='Total')
+    
+    return top.reset_index()
+
 # ---------- JPAR Ratings Display Function ----------
-def display_jpar_ratings(styled_table, results):
+def display_jpar_ratings(styled_table, results, df):
     
     st.title("📊 Puzzler Ratings")
     st.markdown(f"""
@@ -35,7 +50,27 @@ def display_jpar_ratings(styled_table, results):
         # Default behavior
         st.dataframe(styled_table, use_container_width=True)
 
-    # Generate distribution plot
+
+    # --------- Medal Counts Plot ---------
+    st.subheader("🏅 Medal Counts")
+    top_medalists_df = get_top_medalists(df)  # Use the full df, not puzzler_df
+
+    fig = px.bar(
+        top_medalists_df,
+        x='Name',
+        y=['Gold', 'Silver', 'Bronze'],
+        title="Top Medal Winners",
+        labels={"value": "Number of Medals", "Name": "Puzzler", "variable": "Medal Type"},
+        color_discrete_map={
+            "Gold": "#FFD700",
+            "Silver": "#C0C0C0",
+            "Bronze": "#CD7F32"
+        }
+    )
+    fig.update_layout(barmode='stack', xaxis_tickangle=-45)
+    st.plotly_chart(fig, use_container_width=True)
+
+    # --------- Rating Comparison ---------
     st.subheader("📈 Rating Comparison")
     # ------- Pair plot of the rankings
     # Drop non-numeric or irrelevant columns
