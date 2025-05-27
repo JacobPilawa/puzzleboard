@@ -91,7 +91,15 @@ def scrape_data(output_fn):
     # renname
     merged_df = merged_df.rename({"JPAR In":"PTR In", "JPAR Out":"PTR Out", "Avg JPAR In (Event)":"Avg PTR In (Event)"})
     
-    merged_df.to_pickle(f'./data/{output_fn}.pkl')
+    # ---------- get _Latest JPAR Ratings and merge with main data -------------
+    latest_ratings = xls.parse("_Latest JPAR Ratings")
+    latest_ratings = latest_ratings.rename(columns={"Player": "Name"})
+
+    # Merge into the main dataframe
+    merged_df = merged_df.merge(latest_ratings, on='Name', how='left')
+    
+    merged_df.to_pickle(f'../data/{output_fn}.pkl')
+
     
     
 def load_data():
@@ -99,7 +107,7 @@ def load_data():
     '''
     read in the data from the pickle file
     '''
-    data = pd.read_pickle('./data/250221_scrape_with_PT_Rating.pkl')
+    data = pd.read_pickle('./data/250526_scrape.pkl')
     
     # get only the 500 pieces and those with data entry error
     data = data[(data['Pieces'] == 500) | (data['Pieces'].isna())]
@@ -188,14 +196,12 @@ def compute_speed_puzzle_rankings(combined_df, min_puzzles=9, min_event_attempts
         z_summary['Weighted_Z_Score_Rank'] = z_summary['Weighted_Norm_Score'].rank(ascending=False, method='min')
         z_summary['Weighted_Percentile_Rank'] = z_summary['Weighted_Avg_Percentile'].rank(method='min')
 
-    # Merge with Rob's rankings
-    rob_ranks = pd.read_csv('./data/Puzzle Competitor Data (Cleaned Up) - _Latest JPAR Ratings.csv')
-    rob_ranks = rob_ranks.rename(columns={"Player": "Name"})
-    rob_ranks = rob_ranks.sort_values(by='Latest JPAR Out')
-    rob_ranks["rob_rank"] = range(1, len(rob_ranks) + 1)
+    # Use the already-merged latest JPAR rankings
+    z_summary = z_summary.merge(combined_df[['Name', 'Total Events', 'Latest JPAR Out']].drop_duplicates(), on='Name', how='left')
+    z_summary = z_summary.sort_values(by='Latest JPAR Out')
+    z_summary["rob_rank"] = range(1, len(z_summary) + 1)
 
-    compare_df = rob_ranks.merge(z_summary, on='Name')
-    compare_df["rob_rank"] = range(1, len(compare_df) + 1)
+    compare_df = z_summary.copy()
 
     # Final result table
     if weighted:
@@ -211,7 +217,6 @@ def compute_speed_puzzle_rankings(combined_df, min_puzzles=9, min_event_attempts
 
     # Convert appropriate columns to integers
     int_columns = results.columns[1:-1]
-    results[int_columns] = results[int_columns].astype(int)
 
     # Display index from 1 to 100
     display_index = pd.Index(np.arange(1, len(results)+1))

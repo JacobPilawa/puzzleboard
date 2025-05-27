@@ -46,7 +46,7 @@ def get_cumulative_stats(df):
 def get_most_frequent_puzzlers(df):
     
     # get the 50 most frequent entrants to events
-    frequent_puzzlers = df['Name'].value_counts().head(50)
+    frequent_puzzlers = df['Name'].value_counts().head(20)
     
     return frequent_puzzlers
 
@@ -166,10 +166,10 @@ def display_home(df: pd.DataFrame):
             "index": "Puzzler",
             "color": "Events Entered"
         },
-        title="Top 50 Puzzlers by Number of Events",
+        title="Top 20 Puzzlers by Number of Events",
         color_continuous_scale='Tealgrn' 
     )
-    fig4.update_layout(xaxis_tickangle=-75)
+    fig4.update_layout(xaxis_tickangle=-45)
     st.plotly_chart(fig4, use_container_width=True)
     
     # --------- Medal Counts Plot ---------
