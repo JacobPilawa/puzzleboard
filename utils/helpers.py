@@ -87,10 +87,7 @@ def scrape_data(output_fn):
     df = df.rename(columns={"Event Name": "Full_Event","Player Name":"Name"})
     
     merged_df = combined_df.merge(df, on =['Full_Event','Name'],how='left')
-    
-    # renname
-    merged_df = merged_df.rename({"JPAR In":"PTR In", "JPAR Out":"PTR Out", "Avg JPAR In (Event)":"Avg PTR In (Event)"})
-    
+        
     # ---------- get _Latest JPAR Ratings and merge with main data -------------
     latest_ratings = xls.parse("_Latest JPAR Ratings")
     latest_ratings = latest_ratings.rename(columns={"Player": "Name"})
@@ -98,9 +95,15 @@ def scrape_data(output_fn):
     # Merge into the main dataframe
     merged_df = merged_df.merge(latest_ratings, on='Name', how='left')
     
-    merged_df.to_pickle(f'../data/{output_fn}.pkl')
-
+    # renname
+    merged_df = merged_df.rename(columns={"JPAR In":"PTR In", 
+                                          "JPAR Out":"PTR Out", 
+                                          "Avg JPAR In (Event)":"Avg PTR In (Event)",
+                                          "12-Month Avg Completion Time_x":"12-Month Avg Completion Time"})
     
+    merged_df.to_pickle(f'../data/{output_fn}')
+
+
     
 def load_data():
     
