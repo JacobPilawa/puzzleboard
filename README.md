@@ -7,5 +7,5 @@ This repository contains the code (and some of the data) for [puzzleboard](https
 - if x-axis toggled on bar plot is toggled, and then another puzzler page is loaded, the box stays checked but does not apply to the puzzler
 
 ### Ideas
-- add highest medal counts to leaderboard landing page/puzzler profile page instead of the search bars
+- add plot of PTR over time (and maybe the other rankings too?)
 - NN to take in images from ipdb and classify into box image/poster/normal image etc
