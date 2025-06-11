@@ -110,7 +110,7 @@ def load_data():
     '''
     read in the data from the pickle file
     '''
-    data = pd.read_pickle('./data/250526_scrape.pkl')
+    data = pd.read_pickle('./data/250610_scrape.pkl')
     
     # get only the 500 pieces and those with data entry error
     data = data[(data['Pieces'] == 500) | (data['Pieces'].isna())]
