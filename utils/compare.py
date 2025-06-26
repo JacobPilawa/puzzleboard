@@ -10,6 +10,15 @@ import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
 
+
+def seconds_to_hms(seconds):
+    h = int(seconds // 3600)
+    m = int((seconds % 3600) // 60)
+    s = int(seconds % 60)
+    return f"{h:02}:{m:02}:{s:02}"
+    
+    
+
 def display_summary_stats(comparison_df, results, df):
     st.markdown("""Here's some summary information for the selected puzzlers, sorted by their average time over the last 12 months.""")
 
@@ -87,12 +96,13 @@ def display_summary_stats(comparison_df, results, df):
     plot_df = grouped_summary.dropna(subset=['last_year_avg_time']).copy()
     plot_df = plot_df.sort_values(by='last_year_avg_time', ascending=True)  # Fastest on left
     plot_df['time_in_hours'] = plot_df['last_year_avg_time'] / 3600
+    plot_df['avg_time_hms'] = plot_df['last_year_avg_time'].apply(seconds_to_hms)  # New column
 
     hover_template = (
         '<b>Solver:</b> %{x}<br>'
-        '<b>Avg Time (Last 12 Months):</b> %{y:.2f} hours<br>'
-        '<b>PPM:</b> %{customdata[0]:.2f}<br>'
-        '<b>Events:</b> %{customdata[1]:.0f}<br>'
+        '<b>Avg Time (Last 12 Months):</b> %{customdata[0]}<br>'
+        '<b>PPM:</b> %{customdata[1]:.2f}<br>'
+        '<b>Events:</b> %{customdata[2]:.0f}<br>'
     )
 
     fig = go.Figure()
@@ -101,7 +111,7 @@ def display_summary_stats(comparison_df, results, df):
         x=plot_df['Name'],
         y=plot_df['time_in_hours'],
         marker=dict(color='tomato'),
-        customdata=plot_df[['last_year_avg_ppm', 'last_year_count']].values,
+        customdata=plot_df[['avg_time_hms', 'last_year_avg_ppm', 'last_year_count']].values,
         hovertemplate=hover_template
     ))
 
@@ -117,16 +127,15 @@ def display_summary_stats(comparison_df, results, df):
     st.plotly_chart(fig, use_container_width=True)    
     
 def display_all_stats(comparison_df, results, df):
-    
     st.markdown("""Here's all the information for all of the puzzlers selected above, sorted first by name and then by date of event.""")
-    
+
     # filter only the columns we want
     display_df = comparison_df.sort_values('Date')[['Name','Date', 'Full_Event', 'Rank', 
     'Time', 'PPM', 'Remaining','Avg PTR In (Event)', 'PTR Out','12-Month Avg Completion Time']].copy()
-    
+
     # rename some columns
-    display_df = display_df.rename(columns={'Full_Event':'Event Name'})
-    
+    display_df = display_df.rename(columns={'Full_Event': 'Event Name'})
+
     # convert to date
     display_df['Date'] = display_df['Date'].dt.date
 
@@ -137,9 +146,74 @@ def display_all_stats(comparison_df, results, df):
     display_df['Rank'] = display_df.apply(lambda row: f"{int(row['Rank'])}/{event_totals.get(row['Event Name'], 0)}", axis=1)
 
     # Sort by most recent
-    display_df = display_df.sort_values(by=['Name','Date'],ascending=False)
+    display_df = display_df.sort_values(by=['Name', 'Date'], ascending=False)
 
-    # Display dataframe
+    # --- Bar Plot of All Times ---
+    plot_df = comparison_df[['Name', 'time_in_seconds', 'Full_Event']].copy()
+    plot_df = plot_df.sort_values(by='time_in_seconds')  # Fastest first
+    plot_df['time_in_hours'] = plot_df['time_in_seconds'] / 3600
+    
+    # Create unique x labels for consistent spacing
+    plot_df['label'] = [f'{n} {i}' for i, n in enumerate(plot_df['Name'])]
+    
+    # Assign one consistent color per puzzler
+    color_seq = px.colors.qualitative.Plotly
+    seen = {}
+    ordered_names = []
+    
+    # Keep track of order of appearance
+    for name in plot_df['Name']:
+        if name not in seen:
+            seen[name] = True
+            ordered_names.append(name)
+    
+    color_map = {name: color_seq[i % len(color_seq)] for i, name in enumerate(ordered_names)}
+    plot_df['color'] = plot_df['Name'].map(color_map)
+    plot_df['time_in_hms'] = plot_df['time_in_seconds'].apply(seconds_to_hms)
+    
+    
+    # Bar plot using go.Bar
+    hover_template = (
+        '<b>Solver:</b> %{customdata[0]}<br>'
+        '<b>Time:</b> %{customdata[2]}<br>'
+        '<b>Event:</b> %{customdata[1]}<br>'
+        '<extra></extra>'
+    )
+    
+    fig = go.Figure()
+    
+    # Single trace for all bars sorted by time
+    fig.add_trace(go.Bar(
+        x=plot_df['label'],
+        y=plot_df['time_in_hours'],
+        marker=dict(color=plot_df['color']),
+        customdata=plot_df[['Name', 'Full_Event', 'time_in_hms']],
+        hovertemplate=hover_template,
+        showlegend=False
+    ))
+    
+    # Add dummy traces for legend entries per person
+    for name in ordered_names:
+        fig.add_trace(go.Bar(
+            x=[None], y=[None],  # Dummy invisible bar for legend only
+            name=name,
+            marker=dict(color=color_map[name]),
+            showlegend=True
+        ))
+    
+    fig.update_layout(
+        title='All Completion Times (Sorted by Fastest)',
+        xaxis=dict(showticklabels=False),
+        yaxis=dict(title='Completion Time (hours)'),
+        template='plotly_white',
+        font=dict(size=12),
+        height=500,
+        showlegend=True
+    )
+    
+    st.plotly_chart(fig, use_container_width=True)
+    
+    # --- Final Table ---
     st.dataframe(display_df.reset_index(drop=True), use_container_width=True)
     
 
