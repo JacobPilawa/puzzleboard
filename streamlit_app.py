@@ -3,6 +3,7 @@ from utils.profiles import display_puzzler_profile
 from utils.leaderboards import display_leaderboard
 from utils.ratings import display_jpar_ratings
 from utils.home import display_home
+from utils.compare import display_comparison
 
 import string
 import datetime
@@ -22,7 +23,6 @@ bottom_string = "Data curated by [Rob Shields of the Piece Talks podcast](https:
 # ---------- Data Loading & Cleaning ----------
 
 df = load_data()
-jpar_df = load_jpar_data()
 styled_table, results = get_ranking_table(min_puzzles=3, min_event_attempts=10, weighted=False)
 
 # ---------- Sidebar Navigation ----------
@@ -47,6 +47,11 @@ if st.sidebar.button("👤 Puzzler Profiles "):
     
 if st.sidebar.button("📊 Puzzler Ratings "):
     st.session_state.page = "JPAR"
+    st.session_state['selected_event'] = ""
+    st.session_state['selected_puzzler'] = ""
+    
+if st.sidebar.button("📈 Compare Puzzlers "):
+    st.session_state.page = "Compare Puzzlers"
     st.session_state['selected_event'] = ""
     st.session_state['selected_puzzler'] = ""
     
@@ -134,6 +139,14 @@ if page == "Puzzler Profiles":
 if page == "JPAR":
     
     display_jpar_ratings(styled_table, results, df)
+    st.markdown('---')
+    st.markdown(bottom_string)
+    
+# --------- Compare Puzzlers -----------
+if page == "Compare Puzzlers":
+    
+    st.title("📈 Compare Puzzlers")
+    display_comparison(styled_table, results, df)
     st.markdown('---')
     st.markdown(bottom_string)
 
