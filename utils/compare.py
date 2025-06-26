@@ -126,6 +126,31 @@ def display_summary_stats(comparison_df, results, df):
 
     st.plotly_chart(fig, use_container_width=True)    
     
+    # ---- PTR Out Over Time Line Plot ----
+
+    ptr_df = comparison_df[['Name', 'Date', 'PTR Out']].dropna().copy()
+    ptr_df = ptr_df.sort_values(by='Date')
+
+    # Plotly line plot
+    fig_ptr = px.line(
+        ptr_df,
+        x='Date',
+        y='PTR Out',
+        color='Name',
+        title='Piece Talks Rating (PTR) Over Time\n(Lower = Faster)',
+        labels={'PTR Out': 'PTR Out', 'Date': 'Date'},
+        template='plotly_white'
+    )
+
+    fig_ptr.update_traces(mode='lines+markers')  # Optional: show points as well
+    fig_ptr.update_layout(
+        height=500,
+        font=dict(size=12),
+        legend_title_text='Puzzler'
+    )
+
+    st.plotly_chart(fig_ptr, use_container_width=True)
+
 def display_all_stats(comparison_df, results, df):
     st.markdown("""Here's all the information for all of the puzzlers selected above, sorted first by name and then by date of event.""")
 
