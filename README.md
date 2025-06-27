@@ -2,8 +2,7 @@
 This repository contains the code (and some of the data) for [puzzleboard](https://puzzleboard.streamlit.app/). Data curated by Rob Shields of the Piece Talks podcast. Streamlit app in streamlit_app.py; helpers.py contains a variety of plotting/data cleaning functions.
 
 #### Updating Data
-- For now, you have to manually rescrape data when it's updated in the Google Sheet (updating this to be automatic is on my to-do list). To update, you can pretty much just call the scrape_data(filename) function in utils/helpers.py, and update which files is being read in helpers.py load_data(). 
-
+- data rescraping as of 06/26 is now done through bigquery. none of the files are in this repo for privacy! note to myself: run the bigquery script and make sure updated data ends up in the right folders/files.
 
 #### Known Bugs
 - i think this is a streamlit issue, but there's weird case sensitivity issues for some of the st.selectbox() inputs. it appears as though it prioritizes string match and case, but in some very mysterious order

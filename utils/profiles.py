@@ -404,6 +404,7 @@ def display_puzzler_profile(df: pd.DataFrame, selected_puzzler: str, results):
             st.session_state['selected_event'] = latest_event_row['Full_Event']
             st.rerun()  # immediately rerun app to update the page variable
 
+
     st.subheader("📄 All Events")
     display_df = puzzler_df.sort_values('Date')[['Date', 'Full_Event', 'Rank', 'Time', 'PPM', 'Pieces', 'Remaining','Avg PTR In (Event)', 'PTR Out','12-Month Avg Completion Time']].copy()
     display_df['Date'] = display_df['Date'].dt.date

@@ -73,8 +73,7 @@ def scrape_data(output_fn):
     combined_df['Name'] = combined_df['Name'].str.strip()
     combined_df['Pieces'] = pd.to_numeric(combined_df['Pieces'],errors='coerce')
     
-    # ---------- get _JPAR Rating Data and merge with main data -------------
-    
+    # ---------- get _JPAR Rating Data and merge with main data ------------
     
     sheets_to_read = ['_JPAR Ratings']
     
@@ -110,12 +109,13 @@ def load_data():
     '''
     read in the data from the pickle file
     '''
-    data = pd.read_pickle('./data/250610_scrape.pkl')
+    data = pd.read_pickle('./data/250630_scrape.pkl')
     
     # get only the 500 pieces and those with data entry error
     data = data[(data['Pieces'] == 500) | (data['Pieces'].isna())]
     
     return data
+
 
 @st.cache_data
 def load_jpar_data():
