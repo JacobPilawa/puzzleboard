@@ -1,154 +1,84 @@
-from utils.helpers import get_ranking_table, load_data, load_jpar_data, get_delta_color
-from utils.profiles import display_puzzler_profile
-from utils.leaderboards import display_leaderboard
-from utils.ratings import display_jpar_ratings
-from utils.home import display_home
-from utils.compare import display_comparison
-
-import string
-import datetime
-import plotly.graph_objects as go
-from datetime import timedelta
 import streamlit as st
-import pandas as pd
-import numpy as np
-import plotly.express as px
-import re
+from utils.helpers import get_ranking_table, load_data, get_bottom_string
 
-# ✅ MUST BE FIRST
-st.set_page_config(page_title="Speed Puzzling Dashboard", page_icon="🧩", layout="wide",initial_sidebar_state="expanded")
-
-bottom_string = "Data curated by [Rob Shields of the Piece Talks podcast](https://podcasts.apple.com/us/podcast/piece-talks/id1742455250). Website and visualizations put together by [Jacob Pilawa](https://jacobpilawa.github.io/). Feel free to reach out if you spot any bugs or inconsistencies. For logging your own times, check out [myspeedpuzzling](https://myspeedpuzzling.com/en/home)!"
-
-# ---------- Data Loading & Cleaning ----------
-
+#### GET DATA
 df = load_data()
 styled_table, results = get_ranking_table(min_puzzles=3, min_event_attempts=10, weighted=False)
+bottom_string = get_bottom_string()
 
-# ---------- Sidebar Navigation ----------
-st.sidebar.title("📍Navigation")
-if 'page' not in st.session_state:
-    st.session_state.page = "Home"
-
-if st.sidebar.button("🧩 Home "):
-    st.session_state.page = "Home"
-    st.session_state['selected_event'] = ""
-    st.session_state['selected_puzzler'] = ""
-    
-if st.sidebar.button("🏆 Competitions "):
-    st.session_state.page = "Competitions"
-    st.session_state['selected_event'] = ""
-    st.session_state['selected_puzzler'] = ""
-    
-if st.sidebar.button("👤 Puzzler Profiles "):
-    st.session_state.page = "Puzzler Profiles"
-    st.session_state['selected_event'] = ""
-    st.session_state['selected_puzzler'] = ""
-    
-if st.sidebar.button("📊 Puzzler Ratings "):
-    st.session_state.page = "JPAR"
-    st.session_state['selected_event'] = ""
-    st.session_state['selected_puzzler'] = ""
-    
-if st.sidebar.button("📈 Compare Puzzlers "):
-    st.session_state.page = "Compare Puzzlers"
-    st.session_state['selected_event'] = ""
-    st.session_state['selected_puzzler'] = ""
-    
-if 'selected_event' not in st.session_state:
-    st.session_state['selected_event'] = ""
-if 'selected_puzzler' not in st.session_state:
-    st.session_state['selected_puzzler'] = ""
-if 'trigger_jump' not in st.session_state:
-    st.session_state['trigger_jump'] = False
-    
-st.sidebar.markdown("### 🔍 Quick Search")
-
-# Event quick jump
-event_names_sidebar = sorted(df['Full_Event'].unique())
-selected_event_sidebar = st.sidebar.selectbox(
-    "Jump to Competition",
-    [""] + event_names_sidebar,
-    index=(event_names_sidebar.index(st.session_state['selected_event']) + 1) if st.session_state['selected_event'] in event_names_sidebar else 0,
-    key="sidebar_event"
+# ✅ MUST BE FIRST
+st.set_page_config(
+    page_title="Speed Puzzling Dashboard",
+    page_icon="🧩",
+    layout="wide",
+    initial_sidebar_state="expanded",
 )
-if selected_event_sidebar and selected_event_sidebar != st.session_state['selected_event']:
-    st.session_state['selected_event'] = selected_event_sidebar
-    st.session_state['page'] = "Competitions"
-    st.session_state['trigger_jump'] = True
 
-# Puzzler quick jump
-puzzler_names_sidebar = sorted(df['Name'].dropna().unique())
-selected_puzzler_sidebar = st.sidebar.selectbox(
-    "Jump to Puzzler Profile",
-    [""] + puzzler_names_sidebar,
-    index=(puzzler_names_sidebar.index(st.session_state['selected_puzzler']) + 1) if st.session_state['selected_puzzler'] in puzzler_names_sidebar else 0,
-    key="sidebar_puzzler"
+# Custom CSS for Header
+st.markdown(
+    """
+    <style>
+        /* Style the sidebar header */
+        [data-testid="stSidebarNav"]::before {
+            content: "📍 Navigation";
+            display: block;
+            padding: 10px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 0px;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True
 )
-if selected_puzzler_sidebar and selected_puzzler_sidebar != st.session_state['selected_puzzler']:
-    st.session_state['selected_puzzler'] = selected_puzzler_sidebar
-    st.session_state['page'] = "Puzzler Profiles"
-    st.session_state['trigger_jump'] = True
-    
-# Deferred rerun to handle navigation smoothly
-if st.session_state.get("trigger_jump"):
-    st.session_state["trigger_jump"] = False
-    st.rerun()
-    
-page = st.session_state.page
 
-# ---------- Home ----------
-if page == "Home":
-    
-    display_home(df)
-    st.markdown('---')
-    st.markdown(bottom_string)
-        
-# ---------- Competitions Page ----------
-if page == "Competitions":
-    
-    st.title("🏆 Competitions ")
-    # check if there's an event selected
-    selected_event = st.session_state.get('selected_event', "")
-    if not selected_event:
-        st.info("Please select a competition using the sidebar.")
-    else:
-        event_df = df[df['Full_Event'] == selected_event]
-        display_leaderboard(event_df, df, selected_event)
-
-    st.markdown('---')
-        
-    st.markdown(bottom_string)
-
-# ---------- Puzzler Profiles Page ----------
-if page == "Puzzler Profiles":
-    
-    st.title("👤 Puzzler Profiles ")
-    # check if there's someone selected
-    selected_puzzler = st.session_state.get('selected_puzzler',"")
-    if not selected_puzzler:
-        st.info("Please select a profile using the sidebar.")
-    else:
-        display_puzzler_profile(df, selected_puzzler, results)
-        
-    st.markdown('---')
-    st.markdown(bottom_string)
-    
-
-# ---------- JPAR ----------
-if page == "JPAR":
-    
-    display_jpar_ratings(styled_table, results, df)
-    st.markdown('---')
-    st.markdown(bottom_string)
-    
-# --------- Compare Puzzlers -----------
-if page == "Compare Puzzlers":
-    
-    st.title("📈 Compare Puzzlers")
-    display_comparison(styled_table, results, df)
-    st.markdown('---')
-    st.markdown(bottom_string)
+dashboard = st.Page("nav/dashboard.py", title="Home", icon='🧩', default=True)
+competitions = st.Page("nav/competitions.py", title="Competitions", icon='🏆')
+profiles = st.Page("nav/profiles.py", title="Puzzlers", icon='👤')
+profiles_sel = st.Page("nav/profiles.py", title="Puzzlers", icon='👤')
+comparisons = st.Page("nav/comparisons.py",title="Compare Puzzlers", icon='⚔️')
+ratings = st.Page("nav/ratings.py", title="Rankings", icon='📊')
+pages = { "": [dashboard, competitions, profiles, comparisons, ratings]}
 
 
+# custom css to increase button and font sizes
+st.markdown(
+    """
+    <style>
+      /* Increase font size and padding of nav links */
+      div[data-testid="stSidebarNav"] li div a {
+        padding: 0.75rem 1rem;
+      }
+      div[data-testid="stSidebarNav"] li div a span {
+        font-size: 1.2rem; /* or 18px, 20px as needed */
+      }
 
+      /* Add hover background for links */
+      div[data-testid="stSidebarNav"] li div a:hover {
+        background-color: rgba(100, 150, 200, 0.1);
+      }
+
+      /* Enlarge section headers, if you're using grouped pages */
+      div[data-testid="stSidebarNav"] > ul[data-testid="stSidebarNavItems"] > header div p {
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      /* Optional: make the nav area wider */
+      div[data-testid="stSidebarNav"] {
+        min-width: 220px;
+      }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+
+# --------- QUICK JUMP ----------
+# to come
+
+pg = st.navigation(pages,position="sidebar")
+pg.run()

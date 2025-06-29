@@ -15,3 +15,6 @@ This repository contains the code (and some of the data) for [puzzleboard](https
 - add plot of PTR over time (and maybe the other rankings too?)
 - NN to take in images from ipdb and classify into box image/poster/normal image etc
 - predicting brand based on image
+
+### major revisions
+- 06/28: changed from a sloppier multipage approach to a cleaner one. there are some tradeoffs im working through (quick search), but overall much better

@@ -7,6 +7,12 @@ import streamlit as st
 
 
 
+# ---------- Bottom String----------
+def get_bottom_string():
+    bottom_string = "Data curated by [Rob Shields of the Piece Talks podcast](https://podcasts.apple.com/us/podcast/piece-talks/id1742455250). Website and visualizations put together by [Jacob Pilawa](https://jacobpilawa.github.io/). Feel free to reach out if you spot any bugs or inconsistencies. For logging your own times, check out [myspeedpuzzling](https://myspeedpuzzling.com/en/home)!"
+    return(bottom_string)
+
+
 # ---------- Delta Color ----------
 def get_delta_color(percentile):
     if 80 <= percentile:
@@ -103,7 +109,7 @@ def scrape_data(output_fn):
     merged_df.to_pickle(f'../data/{output_fn}')
 
 
-    
+@st.cache_data
 def load_data():
     
     '''
