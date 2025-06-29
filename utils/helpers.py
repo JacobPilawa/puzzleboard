@@ -4,6 +4,7 @@ import numpy as np
 import re
 import seaborn as sns
 import streamlit as st
+import joblib
 
 
 
@@ -277,4 +278,26 @@ def get_ranking_table(min_puzzles=10, min_event_attempts=1, weighted=False):
 
     styled_df, results = compute_speed_puzzle_rankings(data, min_puzzles, min_event_attempts, weighted)
     
+    return styled_df, results
+    
+    
+
+def get_standard_ranking_table():
+    
+    # read saved results from scrape 
+    results = joblib.load('./data/250630_standard_rankings_output.pkl')
+    
+    # Display index from 1 to 100
+    display_index = pd.Index(np.arange(1, len(results)+1))
+    styled_df = (
+        results
+        .set_index(display_index)
+        .style
+        .background_gradient(subset=['Eligible Puzzles'], cmap='Purples')
+        .background_gradient(
+            subset=['PT Rank', 'Z Rank', 'Percentile Rank', 'Average Rank'],
+            cmap='RdYlGn'
+        )
+        .format({'avg_rank': '{:.1f}'})
+    )
     return styled_df, results

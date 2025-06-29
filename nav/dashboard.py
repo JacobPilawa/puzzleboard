@@ -2,11 +2,11 @@ import pandas as pd
 import streamlit as st
 from datetime import timedelta
 import plotly.express as px
-from utils.helpers import get_ranking_table, load_data, get_bottom_string
+from utils.helpers import get_standard_ranking_table, load_data, get_bottom_string
 
 #### GET DATA
 df = load_data()
-styled_table, results = get_ranking_table(min_puzzles=3, min_event_attempts=10, weighted=False)
+styled_table, results = get_standard_ranking_table()
 bottom_string = get_bottom_string()
 
 @st.cache_data

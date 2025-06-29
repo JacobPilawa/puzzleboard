@@ -4,11 +4,11 @@ from datetime import timedelta
 import numpy as np
 import plotly.graph_objects as go
 from scipy.stats import gaussian_kde
-from utils.helpers import get_ranking_table, load_data, get_bottom_string
+from utils.helpers import get_standard_ranking_table, load_data, get_bottom_string
 
 #### GET DATA
 df = load_data()
-styled_table, results = get_ranking_table(min_puzzles=3, min_event_attempts=10, weighted=False)
+styled_table, results = get_standard_ranking_table()
 bottom_string = get_bottom_string()
 
 
