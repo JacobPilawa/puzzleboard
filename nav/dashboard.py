@@ -2,7 +2,12 @@ import pandas as pd
 import streamlit as st
 from datetime import timedelta
 import plotly.express as px
+from utils.helpers import get_ranking_table, load_data, get_bottom_string
 
+#### GET DATA
+df = load_data()
+styled_table, results = get_ranking_table(min_puzzles=3, min_event_attempts=10, weighted=False)
+bottom_string = get_bottom_string()
 
 @st.cache_data
 def get_cumulative_stats(df):
@@ -156,6 +161,10 @@ def display_home(df: pd.DataFrame):
     )
     fig4.update_layout(xaxis_tickangle=-45)
     st.plotly_chart(fig4, use_container_width=True)
-
+    
+    
+display_home(df)
+st.markdown('---')
+st.markdown(bottom_string)
 
 

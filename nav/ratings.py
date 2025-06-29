@@ -3,7 +3,12 @@ from utils.helpers import get_ranking_table
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
+from utils.helpers import get_ranking_table, load_data, get_bottom_string
 
+#### GET DATA
+df = load_data()
+styled_table, results = get_ranking_table(min_puzzles=3, min_event_attempts=10, weighted=False)
+bottom_string = get_bottom_string()
 
 # ---------- Plotting Utilities ----------
 @st.cache_data
@@ -23,11 +28,11 @@ def get_top_medalists(df, top_n=20):
 # ---------- JPAR Ratings Display Function ----------
 def display_jpar_ratings(styled_table, results, df):
     
-    st.title("📊 Puzzler Ratings")
+    st.title("📊 Puzzler Rankings")
     st.markdown(f"""
     This page shows the 
-    current ratings for puzzlers with {styled_table.data['Eligible Puzzles'].min()} or more times within the last year,
-    and considering only events with more than 10 participants. Three ranking systems are showng in the table.
+    current rankings for puzzlers with {styled_table.data['Eligible Puzzles'].min()} or more times within the last year,
+    and considering only events with more than 10 participants. Three ranking systems are shown in the table.
     PT Rank is a ranking system developed by [Rob Shields](https://podcasts.apple.com/us/podcast/piece-talks/id1742455250), 
     Z Rank is a rank based on the [number of standard deviations above average](https://en.wikipedia.org/wiki/Standard_score) for each competition, and Percentile Rank 
     is a rank based on average [percentiles](https://en.wikipedia.org/wiki/Percentile) in each competition.""")
@@ -53,19 +58,29 @@ def display_jpar_ratings(styled_table, results, df):
 
     # --------- Medal Counts Plot ---------
     st.subheader("🏅 Medal Counts")
-    top_medalists_df = get_top_medalists(df)  # Use the full df, not puzzler_df
+    
+    top_medalists_df = get_top_medalists(df)
 
+    # Melt the DataFrame to long format
+    long_df = top_medalists_df.melt(id_vars='Name', 
+                                     value_vars=['Gold', 'Silver', 'Bronze'],
+                                     var_name='Medal Type',
+                                     value_name='Number of Medals')
+
+    st.write(long_df)
+    
     fig = px.bar(
-        top_medalists_df,
+        long_df,
         x='Name',
-        y=['Gold', 'Silver', 'Bronze'],
+        y='Number of Medals',
+        color='Medal Type',
         title="Top Medal Winners",
-        labels={"value": "Number of Medals", "Name": "Puzzler", "variable": "Medal Type"},
+        labels={"Name": "Puzzler"},
         color_discrete_map={
             "Gold": "#FFD700",
             "Silver": "#C0C0C0",
             "Bronze": "#CD7F32"
-        }
+        },
     )
     fig.update_layout(barmode='stack', xaxis_tickangle=-45)
     st.plotly_chart(fig, use_container_width=True)
@@ -130,3 +145,10 @@ def display_jpar_ratings(styled_table, results, df):
 
     # Show the plot
     st.plotly_chart(fig, use_container_width=True)
+
+    
+display_jpar_ratings(styled_table, results, df)
+st.markdown('---')
+st.markdown(bottom_string)
+
+

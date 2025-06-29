@@ -1,5 +1,4 @@
 import streamlit as st
-from utils.helpers import get_ranking_table
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
@@ -9,7 +8,12 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
+from utils.helpers import get_ranking_table, load_data, get_bottom_string, get_ranking_table
 
+#### GET DATA
+df = load_data()
+styled_table, results = get_ranking_table(min_puzzles=3, min_event_attempts=10, weighted=False)
+bottom_string = get_bottom_string()
 
 def seconds_to_hms(seconds):
     h = int(seconds // 3600)
@@ -268,3 +272,10 @@ def display_comparison(styled_table, results, df):
         display_all_stats(comparison_df, results, df)
                         
         
+
+    
+st.title("⚔️ Compare Puzzlers")
+display_comparison(styled_table, results, df)
+st.markdown('---')
+st.markdown(bottom_string)
+

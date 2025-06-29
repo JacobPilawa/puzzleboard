@@ -1,11 +1,16 @@
 import pandas as pd
 import streamlit as st
 import numpy as np
-from utils.helpers import get_delta_color
 from datetime import timedelta
 import string
 import plotly.express as px
 import plotly.graph_objects as go
+from utils.helpers import get_ranking_table, load_data, get_bottom_string, get_delta_color
+
+#### GET DATA
+df = load_data()
+styled_table, results = get_ranking_table(min_puzzles=3, min_event_attempts=10, weighted=False)
+bottom_string = get_bottom_string()
 
 # ---------- Puzzler Profile Display Function ----------
 def display_puzzler_profile(df: pd.DataFrame, selected_puzzler: str, results):
@@ -381,30 +386,6 @@ def display_puzzler_profile(df: pd.DataFrame, selected_puzzler: str, results):
     else:
         st.info("No solve time data available to plot for the selected filter.")
 
-
-
-    st.subheader("📅 Event History")
-
-    first_event_row = puzzler_df.loc[puzzler_df['Date'].idxmin()]
-    latest_event_row = puzzler_df.loc[puzzler_df['Date'].idxmax()]
-
-    col1, col2 = st.columns(2)
-
-    with col1:
-        st.markdown(f"**First Event:** {first_event_row['Date'].date()} — {first_event_row['Full_Event']}")
-        if st.button("Go to First Event Leaderboard", key=f"first_event_{selected_puzzler}"):
-            st.session_state['page'] = "Competitions"
-            st.session_state['selected_event'] = first_event_row['Full_Event']
-            st.rerun()  # immediately rerun app to update the page variable
-
-    with col2:
-        st.markdown(f"**Most Recent Event:** {latest_event_row['Date'].date()} — {latest_event_row['Full_Event']}")
-        if st.button("Go to Most Recent Event Leaderboard", key=f"latest_event_{selected_puzzler}"):
-            st.session_state['page'] = "Competitions"
-            st.session_state['selected_event'] = latest_event_row['Full_Event']
-            st.rerun()  # immediately rerun app to update the page variable
-
-
     st.subheader("📄 All Events")
     display_df = puzzler_df.sort_values('Date')[['Date', 'Full_Event', 'Rank', 'Time', 'PPM', 'Pieces', 'Remaining','Avg PTR In (Event)', 'PTR Out','12-Month Avg Completion Time']].copy()
     display_df['Date'] = display_df['Date'].dt.date
@@ -420,4 +401,25 @@ def display_puzzler_profile(df: pd.DataFrame, selected_puzzler: str, results):
 
     # Display dataframe
     st.dataframe(display_df.reset_index(drop=True), use_container_width=True)
+
+    
+
+st.title("👤 Puzzler Profiles ")
+
+# Add a blank option as the first item
+available_puzzlers = ["Select a puzzler"] + sorted(df['Name'].unique())
+selected_puzzler = st.selectbox("Select a puzzler:", available_puzzlers)
+
+# Only proceed if a real event is selected
+if selected_puzzler != "Select a puzzler":
+    st.session_state['selected_puzzler'] = selected_puzzler
+    puzzler_df = df[df['Name'] == selected_puzzler]
+    display_puzzler_profile(df, selected_puzzler, results)
+else:
+    st.info("Please select a puzzler from the dropdown above.")
+
+# Footer
+st.markdown('---')
+st.markdown(bottom_string)
+
 

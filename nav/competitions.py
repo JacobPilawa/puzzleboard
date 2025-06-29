@@ -4,6 +4,12 @@ from datetime import timedelta
 import numpy as np
 import plotly.graph_objects as go
 from scipy.stats import gaussian_kde
+from utils.helpers import get_ranking_table, load_data, get_bottom_string
+
+#### GET DATA
+df = load_data()
+styled_table, results = get_ranking_table(min_puzzles=3, min_event_attempts=10, weighted=False)
+bottom_string = get_bottom_string()
 
 
 # ---------- Leaderboard Display Function ----------
@@ -207,3 +213,21 @@ def display_leaderboard(filtered_df: pd.DataFrame, df: pd.DataFrame, selected_ev
     st.subheader("Additional Statistics")
     st.plotly_chart(create_normalized_kde_plot(filtered_df, df), use_container_width=True)
     
+
+st.title("🏆 Competitions ")
+
+# Add a blank option as the first item
+available_events = ["Select an event"] + sorted(df['Full_Event'].unique())
+selected_event = st.selectbox("Select a competition event:", available_events)
+
+# Only proceed if a real event is selected
+if selected_event != "Select an event":
+    st.session_state['selected_event'] = selected_event
+    event_df = df[df['Full_Event'] == selected_event]
+    display_leaderboard(event_df, df, selected_event)
+else:
+    st.info("Please select a competition event from the dropdown above.")
+
+# Footer
+st.markdown('---')
+st.markdown(bottom_string)
