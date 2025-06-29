@@ -66,8 +66,6 @@ def display_jpar_ratings(styled_table, results, df):
                                      value_vars=['Gold', 'Silver', 'Bronze'],
                                      var_name='Medal Type',
                                      value_name='Number of Medals')
-
-    st.write(long_df)
     
     fig = px.bar(
         long_df,
