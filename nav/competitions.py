@@ -205,7 +205,8 @@ def display_leaderboard(filtered_df: pd.DataFrame, df: pd.DataFrame, selected_ev
     st.subheader("Leaderboard")
 
     view_df = filtered_df.copy()
-    display_df = view_df.sort_values('time_in_seconds')[['Name', 'Time', 'Date', 'PPM','Pieces']].reset_index(drop=True)
+    # put it in the proper order, trimming out unnecessary columns
+    display_df = view_df.sort_values('Rank')[['Name', 'Time', 'Date', 'PPM','Pieces']].reset_index(drop=True)
     display_df.index = display_df.index + 1
     st.dataframe(display_df, use_container_width=True)
 
