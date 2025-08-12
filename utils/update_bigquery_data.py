@@ -1,4 +1,9 @@
+import sys
 import os
+
+# Add the repo root to Python path so 'utils' can be found
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import time
 import datetime
 import pandas as pd
