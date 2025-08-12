@@ -147,15 +147,15 @@ styled_df, results = compute_speed_puzzle_rankings(
 
 # Save to data folder with timestamp
 today_str = datetime.datetime.utcnow().strftime("%y%m%d")
-scrape_file = f"../data/{today_str}_scrape.pkl"
-rankings_file = f"../data/{today_str}_standard_rankings_output.pkl"
+scrape_file = f"data/{today_str}_scrape.pkl"
+rankings_file = f"data/{today_str}_standard_rankings_output.pkl"
 
 final_df.to_pickle(scrape_file)
 joblib.dump(results, rankings_file)
 
 # save data to folder without timestamp
-scrape_file = f"../data/most_recent_scrape.pkl"
-rankings_file = f"../data/most_recent_standard_rankings_output.pkl"
+scrape_file = f"data/most_recent_scrape.pkl"
+rankings_file = f"data/most_recent_standard_rankings_output.pkl"
 
 final_df.to_pickle(scrape_file)
 joblib.dump(results, rankings_file)
