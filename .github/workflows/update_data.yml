@@ -1,0 +1,38 @@
+name: Update BigQuery Data
+
+permissions:
+  contents: write
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"  # Every Monday at 06:00 UTC
+  workflow_dispatch:      # Allow manual run
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run BigQuery update
+        env:
+          GCP_KEY: ${{ secrets.GCP_KEY }}
+        run: python utils/update_bigquery_data.py
+
+      - name: Commit and push updated data
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
+          git add data/*.pkl
+          git commit -m "Auto-update data $(date -u +'%Y-%m-%d %H:%M:%S UTC')" || echo "No changes to commit"
+          git push
