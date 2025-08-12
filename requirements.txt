@@ -8,3 +8,4 @@ scipy
 seaborn
 joblib
 google-cloud-bigquery
+db-dtypes
