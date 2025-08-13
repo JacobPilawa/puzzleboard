@@ -5,7 +5,7 @@ permissions:
 
 on:
   schedule:
-    - cron: "0 2 * * *"  # Everyday at 02:00 UTC
+    - cron: "20 3 * * *"
   workflow_dispatch:      # Allow manual run
 
 jobs:
