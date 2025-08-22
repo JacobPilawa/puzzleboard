@@ -24,7 +24,7 @@ def get_delta_color(percentile):
         return "off"   # green
 
 # ---------- Data Loading & Cleaning ----------
-@st.cache_data
+#@st.cache_data
 def scrape_data(output_fn):
     '''
     - this function will scrape the data from rob's spreadsheets
@@ -110,7 +110,7 @@ def scrape_data(output_fn):
     merged_df.to_pickle(f'../data/{output_fn}')
 
 
-@st.cache_data
+#@st.cache_data
 def load_data():
     
     '''
@@ -123,8 +123,6 @@ def load_data():
     
     return data
 
-
-@st.cache_data
 def load_jpar_data():
     '''
     read in the JPAR data from the Excel file
