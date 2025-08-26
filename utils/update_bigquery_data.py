@@ -55,7 +55,7 @@ competition_instances = dfs[3]
 competitions = dfs[4]
 competitors = dfs[5]
 entry_competitors = dfs[6]
-player_event_metrics = dfs[8]
+player_event_metrics = dfs[9]
 
 # ---------------------------
 # Processing
