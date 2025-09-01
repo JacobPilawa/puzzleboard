@@ -101,6 +101,21 @@ def format_duration(seconds):
 
 res["12-Month Avg Completion Time"] = res['rolling_12mo_avg_completion_time'].apply(format_duration)
 
+########################################
+# 09/01/2025: small patch to fix some missing data; rob will fix on his end eventually
+# isolate the affected competition (EJJ 25)
+mask = res['competition_id'] == 'e4a4bbcc-84fe-451c-a029-388192115c8f'
+subset = res.loc[mask].copy()
+
+# rank by corrected_time
+subset['rank_in_competition_x'] = subset['corrected_time'].rank(
+    method='dense', ascending=True
+).astype('Int64')
+
+# put back into the main DataFrame
+res.loc[mask, 'rank_in_competition_x'] = subset['rank_in_competition_x']
+########################################
+
 # Final dataframe
 final_df = res[[
     "rank_in_competition_x",
