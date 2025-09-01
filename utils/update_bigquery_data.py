@@ -156,9 +156,12 @@ styled_df, results = compute_speed_puzzle_rankings(
 # save data to folder without timestamp
 scrape_file = f"data/most_recent_scrape.pkl"
 rankings_file = f"data/most_recent_standard_rankings_output.pkl"
+csv_file = f"data/most_recent_scrape.csv"
 
 final_df.to_pickle(scrape_file)
+final_df.to_csv(csv_file)
 joblib.dump(results, rankings_file)
+
 
 print(f"Saved scrape to {scrape_file}")
 print(f"Saved rankings to {rankings_file}")
