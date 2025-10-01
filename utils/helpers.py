@@ -116,8 +116,8 @@ def load_data():
     '''
     read in the data from the pickle file
     '''
-    #data = pd.read_pickle('./data/most_recent_scrape.pkl')
-    data = pd.read_pickle('./data/250811_scrape.pkl')
+    data = pd.read_pickle('./data/most_recent_scrape.pkl')
+    #data = pd.read_pickle('./data/250811_scrape.pkl')
     
     # get only the 500 pieces and those with data entry error
     data = data[(data['Pieces'] == 500) | (data['Pieces'].isna())]
@@ -284,8 +284,8 @@ def get_ranking_table(min_puzzles=10, min_event_attempts=1, weighted=False):
 def get_standard_ranking_table():
     
     # read saved results from scrape 
-    #results = joblib.load('./data/most_recent_standard_rankings_output.pkl')
-    results = joblib.load('./data/250811_standard_rankings_output.pkl')
+    results = joblib.load('./data/most_recent_standard_rankings_output.pkl')
+    #results = joblib.load('./data/250811_standard_rankings_output.pkl')
     
     # Display index from 1 to 100
     display_index = pd.Index(np.arange(1, len(results)+1))
