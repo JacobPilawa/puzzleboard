@@ -36,8 +36,6 @@ def time_to_seconds(time_str):
 
 # ---------- Timesearch Display Function ----------
 def display_timesearch_page(styled_table, results, df):
-    import streamlit as st
-    import pandas as pd
     
     st.title("⏳️ Time Search")
     
