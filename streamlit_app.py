@@ -39,7 +39,8 @@ profiles = st.Page("nav/profiles.py", title="Puzzlers", icon='👤')
 profiles_sel = st.Page("nav/profiles.py", title="Puzzlers", icon='👤')
 comparisons = st.Page("nav/comparisons.py",title="Compare Puzzlers", icon='⚔️')
 ratings = st.Page("nav/ratings.py", title="Rankings", icon='📊')
-pages = { "": [dashboard, competitions, profiles, comparisons, ratings]}
+timesearch = st.Page("nav/timesearch.py", title='Time Search', icon='⏳️')
+pages = { "": [dashboard, competitions, profiles, comparisons, ratings, timesearch]}
 
 
 # custom css to increase button and font sizes
