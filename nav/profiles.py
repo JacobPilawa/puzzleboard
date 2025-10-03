@@ -386,6 +386,97 @@ def display_puzzler_profile(df: pd.DataFrame, selected_puzzler: str, results):
     else:
         st.info("No solve time data available to plot for the selected filter.")
 
+    # ---------------- Individual Competition Results ----------------
+    st.subheader("🏆 Individual Competition Results")
+
+    # Get events this puzzler has entered
+    available_events = ["Select a competition"] + sorted(puzzler_df['Full_Event'].unique())
+    selected_event = st.selectbox("Select a competition event:", available_events, key=f"{selected_puzzler}_event")
+
+    if selected_event != "Select a competition":
+        event_df = df[df['Full_Event'] == selected_event].copy()
+        filtered_df = event_df.copy()
+        filtered_df['Date'] = pd.to_datetime(filtered_df['Date']).dt.date
+
+        # --- Stats ---
+        total_entrants = filtered_df['Name'].nunique()
+        fastest_time = filtered_df['time_in_seconds'].min()
+        avg_time = filtered_df['time_in_seconds'].mean()
+
+        # Puzzler’s own time
+        puzzler_time = filtered_df.loc[filtered_df['Name'] == selected_puzzler, 'time_in_seconds'].iloc[0]
+
+        col1, col2, col3, col4 = st.columns(4)
+
+        st.write(
+            """
+            <style>
+            [data-testid="stMetricDelta"] svg {
+                display: none;
+            }
+            </style>
+            """,
+            unsafe_allow_html=True,
+        )
+
+        with col1:
+            st.metric("Total Entrants", total_entrants, border=True)
+        with col2:
+            st.metric("Fastest Time", str(timedelta(seconds=int(fastest_time))), border=True)
+        with col3:
+            st.metric("Average Time", str(timedelta(seconds=int(avg_time))), border=True)
+        with col4:
+            st.metric(f"{selected_puzzler}'s Time", str(timedelta(seconds=int(puzzler_time))), border=True)
+
+        # --- Bar Plot ---
+        plot_df = filtered_df.copy()
+        plot_df['time_in_hours'] = plot_df['time_in_seconds'] / 3600
+        plot_df.sort_values('time_in_seconds', inplace=True)
+        n_all = len(plot_df)
+        plot_df['performance'] = np.linspace(1, 0, n_all) if n_all > 1 else 1.0
+
+        hover_template = (
+            '<b>Solver:</b> %{customdata[0]}<br>'
+            '<b>Rank:</b> %{customdata[4]:.0f}<br>'
+            '<b>Time:</b> %{customdata[1]}<br>'
+            '<b>Date:</b> %{customdata[2]|%Y-%m-%d}<br>'
+            '<b>PPM:</b> %{customdata[3]:.1f}<br>'
+            '<b>Performance:</b> %{x:.0%}'
+        )
+
+        fig = go.Figure()
+
+        for _, row in plot_df.iterrows():
+            color = "blue" if row['Name'] == selected_puzzler else "tomato"
+            fig.add_trace(go.Bar(
+                x=[row['performance']],
+                y=[row['time_in_hours']],
+                marker=dict(color=color),
+                customdata=[[row['Name'], row['Time'], row['Date'], row['PPM'], row['Rank']]],
+                hovertemplate=hover_template,
+                showlegend=False
+            ))
+
+        tick_vals = [i/10 for i in range(0, 11)]
+        tick_text = [f"{int(val*100)}%" for val in tick_vals]
+
+        fig.update_layout(
+            xaxis=dict(tickmode='array', tickvals=tick_vals, ticktext=tick_text, autorange='reversed'),
+            yaxis_title='Completion Time (hours)',
+            title=f"Completion Times – {selected_event}",
+            template="plotly_white",
+            height=500
+        )
+
+        st.plotly_chart(fig, use_container_width=True)
+
+        # --- Leaderboard Table ---
+        st.subheader(f"Leaderboard for {selected_event}")
+        display_df = filtered_df.sort_values('Rank')[['Name', 'Time', 'Date', 'PPM', 'Pieces']].reset_index(drop=True)
+        display_df.index = display_df.index + 1
+        st.dataframe(display_df, use_container_width=True)
+
+
     st.subheader("📄 All Events")
     display_df = puzzler_df.sort_values('Date')[['Date', 'Full_Event', 'Rank', 'Time', 'PPM', 'Pieces', 'Remaining','Avg PTR In (Event)', 'PTR Out','12-Month Avg Completion Time']].copy()
     display_df['Date'] = display_df['Date'].dt.date
