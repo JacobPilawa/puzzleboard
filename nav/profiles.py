@@ -9,6 +9,11 @@ from utils.helpers import get_standard_ranking_table, load_data, get_bottom_stri
 
 #### GET DATA
 df = load_data()
+# --- Clean rows with invalid (non-string) Name values ---
+bad_name_mask = df["Name"].apply(lambda x: not isinstance(x, str))
+bad_events = df.loc[bad_name_mask, "Full_Event"].dropna().unique().tolist()
+df = df[~bad_name_mask].copy()
+# ---
 styled_table, results = get_standard_ranking_table()
 bottom_string = get_bottom_string()
 
@@ -510,7 +515,11 @@ else:
     st.info("Please select a puzzler from the dropdown above.")
 
 # Footer
+# Footer
 st.markdown('---')
+if bad_events:
+    events_str = ", ".join(sorted(bad_events))
+    st.warning(f"⚠️ **NOTE:** Some rows with missing puzzler names were removed. Affected events: **{events_str}**. Please review the source data for these entries.")
 st.markdown(bottom_string)
 
 
